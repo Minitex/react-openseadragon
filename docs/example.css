@@ -20,12 +20,10 @@
   background: rgba(0, 0, 0, 0.2) !important;
 }
 .ocd-toolbar {
-  text-alight: left;
   width: 30px;
   display: block;
   position: fixed;
-  top: 50%;
-  right: 1px;
+  float: left;
   list-style: none;
   z-index: 110;
   padding: 0;

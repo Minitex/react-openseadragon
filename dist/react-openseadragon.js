@@ -20896,7 +20896,7 @@ var _react2 = _interopRequireDefault(_react);
 var OpenSeadragonControls = function OpenSeadragonControls(props) {
   return _react2["default"].createElement(
     "ul",
-    { className: "ocd-toolbar col-md-1" },
+    { className: "ocd-toolbar" },
     _react2["default"].createElement(
       "li",
       null,
@@ -20960,33 +20960,6 @@ module.exports = exports["default"];
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}],3:[function(require,module,exports){
 (function (global){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-var _react = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null);
-
-var _react2 = _interopRequireDefault(_react);
-
-var OpenSeadragonNavigator = function OpenSeadragonNavigator(props) {
-  return _react2["default"].createElement(
-    "div",
-    { className: "navigator-wrapper" },
-    " ",
-    _react2["default"].createElement("div", { id: "navigator" })
-  );
-};
-
-exports["default"] = OpenSeadragonNavigator;
-module.exports = exports["default"];
-
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],4:[function(require,module,exports){
-(function (global){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -21013,20 +20986,10 @@ var _reactOpenseadragonControls = require('./react-openseadragon-controls');
 
 var _reactOpenseadragonControls2 = _interopRequireDefault(_reactOpenseadragonControls);
 
-var _reactOpenseadragonNavigator = require('./react-openseadragon-navigator');
-
-var _reactOpenseadragonNavigator2 = _interopRequireDefault(_reactOpenseadragonNavigator);
-
 var _openseadragon = require('openseadragon');
 
 var _openseadragon2 = _interopRequireDefault(_openseadragon);
 
-Object.defineProperty(exports, 'OpenSeadragonNavigator', {
-    enumerable: true,
-    get: function get() {
-        return _reactOpenseadragonNavigator.OpenSeadragonNavigator;
-    }
-});
 Object.defineProperty(exports, 'OpenSeadragonControls', {
     enumerable: true,
     get: function get() {
@@ -21051,20 +21014,18 @@ var OpenSeadragonViewer = (function (_React$Component) {
             var include_navigator = _props.include_navigator;
 
             var controls = include_controls ? _react2['default'].createElement(_reactOpenseadragonControls2['default'], null) : '';
-            var navigator = include_navigator ? _react2['default'].createElement(_reactOpenseadragonNavigator2['default'], null) : '';
             return _react2['default'].createElement(
                 'div',
                 { className: 'container' },
                 _react2['default'].createElement(
                     'div',
-                    { className: 'ocd-div col-md-12' },
+                    { className: 'osd-div col-md-12' },
                     _react2['default'].createElement(
                         'div',
                         { className: 'col-md-11' },
-                        _react2['default'].createElement('div', { className: 'openseadragon', id: 'ocd-viewer' }),
-                        navigator
-                    ),
-                    controls
+                        controls,
+                        _react2['default'].createElement('div', { className: 'openseadragon', id: 'osd-viewer' })
+                    )
                 )
             );
         }
@@ -21098,7 +21059,8 @@ exports['default'] = OpenSeadragonViewer;
 OpenSeadragonViewer.defaultProps = { include_navigator: true,
     include_controls: true,
     default_config: {
-        id: 'ocd-viewer',
+        showNavigator: true,
+        id: 'osd-viewer',
         visibilityRatio: 1.0,
         constrainDuringPan: false,
         defaultZoomLevel: 1,
@@ -21109,9 +21071,7 @@ OpenSeadragonViewer.defaultProps = { include_navigator: true,
         homeButton: 'reset',
         fullPageButton: 'full-page',
         nextButton: 'next',
-        previousButton: 'previous',
-        navigatorId: 'navigator',
-        showNavigator: true
+        previousButton: 'previous'
     }
 };
 
@@ -21124,5 +21084,5 @@ var propTypes = {
 OpenSeadragonViewer.propTypes = propTypes;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./react-openseadragon-controls":2,"./react-openseadragon-navigator":3,"openseadragon":1}]},{},[4])(4)
+},{"./react-openseadragon-controls":2,"openseadragon":1}]},{},[3])(3)
 });

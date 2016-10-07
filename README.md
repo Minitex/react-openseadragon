@@ -85,7 +85,7 @@ The following default OpenSeadragon configuration may be overriden with values t
 
 ```JavaScript
 {
-  id: 'ocd-viewer',
+  id: 'osd-viewer',
   visibilityRatio: 1.0,
   constrainDuringPan: false,
   defaultZoomLevel: 1,

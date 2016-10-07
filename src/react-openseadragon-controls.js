@@ -1,6 +1,6 @@
 import React from 'react'
 const OpenSeadragonControls = props => {
-  return (<ul className="ocd-toolbar col-md-1">
+  return (<ul className="ocd-toolbar">
             <li><a id="zoom-in"><i className="glyphicon glyphicon-zoom-in"></i></a></li>
             <li><a id="zoom-out"><i className="glyphicon glyphicon-zoom-out"></i></a></li>
             <li><a id="reset"><i className="glyphicon glyphicon-home"></i></a></li>

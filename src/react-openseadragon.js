@@ -1,7 +1,5 @@
 import React from 'react'
 import OpenSeadragonControls from './react-openseadragon-controls'
-import OpenSeadragonNavigator from './react-openseadragon-navigator'
-export { OpenSeadragonNavigator } from './react-openseadragon-navigator'
 export { OpenSeadragonControls } from './react-openseadragon-controls'
 import OpenSeadragon from 'openseadragon'
 
@@ -13,16 +11,14 @@ export default class OpenSeadragonViewer extends React.Component {
     render() {
         let { include_controls, include_navigator } = this.props
         let controls  = (include_controls)  ? <OpenSeadragonControls /> : ''
-        let navigator = (include_navigator) ? <OpenSeadragonNavigator /> : ''
         return (
             <div className="container">
-                <div className="ocd-div col-md-12">
+                <div className="osd-div col-md-12">
                     <div className="col-md-11">
-                        <div className="openseadragon" id="ocd-viewer"></div>
-                        {navigator}
+                        {controls}
+                        <div className="openseadragon" id="osd-viewer"></div>
                     </div>
-                    {controls}
-                </div>
+                   </div>
             </div>
         )
     }
@@ -46,7 +42,8 @@ export default class OpenSeadragonViewer extends React.Component {
 OpenSeadragonViewer.defaultProps = {  include_navigator: true,
                                       include_controls: true,
                                       default_config: {
-                                        id: 'ocd-viewer',
+                                        showNavigator: true,
+                                        id: 'osd-viewer',
                                         visibilityRatio: 1.0,
                                         constrainDuringPan: false,
                                         defaultZoomLevel: 1,
@@ -58,8 +55,6 @@ OpenSeadragonViewer.defaultProps = {  include_navigator: true,
                                         fullPageButton: 'full-page',
                                         nextButton: 'next',
                                         previousButton: 'previous',
-                                        navigatorId: 'navigator',
-                                        showNavigator: true
                                       }
                                     }
 
