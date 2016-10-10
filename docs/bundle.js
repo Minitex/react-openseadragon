@@ -20895,7 +20895,7 @@ var _react2 = _interopRequireDefault(_react);
 var OpenSeadragonControls = function OpenSeadragonControls(props) {
   return _react2["default"].createElement(
     "ul",
-    { className: "ocd-toolbar" },
+    { className: "osd-toolbar" },
     _react2["default"].createElement(
       "li",
       null,
@@ -20937,8 +20937,8 @@ var OpenSeadragonControls = function OpenSeadragonControls(props) {
       null,
       _react2["default"].createElement(
         "a",
-        { id: "next" },
-        _react2["default"].createElement("i", { className: "glyphicon glyphicon-arrow-right" })
+        { id: "previous" },
+        _react2["default"].createElement("i", { className: "glyphicon glyphicon-arrow-left" })
       )
     ),
     _react2["default"].createElement(
@@ -20946,8 +20946,8 @@ var OpenSeadragonControls = function OpenSeadragonControls(props) {
       null,
       _react2["default"].createElement(
         "a",
-        { id: "previous" },
-        _react2["default"].createElement("i", { className: "glyphicon glyphicon-arrow-left" })
+        { id: "next" },
+        _react2["default"].createElement("i", { className: "glyphicon glyphicon-arrow-right" })
       )
     )
   );
@@ -21016,12 +21016,34 @@ var OpenSeadragonViewer = (function (_React$Component) {
                 { className: 'container' },
                 _react2['default'].createElement(
                     'div',
-                    { className: 'osd-div col-md-12' },
+                    { className: 'osd col-md-12' },
                     _react2['default'].createElement(
                         'div',
                         { className: 'col-md-11' },
-                        controls,
-                        _react2['default'].createElement('div', { className: 'openseadragon', id: 'osd-viewer' })
+                        _react2['default'].createElement(
+                            'div',
+                            { className: 'openseadragon', id: 'osd-viewer' },
+                            controls
+                        ),
+                        _react2['default'].createElement('br', null),
+                        _react2['default'].createElement('br', null),
+                        _react2['default'].createElement('br', null),
+                        _react2['default'].createElement('br', null),
+                        _react2['default'].createElement('br', null),
+                        _react2['default'].createElement('br', null),
+                        _react2['default'].createElement('br', null),
+                        _react2['default'].createElement('br', null),
+                        _react2['default'].createElement('br', null),
+                        _react2['default'].createElement('br', null),
+                        _react2['default'].createElement('br', null),
+                        _react2['default'].createElement('br', null),
+                        _react2['default'].createElement('br', null),
+                        _react2['default'].createElement('br', null),
+                        _react2['default'].createElement('br', null),
+                        _react2['default'].createElement('br', null),
+                        _react2['default'].createElement('br', null),
+                        _react2['default'].createElement('br', null),
+                        _react2['default'].createElement('br', null)
                     )
                 )
             );
