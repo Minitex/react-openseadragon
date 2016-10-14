@@ -5,42 +5,20 @@ import OpenSeadragon from 'openseadragon'
 
 export default class OpenSeadragonViewer extends React.Component {
     constructor(props) {
-        super(props)
+      super(props)
     }
     
     render() {
         let { include_controls, include_navigator } = this.props
         let controls  = (include_controls)  ? <OpenSeadragonControls /> : ''
         return (
-            <div className="container">
                 <div className="osd col-md-12">
-                    <div className="col-md-11">
-                        <div className="openseadragon" id="osd-viewer">
-                          {controls}
-                        </div>
-
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />  
+                  <div className="col-md-11">
+                    <div className="openseadragon" id="osd-viewer">
+                      {controls}
                     </div>
-                   </div>
-            </div>
+                  </div>
+                </div>
         )
     }
 
@@ -49,7 +27,7 @@ export default class OpenSeadragonViewer extends React.Component {
     }
 
     componentDidMount(){
-        this.initSeaDragon()
+      this.initSeaDragon()
     }
      shouldComponentUpdate(nextProps, nextState){
         return false
