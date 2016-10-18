@@ -34,7 +34,7 @@ export default class OpenSeadragonViewer extends React.Component {
     }
 
     _config() {
-      return Object.assign(this.props.config, this.props.default_config)
+      return Object.assign(this.props.default_config, this.props.config)
     }
 }
 
