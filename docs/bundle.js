@@ -21043,7 +21043,7 @@ var OpenSeadragonViewer = (function (_React$Component) {
   }, {
     key: '_config',
     value: function _config() {
-      return _extends(this.props.config, this.props.default_config);
+      return _extends(this.props.default_config, this.props.config);
     }
   }]);
 
