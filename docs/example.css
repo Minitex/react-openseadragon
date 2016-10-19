@@ -7,6 +7,7 @@
 }
 .osd {
   position: relative;
+  background-color: black;
 }
 .osd-toolbar {
   padding: 0;
