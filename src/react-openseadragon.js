@@ -13,10 +13,8 @@ export default class OpenSeadragonViewer extends React.Component {
         let controls  = (include_controls)  ? <OpenSeadragonControls /> : ''
         return (
                 <div className="osd col-md-12">
-                  <div className="col-md-11">
-                    <div className="openseadragon" id="osd-viewer">
-                      {controls}
-                    </div>
+                  <div className="openseadragon" id="osd-viewer">
+                    {controls}
                   </div>
                 </div>
         )
