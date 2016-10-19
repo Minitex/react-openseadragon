@@ -7,6 +7,7 @@ import OpenSeadragonNavigator from 'react-openseadragon'
 var seadragon_conf = {
       sequenceMode:  true,
       showReferenceStrip: true,
+      defaultZoomLevel: 0,
       tileSources:   [
           "https://stacks.stanford.edu/image/iiif/hg676jb4964%2F0380_796-44/info.json",
           "https://ids.lib.harvard.edu/ids/iiif/25286610/info.json"
