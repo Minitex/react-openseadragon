@@ -21027,7 +21027,7 @@ var OpenSeadragonViewer = (function (_React$Component) {
   }, {
     key: 'initSeaDragon',
     value: function initSeaDragon() {
-      window.OpenSeadragon(this._config());
+      window.OPENSEADRAGONVIEWER = window.OpenSeadragon(this._config());
     }
   }, {
     key: 'componentDidMount',
