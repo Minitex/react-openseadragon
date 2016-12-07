@@ -21,7 +21,7 @@ export default class OpenSeadragonViewer extends React.Component {
     }
 
     initSeaDragon(){
-      window.OpenSeadragon(this._config())
+      window.OPENSEADRAGONVIEWER = window.OpenSeadragon(this._config())
     }
 
     componentDidMount(){
