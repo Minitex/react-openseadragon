@@ -1,65 +1,58 @@
 import React from 'react'
-import OpenSeadragonControls from './react-openseadragon-controls'
+import ActiveItem from 'react-active-item'
 export { OpenSeadragonControls } from './react-openseadragon-controls'
-import OpenSeadragon from 'openseadragon'
+import ImageNav from './react-openseadragon-nav'
+import OpenSeadragonViewer from './react-openseadragon-viewer'
 
-export default class OpenSeadragonViewer extends React.Component {
+class OpenSeadragon extends React.Component {
     constructor(props) {
       super(props)
+      this.viewer = this.viewer.bind(this)
     }
     
+
+    viewer() {
+      let { type, text } = this.props.getActiveItem()
+      switch(type) {
+        case 'image':
+          return <OpenSeadragonViewer config={this.props.getActiveItem()} />
+          break
+        case 'transcript':
+          return <div>{text}</div>
+          break
+        default:
+          return <div>No Viewer Avaialable for type: "{type}"</div>
+      }
+    }
+
     render() {
-        let { include_controls, include_navigator } = this.props
-        let controls  = (include_controls)  ? <OpenSeadragonControls /> : ''
-        return (
-                <div className="osd col-md-12">
-                  <div className="openseadragon" id="osd-viewer">
-                    {controls}
-                  </div>
-                </div>
-        )
+        let { include_controls } = this.props
+        if (this.state != null) {
+           let { viewer } = this.state
+           return (
+                    <div>
+                      <div className="row"><ImageNav {...this.props} /></div>
+                      <div className="row">{this.viewer()}</div>
+                    </div>
+                  )
+         } else {
+           return (
+                    <div>
+                      <div className="row"><ImageNav {...this.props} /></div>
+                      <div className="row">{this.viewer()}</div>
+                    </div>
+                  )
+         }
+
     }
 
-    initSeaDragon(){
-      window.OPENSEADRAGONVIEWER = window.OpenSeadragon(this._config())
-    }
-
-    componentDidMount(){
-      this.initSeaDragon()
-    }
-     shouldComponentUpdate(nextProps, nextState){
-        return false
-    }
-
-    _config() {
-      return Object.assign(this.props.default_config, this.props.config)
-    }
 }
-
-OpenSeadragonViewer.defaultProps = {  include_navigator: true,
-                                      include_controls: true,
-                                      default_config: {
-                                        showNavigator: true,
-                                        id: 'osd-viewer',
-                                        visibilityRatio: 1.0,
-                                        constrainDuringPan: false,
-                                        defaultZoomLevel: 1,
-                                        minZoomLevel: 1,
-                                        maxZoomLevel: 10,
-                                        zoomInButton: 'zoom-in',
-                                        zoomOutButton: 'zoom-out',
-                                        homeButton: 'reset',
-                                        fullPageButton: 'full-page',
-                                        nextButton: 'next',
-                                        previousButton: 'previous',
-                                      }
-                                    }
 
 const propTypes = {
-  include_controls: React.PropTypes.bool,
-  include_navigator: React.PropTypes.bool,
-  config: React.PropTypes.object.isRequired
+  items: React.PropTypes.array.isRequired,
+  page_handler: React.PropTypes.func.isRequired,
 }
 
-OpenSeadragonViewer.propTypes = propTypes
+OpenSeadragon.propTypes = propTypes
 
+export default ActiveItem(OpenSeadragon)

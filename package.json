@@ -16,7 +16,8 @@
     "classnames": "^2.1.2",
     "openseadragon": "^2.2.0",
     "react": "^15.3.2",
-    "react-dom": "^15.3.2"
+    "react-dom": "^15.3.2",
+    "react-active-item": "git:+git@github.com:UMNLibraries/react-active-item.git"
   },
   "devDependencies": {
     "babel-eslint": "^4.1.3",
