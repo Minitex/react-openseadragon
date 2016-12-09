@@ -5,11 +5,9 @@ import OpenSeadragonControls from './react-openseadragon-controls'
 export default class OpenSeadragonViewer extends React.Component {
     constructor(props) {
       super(props)
-      this.viewer = this.viewer.bind(this)
       this._config = this._config.bind(this)
     }
     
-
     componentDidMount() {
       let { page_handler } = this.props
       window.OPENSEADRAGONVIEWER = window.OpenSeadragon(this._config())
@@ -23,8 +21,8 @@ export default class OpenSeadragonViewer extends React.Component {
       return Object.assign(this.props.default_config, this.props.config)
     }
 
-    viewer() {
-      let { type, text, include_controls } = this.props
+    render() {
+      let { text, include_controls } = this.props
       let controls  = (include_controls)  ? <OpenSeadragonControls /> : ''
       return (
                 <div className="osd col-md-12">
@@ -34,18 +32,6 @@ export default class OpenSeadragonViewer extends React.Component {
                 </div>
               )
     }
-
-    render() {
-        let { include_controls } = this.props
-        if (this.state != null) {
-           let { viewer } = this.state
-           return <div>{this.viewer()}</div>
-         } else {
-           return <div>{this.viewer()}</div>
-         }
-
-    }
-
 }
 
 OpenSeadragonViewer.defaultProps = {  include_navigator: true,
@@ -69,7 +55,7 @@ OpenSeadragonViewer.defaultProps = {  include_navigator: true,
 
 const propTypes = {
   page_handler: React.PropTypes.func,
-  config: React.PropTypes.func.isRequired
+  config: React.PropTypes.object.isRequired
 }
 
 OpenSeadragonViewer.propTypes = propTypes

@@ -7,7 +7,17 @@ import OpenSeadragonViewer from './react-openseadragon-viewer'
 class OpenSeadragon extends React.Component {
     constructor(props) {
       super(props)
-      this.viewer = this.viewer.bind(this)
+      this.viewer       = this.viewer.bind(this)
+      this.page_handler = this.page_handler.bind(this)
+      this.state   = {text: this.text(0)}
+    }
+
+   text(i) {
+    return this.props.items[1]['texts'][i]
+   }
+
+    page_handler(p) {
+      this.setState({text: this.text(p.page)})
     }
     
 
@@ -15,10 +25,10 @@ class OpenSeadragon extends React.Component {
       let { type, text } = this.props.getActiveItem()
       switch(type) {
         case 'image':
-          return <OpenSeadragonViewer config={this.props.getActiveItem()} />
+          return <OpenSeadragonViewer page_handler={this.page_handler} config={this.props.getActiveItem()} />
           break
         case 'transcript':
-          return <div>{text}</div>
+          return <div>{this.state.text}</div>
           break
         default:
           return <div>No Viewer Avaialable for type: "{type}"</div>
@@ -49,8 +59,7 @@ class OpenSeadragon extends React.Component {
 }
 
 const propTypes = {
-  items: React.PropTypes.array.isRequired,
-  page_handler: React.PropTypes.func.isRequired,
+  items: React.PropTypes.array.isRequired
 }
 
 OpenSeadragon.propTypes = propTypes

@@ -36,4 +36,4 @@ const propTypes = {
   setActiveItem: React.PropTypes.func.isRequired
 }
 
-OpenSeadragon.propTypes = propTypes
+OpenSeadragonNav.propTypes = propTypes
