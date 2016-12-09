@@ -47,3 +47,9 @@
   height: 500px;
   width: 100%;
 }
+.image-nav {
+  margin-bottom: 10px;
+}
+.image-nav ul {
+  margin-left: 15px;
+}

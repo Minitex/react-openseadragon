@@ -19,15 +19,14 @@ var items = [
         {
           "type": "transcript",
           "label": "Transcript",
-          "text": "BLAH blah stuff here",
+          "texts": ["First Item", "Second Item"],
           "focus": false            
         }
       ]
 
 var App = React.createClass({
 	render () {
-    let page_handler = (viewer) => console.log(viewer)
-		return (<OpenSeadragon page_handler={page_handler} items={items} />)
+		return (<OpenSeadragon items={items} />)
 	}
 })
 
