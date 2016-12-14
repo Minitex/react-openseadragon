@@ -26197,8 +26197,11 @@ var OpenSeadragonViewer = function (_React$Component) {
       window.OPENSEADRAGONVIEWER = window.OpenSeadragon(this._config());
       this.setState({ viewer: OPENSEADRAGONVIEWER });
       OPENSEADRAGONVIEWER.addHandler('page', function (viewer) {
-        page_handler(viewer);
+        page_handler(viewer, OPENSEADRAGONVIEWER);
       });
+      // This allows us to keep the transcript/image toggle pills in sync
+      // with what was clicked on the viewer nav strip
+      OPENSEADRAGONVIEWER.goToPage(this.props.last_page);
     }
   }, {
     key: '_config',
@@ -26312,7 +26315,7 @@ var OpenSeadragon = function (_React$Component) {
 
     _this.viewer = _this.viewer.bind(_this);
     _this.page_handler = _this.page_handler.bind(_this);
-    _this.state = { text: _this.text(0) };
+    _this.state = { text: _this.text(0), viewer: {}, last_page: 0 };
     return _this;
   }
 
@@ -26323,8 +26326,10 @@ var OpenSeadragon = function (_React$Component) {
     }
   }, {
     key: 'page_handler',
-    value: function page_handler(p) {
+    value: function page_handler(p, viewer) {
+      this.setState({ last_page: p.page });
       this.setState({ text: this.text(p.page) });
+      this.setState({ viewer: viewer });
     }
   }, {
     key: 'viewer',
@@ -26335,7 +26340,7 @@ var OpenSeadragon = function (_React$Component) {
 
       switch (type) {
         case 'image':
-          return _react2.default.createElement(_reactOpenseadragonViewer2.default, { page_handler: this.page_handler, config: this.props.getActiveItem() });
+          return _react2.default.createElement(_reactOpenseadragonViewer2.default, { last_page: this.state.last_page, page_handler: this.page_handler, config: this.props.getActiveItem() });
           break;
         case 'transcript':
           return _react2.default.createElement(
