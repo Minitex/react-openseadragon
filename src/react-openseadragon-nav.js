@@ -31,9 +31,8 @@ export default class OpenSeadragonNav extends React.Component {
                     })}
                     <li>
                       <div className="toc-select">
-                        <label for="toc">Table of Contents:</label> 
-                        <select  class="dropdown-menu" name="toc" onChange={this.handleChange}>
-                          {console.log(tocs)}
+                        <label htmlFor="toc">Table of Contents:</label> 
+                        <select name="toc" onChange={this.handleChange}>
                           {tocs.map(function(toc, i) {
                             let page = i + 1
                             return <option value={i} key={i}>{page}. {toc}</option>
@@ -50,7 +49,9 @@ export default class OpenSeadragonNav extends React.Component {
 
 const propTypes = {
   items: React.PropTypes.array.isRequired,
-  setActiveItem: React.PropTypes.func.isRequired
+  setActiveItem: React.PropTypes.func.isRequired,
+  tocs: React.PropTypes.array,
+  viewer: React.PropTypes.object
 }
 
 OpenSeadragonNav.propTypes = propTypes
