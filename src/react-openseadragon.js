@@ -9,23 +9,24 @@ class OpenSeadragon extends React.Component {
       super(props)
       this.viewer       = this.viewer.bind(this)
       this.page_handler = this.page_handler.bind(this)
-      this.state   = {text: this.text(0)}
+      this.state   = {text: this.text(0), viewer: {}, last_page: 0}
     }
 
    text(i) {
     return this.props.items[1]['texts'][i]
    }
 
-    page_handler(p) {
+    page_handler(p, viewer) {
+      this.setState({last_page: p.page})
       this.setState({text: this.text(p.page)})
+      this.setState({viewer: viewer})
     }
     
-
     viewer() {
       let { type, text } = this.props.getActiveItem()
       switch(type) {
         case 'image':
-          return <OpenSeadragonViewer page_handler={this.page_handler} config={this.props.getActiveItem()} />
+          return <OpenSeadragonViewer last_page={this.state.last_page} page_handler={this.page_handler} config={this.props.getActiveItem()} />
           break
         case 'transcript':
           return <div>{this.state.text}</div>

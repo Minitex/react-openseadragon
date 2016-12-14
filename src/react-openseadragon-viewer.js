@@ -13,8 +13,12 @@ export default class OpenSeadragonViewer extends React.Component {
       window.OPENSEADRAGONVIEWER = window.OpenSeadragon(this._config())
       this.setState({viewer: OPENSEADRAGONVIEWER})
       OPENSEADRAGONVIEWER.addHandler('page', function (viewer) {
-          page_handler(viewer)
+          page_handler(viewer, OPENSEADRAGONVIEWER)
       })
+      // This allows us to keep the transcript/image toggle pills in sync
+      // with what was clicked on the viewer nav strip
+      OPENSEADRAGONVIEWER.goToPage(this.props.last_page)
+
     }
 
     _config() {
