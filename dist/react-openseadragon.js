@@ -25986,108 +25986,109 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
 var _react = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null);
 
 var _react2 = _interopRequireDefault(_react);
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var OpenSeadragonControls = function OpenSeadragonControls(props) {
-  return _react2["default"].createElement(
+  return _react2.default.createElement(
     "ul",
     { className: "osd-toolbar" },
-    _react2["default"].createElement(
+    _react2.default.createElement(
       "li",
       null,
-      _react2["default"].createElement(
+      _react2.default.createElement(
         "a",
         { id: "zoom-in" },
-        _react2["default"].createElement("i", { className: "glyphicon glyphicon-zoom-in" })
+        _react2.default.createElement("i", { className: "glyphicon glyphicon-zoom-in" })
       )
     ),
-    _react2["default"].createElement(
+    _react2.default.createElement(
       "li",
       null,
-      _react2["default"].createElement(
+      _react2.default.createElement(
         "a",
         { id: "zoom-out" },
-        _react2["default"].createElement("i", { className: "glyphicon glyphicon-zoom-out" })
+        _react2.default.createElement("i", { className: "glyphicon glyphicon-zoom-out" })
       )
     ),
-    _react2["default"].createElement(
+    _react2.default.createElement(
       "li",
       null,
-      _react2["default"].createElement(
+      _react2.default.createElement(
         "a",
         { id: "reset" },
-        _react2["default"].createElement("i", { className: "glyphicon glyphicon-home" })
+        _react2.default.createElement("i", { className: "glyphicon glyphicon-home" })
       )
     ),
-    _react2["default"].createElement(
+    _react2.default.createElement(
       "li",
       null,
-      _react2["default"].createElement(
+      _react2.default.createElement(
         "a",
         { id: "full-page" },
-        _react2["default"].createElement("i", { className: "glyphicon glyphicon-resize-full" })
+        _react2.default.createElement("i", { className: "glyphicon glyphicon-resize-full" })
       )
     ),
-    _react2["default"].createElement(
+    _react2.default.createElement(
       "li",
       null,
-      _react2["default"].createElement(
+      _react2.default.createElement(
         "a",
         { id: "previous" },
-        _react2["default"].createElement("i", { className: "glyphicon glyphicon-arrow-left" })
+        _react2.default.createElement("i", { className: "glyphicon glyphicon-arrow-left" })
       )
     ),
-    _react2["default"].createElement(
+    _react2.default.createElement(
       "li",
       null,
-      _react2["default"].createElement(
+      _react2.default.createElement(
         "a",
         { id: "next" },
-        _react2["default"].createElement("i", { className: "glyphicon glyphicon-arrow-right" })
+        _react2.default.createElement("i", { className: "glyphicon glyphicon-arrow-right" })
       )
     )
   );
 };
 
-exports["default"] = OpenSeadragonControls;
-module.exports = exports["default"];
+exports.default = OpenSeadragonControls;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}],5:[function(require,module,exports){
 (function (global){
 'use strict';
 
-Object.defineProperty(exports, '__esModule', {
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null);
 
 var _react2 = _interopRequireDefault(_react);
 
-var OpenSeadragonNav = (function (_React$Component) {
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var OpenSeadragonNav = function (_React$Component) {
   _inherits(OpenSeadragonNav, _React$Component);
 
   function OpenSeadragonNav(props) {
     _classCallCheck(this, OpenSeadragonNav);
 
-    _get(Object.getPrototypeOf(OpenSeadragonNav.prototype), 'constructor', this).call(this, props);
-    this.active_index = this.active_index.bind(this);
-    this.active_class = this.active_class.bind(this);
+    var _this = _possibleConstructorReturn(this, (OpenSeadragonNav.__proto__ || Object.getPrototypeOf(OpenSeadragonNav)).call(this, props));
+
+    _this.active_index = _this.active_index.bind(_this);
+    _this.active_class = _this.active_class.bind(_this);
+    return _this;
   }
 
   _createClass(OpenSeadragonNav, [{
@@ -26103,24 +26104,24 @@ var OpenSeadragonNav = (function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _props = this.props;
-      var items = _props.items;
-      var class_name = _props.class_name;
-      var setActiveItem = _props.setActiveItem;
-      var getActiveItem = _props.getActiveItem;
+      var _props = this.props,
+          items = _props.items,
+          class_name = _props.class_name,
+          setActiveItem = _props.setActiveItem,
+          getActiveItem = _props.getActiveItem;
 
       var active_class = this.active_class;
-      return _react2['default'].createElement(
+      return _react2.default.createElement(
         'div',
         { className: 'row image-nav' },
-        _react2['default'].createElement(
+        _react2.default.createElement(
           'ul',
           { className: 'nav nav-pills' },
           items.map(function (item, i) {
-            return _react2['default'].createElement(
+            return _react2.default.createElement(
               'li',
               { role: 'presentation', className: active_class(i), onClick: setActiveItem.bind(this, i), key: i },
-              _react2['default'].createElement(
+              _react2.default.createElement(
                 'a',
                 { href: '' },
                 item.label
@@ -26133,38 +26134,28 @@ var OpenSeadragonNav = (function (_React$Component) {
   }]);
 
   return OpenSeadragonNav;
-})(_react2['default'].Component);
+}(_react2.default.Component);
 
-exports['default'] = OpenSeadragonNav;
+exports.default = OpenSeadragonNav;
+
 
 var propTypes = {
-  items: _react2['default'].PropTypes.array.isRequired,
-  setActiveItem: _react2['default'].PropTypes.func.isRequired
+  items: _react2.default.PropTypes.array.isRequired,
+  setActiveItem: _react2.default.PropTypes.func.isRequired
 };
 
 OpenSeadragonNav.propTypes = propTypes;
-module.exports = exports['default'];
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}],6:[function(require,module,exports){
 (function (global){
 'use strict';
 
-Object.defineProperty(exports, '__esModule', {
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null);
 
@@ -26178,14 +26169,24 @@ var _reactOpenseadragonControls = require('./react-openseadragon-controls');
 
 var _reactOpenseadragonControls2 = _interopRequireDefault(_reactOpenseadragonControls);
 
-var OpenSeadragonViewer = (function (_React$Component) {
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var OpenSeadragonViewer = function (_React$Component) {
   _inherits(OpenSeadragonViewer, _React$Component);
 
   function OpenSeadragonViewer(props) {
     _classCallCheck(this, OpenSeadragonViewer);
 
-    _get(Object.getPrototypeOf(OpenSeadragonViewer.prototype), 'constructor', this).call(this, props);
-    this._config = this._config.bind(this);
+    var _this = _possibleConstructorReturn(this, (OpenSeadragonViewer.__proto__ || Object.getPrototypeOf(OpenSeadragonViewer)).call(this, props));
+
+    _this._config = _this._config.bind(_this);
+    return _this;
   }
 
   _createClass(OpenSeadragonViewer, [{
@@ -26202,20 +26203,20 @@ var OpenSeadragonViewer = (function (_React$Component) {
   }, {
     key: '_config',
     value: function _config() {
-      return _extends(this.props.default_config, this.props.config);
+      return Object.assign(this.props.default_config, this.props.config);
     }
   }, {
     key: 'render',
     value: function render() {
-      var _props = this.props;
-      var text = _props.text;
-      var include_controls = _props.include_controls;
+      var _props = this.props,
+          text = _props.text,
+          include_controls = _props.include_controls;
 
-      var controls = include_controls ? _react2['default'].createElement(_reactOpenseadragonControls2['default'], null) : '';
-      return _react2['default'].createElement(
+      var controls = include_controls ? _react2.default.createElement(_reactOpenseadragonControls2.default, null) : '';
+      return _react2.default.createElement(
         'div',
         { className: 'osd col-md-12' },
-        _react2['default'].createElement(
+        _react2.default.createElement(
           'div',
           { className: 'openseadragon', id: 'osd-viewer' },
           controls
@@ -26225,9 +26226,10 @@ var OpenSeadragonViewer = (function (_React$Component) {
   }]);
 
   return OpenSeadragonViewer;
-})(_react2['default'].Component);
+}(_react2.default.Component);
 
-exports['default'] = OpenSeadragonViewer;
+exports.default = OpenSeadragonViewer;
+
 
 OpenSeadragonViewer.defaultProps = { include_navigator: true,
   include_controls: true,
@@ -26249,31 +26251,32 @@ OpenSeadragonViewer.defaultProps = { include_navigator: true,
 };
 
 var propTypes = {
-  page_handler: _react2['default'].PropTypes.func,
-  config: _react2['default'].PropTypes.object.isRequired
+  page_handler: _react2.default.PropTypes.func,
+  config: _react2.default.PropTypes.object.isRequired
 };
 
 OpenSeadragonViewer.propTypes = propTypes;
-module.exports = exports['default'];
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"./react-openseadragon-controls":4,"openseadragon":2}],7:[function(require,module,exports){
 (function (global){
 'use strict';
 
-Object.defineProperty(exports, '__esModule', {
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.OpenSeadragonControls = undefined;
 
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+var _reactOpenseadragonControls = require('./react-openseadragon-controls');
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+Object.defineProperty(exports, 'OpenSeadragonControls', {
+  enumerable: true,
+  get: function get() {
+    return _reactOpenseadragonControls.OpenSeadragonControls;
+  }
+});
 
 var _react = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null);
 
@@ -26291,25 +26294,26 @@ var _reactOpenseadragonViewer = require('./react-openseadragon-viewer');
 
 var _reactOpenseadragonViewer2 = _interopRequireDefault(_reactOpenseadragonViewer);
 
-var _reactOpenseadragonControls = require('./react-openseadragon-controls');
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-Object.defineProperty(exports, 'OpenSeadragonControls', {
-  enumerable: true,
-  get: function get() {
-    return _reactOpenseadragonControls.OpenSeadragonControls;
-  }
-});
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var OpenSeadragon = (function (_React$Component) {
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var OpenSeadragon = function (_React$Component) {
   _inherits(OpenSeadragon, _React$Component);
 
   function OpenSeadragon(props) {
     _classCallCheck(this, OpenSeadragon);
 
-    _get(Object.getPrototypeOf(OpenSeadragon.prototype), 'constructor', this).call(this, props);
-    this.viewer = this.viewer.bind(this);
-    this.page_handler = this.page_handler.bind(this);
-    this.state = { text: this.text(0) };
+    var _this = _possibleConstructorReturn(this, (OpenSeadragon.__proto__ || Object.getPrototypeOf(OpenSeadragon)).call(this, props));
+
+    _this.viewer = _this.viewer.bind(_this);
+    _this.page_handler = _this.page_handler.bind(_this);
+    _this.state = { text: _this.text(0) };
+    return _this;
   }
 
   _createClass(OpenSeadragon, [{
@@ -26325,24 +26329,23 @@ var OpenSeadragon = (function (_React$Component) {
   }, {
     key: 'viewer',
     value: function viewer() {
-      var _props$getActiveItem = this.props.getActiveItem();
-
-      var type = _props$getActiveItem.type;
-      var text = _props$getActiveItem.text;
+      var _props$getActiveItem = this.props.getActiveItem(),
+          type = _props$getActiveItem.type,
+          text = _props$getActiveItem.text;
 
       switch (type) {
         case 'image':
-          return _react2['default'].createElement(_reactOpenseadragonViewer2['default'], { page_handler: this.page_handler, config: this.props.getActiveItem() });
+          return _react2.default.createElement(_reactOpenseadragonViewer2.default, { page_handler: this.page_handler, config: this.props.getActiveItem() });
           break;
         case 'transcript':
-          return _react2['default'].createElement(
+          return _react2.default.createElement(
             'div',
             null,
             this.state.text
           );
           break;
         default:
-          return _react2['default'].createElement(
+          return _react2.default.createElement(
             'div',
             null,
             'No Viewer Avaialable for type: "',
@@ -26359,30 +26362,30 @@ var OpenSeadragon = (function (_React$Component) {
       if (this.state != null) {
         var viewer = this.state.viewer;
 
-        return _react2['default'].createElement(
+        return _react2.default.createElement(
           'div',
           null,
-          _react2['default'].createElement(
+          _react2.default.createElement(
             'div',
             { className: 'row' },
-            _react2['default'].createElement(_reactOpenseadragonNav2['default'], this.props)
+            _react2.default.createElement(_reactOpenseadragonNav2.default, this.props)
           ),
-          _react2['default'].createElement(
+          _react2.default.createElement(
             'div',
             { className: 'row' },
             this.viewer()
           )
         );
       } else {
-        return _react2['default'].createElement(
+        return _react2.default.createElement(
           'div',
           null,
-          _react2['default'].createElement(
+          _react2.default.createElement(
             'div',
             { className: 'row' },
-            _react2['default'].createElement(_reactOpenseadragonNav2['default'], this.props)
+            _react2.default.createElement(_reactOpenseadragonNav2.default, this.props)
           ),
-          _react2['default'].createElement(
+          _react2.default.createElement(
             'div',
             { className: 'row' },
             this.viewer()
@@ -26393,15 +26396,15 @@ var OpenSeadragon = (function (_React$Component) {
   }]);
 
   return OpenSeadragon;
-})(_react2['default'].Component);
+}(_react2.default.Component);
 
 var propTypes = {
-  items: _react2['default'].PropTypes.array.isRequired
+  items: _react2.default.PropTypes.array.isRequired
 };
 
 OpenSeadragon.propTypes = propTypes;
 
-exports['default'] = (0, _reactActiveItem2['default'])(OpenSeadragon);
+exports.default = (0, _reactActiveItem2.default)(OpenSeadragon);
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"./react-openseadragon-controls":4,"./react-openseadragon-nav":5,"./react-openseadragon-viewer":6,"react-active-item":3}]},{},[7])(7)
