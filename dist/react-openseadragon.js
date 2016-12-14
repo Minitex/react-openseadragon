@@ -26144,13 +26144,12 @@ var OpenSeadragonNav = function (_React$Component) {
               { className: 'toc-select' },
               _react2.default.createElement(
                 'label',
-                { 'for': 'toc' },
+                { htmlFor: 'toc' },
                 'Table of Contents:'
               ),
               _react2.default.createElement(
                 'select',
-                { 'class': 'dropdown-menu', name: 'toc', onChange: this.handleChange },
-                console.log(tocs),
+                { name: 'toc', onChange: this.handleChange },
                 tocs.map(function (toc, i) {
                   var page = i + 1;
                   return _react2.default.createElement(
@@ -26177,7 +26176,9 @@ exports.default = OpenSeadragonNav;
 
 var propTypes = {
   items: _react2.default.PropTypes.array.isRequired,
-  setActiveItem: _react2.default.PropTypes.func.isRequired
+  setActiveItem: _react2.default.PropTypes.func.isRequired,
+  tocs: _react2.default.PropTypes.array,
+  viewer: _react2.default.PropTypes.object
 };
 
 OpenSeadragonNav.propTypes = propTypes;
