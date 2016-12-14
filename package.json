@@ -27,10 +27,11 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "brfs": "^1.4.3",
+    "enzyme": "^2.6.0",
     "react": "^15.3.2",
-    "react-addons-test-utils": "^15.3.2",
+    "react-addons-test-utils": "^15.4.1",
     "react-component-gulp-tasks": "git:+git@github.com:cwalv/react-component-gulp-tasks.git#0253184f9d",
-    "react-dom": "^15.3.2",
+    "react-dom": "^15.4.1",
     "react-shallow-testutils": "^2.0.0",
     "react-test-renderer": "^15.3.2"
   },

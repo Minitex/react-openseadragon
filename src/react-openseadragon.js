@@ -42,14 +42,14 @@ class OpenSeadragon extends React.Component {
            let { viewer } = this.state
            return (
                     <div>
-                      <div className="row"><ImageNav {...this.props} /></div>
+                      <div className="row"><ImageNav viewer={this.state.viewer} {...this.props} /></div>
                       <div className="row">{this.viewer()}</div>
                     </div>
                   )
          } else {
            return (
                     <div>
-                      <div className="row"><ImageNav {...this.props} /></div>
+                      <div className="row"><ImageNav viewer={this.state.viewer} {...this.props} /></div>
                       <div className="row">{this.viewer()}</div>
                     </div>
                   )
