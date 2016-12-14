@@ -24,9 +24,14 @@ var items = [
         }
       ]
 
+  var tocs = [
+        "MLK",
+        "A Statue"
+      ]
+
 var App = React.createClass({
 	render () {
-		return (<OpenSeadragon items={items} />)
+		return (<OpenSeadragon tocs={tocs} items={items} />)
 	}
 })
 

@@ -53,3 +53,9 @@
 .image-nav ul {
   margin-left: 15px;
 }
+.toc-select {
+  margin-top: 10px;
+}
+.toc-select label {
+  margin-right: 5px;
+}

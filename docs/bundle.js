@@ -26085,6 +26085,7 @@ var OpenSeadragonNav = function (_React$Component) {
 
     _this.active_index = _this.active_index.bind(_this);
     _this.active_class = _this.active_class.bind(_this);
+    _this.handleChange = _this.handleChange.bind(_this);
     return _this;
   }
 
@@ -26099,13 +26100,20 @@ var OpenSeadragonNav = function (_React$Component) {
       return this.active_index() == i ? 'active' : '';
     }
   }, {
+    key: 'handleChange',
+    value: function handleChange(e, target) {
+      this.props.viewer.goToPage(e.target.value);
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _props = this.props,
           items = _props.items,
           class_name = _props.class_name,
           setActiveItem = _props.setActiveItem,
-          getActiveItem = _props.getActiveItem;
+          getActiveItem = _props.getActiveItem,
+          tocs = _props.tocs,
+          viewer = _props.viewer;
 
       var active_class = this.active_class;
       return _react2.default.createElement(
@@ -26124,7 +26132,35 @@ var OpenSeadragonNav = function (_React$Component) {
                 item.label
               )
             );
-          })
+          }),
+          _react2.default.createElement(
+            'li',
+            null,
+            _react2.default.createElement(
+              'div',
+              { className: 'toc-select' },
+              _react2.default.createElement(
+                'label',
+                { 'for': 'toc' },
+                'Table of Contents:'
+              ),
+              _react2.default.createElement(
+                'select',
+                { 'class': 'dropdown-menu', name: 'toc', onChange: this.handleChange },
+                console.log(tocs),
+                tocs.map(function (toc, i) {
+                  var page = i + 1;
+                  return _react2.default.createElement(
+                    'option',
+                    { value: i, key: i },
+                    page,
+                    '. ',
+                    toc
+                  );
+                })
+              )
+            )
+          )
         )
       );
     }
@@ -26263,6 +26299,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.OpenSeadragonControls = undefined;
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _reactOpenseadragonControls = require('./react-openseadragon-controls');
@@ -26366,7 +26404,7 @@ var OpenSeadragon = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'row' },
-            _react2.default.createElement(_reactOpenseadragonNav2.default, this.props)
+            _react2.default.createElement(_reactOpenseadragonNav2.default, _extends({ viewer: this.state.viewer }, this.props))
           ),
           _react2.default.createElement(
             'div',
@@ -26381,7 +26419,7 @@ var OpenSeadragon = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'row' },
-            _react2.default.createElement(_reactOpenseadragonNav2.default, this.props)
+            _react2.default.createElement(_reactOpenseadragonNav2.default, _extends({ viewer: this.state.viewer }, this.props))
           ),
           _react2.default.createElement(
             'div',

@@ -31,10 +31,12 @@ var items = [{
   "focus": false
 }];
 
+var tocs = ["MLK", "A Statue"];
+
 var App = _react2.default.createClass({
   displayName: 'App',
   render: function render() {
-    return _react2.default.createElement(_reactOpenseadragon2.default, { items: items });
+    return _react2.default.createElement(_reactOpenseadragon2.default, { tocs: tocs, items: items });
   }
 });
 
