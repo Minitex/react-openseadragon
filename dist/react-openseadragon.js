@@ -26290,12 +26290,10 @@ OpenSeadragonViewer.defaultProps = { include_navigator: true,
   }
 };
 
-var propTypes = {
+OpenSeadragonViewer.propTypes = {
   page_handler: _react2.default.PropTypes.func,
   config: _react2.default.PropTypes.object.isRequired
 };
-
-OpenSeadragonViewer.propTypes = propTypes;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"./react-openseadragon-controls":4,"openseadragon":2}],7:[function(require,module,exports){
