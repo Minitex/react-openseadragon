@@ -57,9 +57,7 @@ OpenSeadragonViewer.defaultProps = {  include_navigator: true,
                                       }
                                     }
 
-const propTypes = {
+OpenSeadragonViewer.propTypes = {
   page_handler: React.PropTypes.func,
   config: React.PropTypes.object.isRequired
 }
-
-OpenSeadragonViewer.propTypes = propTypes
