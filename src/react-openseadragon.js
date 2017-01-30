@@ -4,7 +4,9 @@ export { OpenSeadragonControls } from './react-openseadragon-controls'
 import ImageNav from './react-openseadragon-nav'
 import OpenSeadragonViewer from './react-openseadragon-viewer'
 
-class OpenSeadragon extends React.Component {
+import './index.css'
+
+class ReactOpenSeadragon extends React.Component {
     constructor(props) {
       super(props)
       this.viewer       = this.viewer.bind(this)
@@ -63,6 +65,6 @@ const propTypes = {
   items: React.PropTypes.array.isRequired
 }
 
-OpenSeadragon.propTypes = propTypes
+ReactOpenSeadragon.propTypes = propTypes
 
-export default ActiveItem(OpenSeadragon)
+export default ActiveItem(ReactOpenSeadragon)
