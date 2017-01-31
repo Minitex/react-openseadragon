@@ -16,7 +16,8 @@ var common = {
         exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader',
         query: {
-          presets: ["react", "es2015", "stage-0"]
+          presets: ["react", "es2015", "stage-0"],
+          plugins: ["transform-es2015-modules-umd"]
         }
       },
       {
@@ -39,7 +40,7 @@ if (TARGET === 'build') {
     entry: './src/react-openseadragon.js',
     output: {
       path: './lib/',
-      filename: 'react-openseadragon.min.js'
+      filename: 'react-openseadragon.js'
     }
   });
 }
