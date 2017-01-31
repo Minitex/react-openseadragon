@@ -1,6 +1,5 @@
 import React from 'react'
 import ActiveItem from 'react-active-item'
-export { OpenSeadragonControls } from './react-openseadragon-controls'
 import ImageNav from './react-openseadragon-nav'
 import OpenSeadragonViewer from './react-openseadragon-viewer'
 
