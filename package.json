@@ -2,7 +2,7 @@
   "name": "react-openseadragon",
   "version": "0.1.0",
   "description": "A React component that wraps the OpenSeadragon image viewer.",
-  "main": "lib/react-openseadragon.min.js",
+  "main": "lib/react-openseadragon.js",
   "homepage": "https://github.com/UMNLibraries/react-openseadragon",
   "license": "MIT",
   "repository": {
@@ -16,8 +16,8 @@
     "development": "0.0.6",
     "openseadragon": "^2.2.1",
     "react": "^15.4.1",
-    "react-active-item": "git+https://github.com/UMNLibraries/react-active-item.git#e49bc7cc67080",
-    "react-dom": "^15.4.1"
+    "react-dom": "^15.4.1",
+    "react-active-item": "git+https://github.com/UMNLibraries/react-active-item.git#e49bc7cc67080"
   },
   "devDependencies": {
     "babel": "^6.5.2",
