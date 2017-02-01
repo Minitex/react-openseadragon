@@ -16,7 +16,8 @@
     "classnames": "^2.1.2",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
-    "react-active-item": "git:+git@github.com:UMNLibraries/react-active-item.git"
+    "react-active-item": "git:+git@github.com:UMNLibraries/react-active-item.git",
+    "openseadragon": "^2.2.1"
   },
   "devDependencies": {
     "babel": "^6.5.2",
