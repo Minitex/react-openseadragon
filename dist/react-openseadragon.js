@@ -26089,6 +26089,7 @@ var OpenSeadragonNav = function (_React$Component) {
     _this.active_index = _this.active_index.bind(_this);
     _this.active_class = _this.active_class.bind(_this);
     _this.handleChange = _this.handleChange.bind(_this);
+    _this._toc = _this.toc.bind(_this);
     return _this;
   }
 
@@ -26108,6 +26109,43 @@ var OpenSeadragonNav = function (_React$Component) {
       this.props.viewer.goToPage(e.target.value);
     }
   }, {
+    key: 'toc',
+    value: function toc(items, handleChange) {
+      var tocs = this.props.tocs;
+
+      if (tocs.length > 1) {
+        return _react2.default.createElement(
+          'li',
+          null,
+          _react2.default.createElement(
+            'div',
+            { className: 'toc-select' },
+            _react2.default.createElement(
+              'label',
+              { htmlFor: 'toc' },
+              'Table of Contents:'
+            ),
+            _react2.default.createElement(
+              'select',
+              { name: 'toc', onChange: this.handleChange },
+              tocs.map(function (toc, i) {
+                var page = i + 1;
+                return _react2.default.createElement(
+                  'option',
+                  { value: i, key: i },
+                  page,
+                  '. ',
+                  toc
+                );
+              })
+            )
+          )
+        );
+      } else {
+        return _react2.default.createElement('span', null);
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _props = this.props,
@@ -26115,7 +26153,6 @@ var OpenSeadragonNav = function (_React$Component) {
           class_name = _props.class_name,
           setActiveItem = _props.setActiveItem,
           getActiveItem = _props.getActiveItem,
-          tocs = _props.tocs,
           viewer = _props.viewer;
 
       var active_class = this.active_class;
@@ -26136,33 +26173,7 @@ var OpenSeadragonNav = function (_React$Component) {
               )
             );
           }),
-          _react2.default.createElement(
-            'li',
-            null,
-            _react2.default.createElement(
-              'div',
-              { className: 'toc-select' },
-              _react2.default.createElement(
-                'label',
-                { htmlFor: 'toc' },
-                'Table of Contents:'
-              ),
-              _react2.default.createElement(
-                'select',
-                { name: 'toc', onChange: this.handleChange },
-                tocs.map(function (toc, i) {
-                  var page = i + 1;
-                  return _react2.default.createElement(
-                    'option',
-                    { value: i, key: i },
-                    page,
-                    '. ',
-                    toc
-                  );
-                })
-              )
-            )
-          )
+          this._toc()
         )
       );
     }
