@@ -6,6 +6,7 @@ export default class OpenSeadragonNav extends React.Component {
       this.active_index = this.active_index.bind(this)
       this.active_class = this.active_class.bind(this)
       this.handleChange = this.handleChange.bind(this)
+      this._toc         = this.toc.bind(this)
     }
 
     active_index() {
@@ -20,8 +21,30 @@ export default class OpenSeadragonNav extends React.Component {
       this.props.viewer.goToPage(e.target.value)
     }
 
+    toc(items, handleChange) {
+      let { tocs } = this.props
+      if (tocs.length > 1 ) {
+        return (
+                <li>
+                  <div className="toc-select">
+                    <label htmlFor="toc">Table of Contents:</label> 
+                    <select name="toc" onChange={this.handleChange}>
+                      {tocs.map(function(toc, i) {
+                        let page = i + 1
+                        return <option value={i} key={i}>{page}. {toc}</option>
+                      })}                    
+                    </select>
+                  </div>
+                </li>
+              )
+      } else {
+        return <span/>
+      }
+
+    }
+
     render() {
-      const { items, class_name, setActiveItem, getActiveItem, tocs, viewer } = this.props
+      const { items, class_name, setActiveItem, getActiveItem, viewer } = this.props
       let active_class = this.active_class
       return (
                 <div className="row image-nav">
@@ -29,17 +52,7 @@ export default class OpenSeadragonNav extends React.Component {
                     {items.map(function(item, i) {
                       return <li role="presentation" className={active_class(i)} onClick={setActiveItem.bind(this, i)} key={i} ><a href="">{item.label}</a></li>
                     })}
-                    <li>
-                      <div className="toc-select">
-                        <label htmlFor="toc">Table of Contents:</label> 
-                        <select name="toc" onChange={this.handleChange}>
-                          {tocs.map(function(toc, i) {
-                            let page = i + 1
-                            return <option value={i} key={i}>{page}. {toc}</option>
-                          })}                    
-                        </select>
-                      </div>
-                    </li>
+                    {this._toc()}
                   </ul>
                 </div>
               )

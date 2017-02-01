@@ -1,0 +1,53 @@
+exports[`OpenSeadragon should render correctly 1`] = `
+<div>
+  <div
+    className="row">
+    <div
+      className="row image-nav">
+      <ul
+        className="nav nav-pills">
+        <li
+          className="active"
+          onClick={[Function]}
+          role="presentation">
+          <a
+            href="">
+            Image
+          </a>
+        </li>
+        <li
+          className=""
+          onClick={[Function]}
+          role="presentation">
+          <a
+            href="">
+            Transcript
+          </a>
+        </li>
+        <span />
+      </ul>
+    </div>
+  </div>
+  <div
+    className="row">
+    <ReactOpenSeadragonViewer
+      config={
+        Object {
+          "defaultZoomLevel": 0,
+          "focus": true,
+          "include_controls": true,
+          "label": "Image",
+          "sequenceMode": true,
+          "showReferenceStrip": true,
+          "tileSources": Array [
+            "https://stacks.stanford.edu/image/iiif/hg676jb4964%2F0380_796-44/info.json",
+            "https://ids.lib.harvard.edu/ids/iiif/25286610/info.json",
+          ],
+          "type": "image",
+        }
+      }
+      last_page={0}
+      page_handler={[Function]} />
+  </div>
+</div>
+`;
