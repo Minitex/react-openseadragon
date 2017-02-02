@@ -73,12 +73,11 @@ if (TARGET === 'start') {
   module.exports = merge(common, {
     devtool: 'source-map',
     entry: {
-      bundle: ["./src/[name].js"],
       example: "./example/example.js"
     },
     output: {
         path: "./docs/",
-        filename: "[name].js"
+        filename: "example.js"
     }
   });
 }
