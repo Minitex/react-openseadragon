@@ -2,7 +2,7 @@
   "name": "react-openseadragon",
   "version": "0.1.0",
   "description": "A React component that wraps the OpenSeadragon image viewer.",
-  "main": "lib/react-openseadragon.js",
+  "main": "dist/react-openseadragon-min.js",
   "homepage": "https://github.com/UMNLibraries/react-openseadragon",
   "license": "MIT",
   "repository": {
@@ -43,7 +43,7 @@
   "scripts": {
     "start": "webpack; webpack-dev-server  --hot --inline",
     "watch": "webpack --watch",
-    "build": "webpack",
+    "build": "webpack --minimize; webpack",
     "test": "jest"
   },
   "keywords": [
