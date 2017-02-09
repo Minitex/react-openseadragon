@@ -26,9 +26,6 @@ export default class OpenSeadragonNav extends React.Component {
       return (
                 <div className="row image-nav">
                   <ul className="nav nav-pills">
-                    {items.map(function(item, i) {
-                      return <li role="presentation" className={active_class(i)} onClick={setActiveItem.bind(this, i)} key={i} ><a href="">{item.label}</a></li>
-                    })}
                     <li>
                       <div className="toc-select">
                         <label htmlFor="toc">Table of Contents:</label> 

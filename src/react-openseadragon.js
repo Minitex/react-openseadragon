@@ -6,6 +6,9 @@ import OpenSeadragonViewer from './react-openseadragon-viewer'
 
 import './index.css'
 
+import { createHistory } from 'history'
+import { Router, Route, IndexRoute, browserHistory, useRouterHistory } from 'react-router'
+
 class ReactOpenSeadragon extends React.Component {
     constructor(props) {
       super(props)
@@ -22,26 +25,31 @@ class ReactOpenSeadragon extends React.Component {
       this.setState({last_page: p.page})
       this.setState({text: this.text(p.page)})
       this.setState({viewer: viewer})
+      browserHistory.push('/' + p.page)
     }
-    
+
+    _id() {
+      return this._path().split( '/' )
+                         .slice(-1)
+                         .pop()
+                         .replace(/^\s+|\s+$/g, '')
+    }
+  
+    id() {
+      return (this._id() != '' && this._id() != 'blank') ? this._id() : 0
+    }
+
+    _path() {
+      return window.location.pathname
+    }
+
     viewer() {
-      let { type, text } = this.props.getActiveItem()
-      switch(type) {
-        case 'image':
-          return <OpenSeadragonViewer last_page={this.state.last_page} page_handler={this.page_handler} config={this.props.getActiveItem()} />
-          break
-        case 'transcript':
-          return <div>{this.state.text}</div>
-          break
-        default:
-          return <div>No Viewer Avaialable for type: "{type}"</div>
-      }
+      return <OpenSeadragonViewer last_page={this.id()} page_handler={this.page_handler} config={this.props.getActiveItem()} />
     }
 
     render() {
         let { include_controls } = this.props
         if (this.state != null) {
-           let { viewer } = this.state
            return (
                     <div>
                       <div className="row"><ImageNav viewer={this.state.viewer} {...this.props} /></div>
