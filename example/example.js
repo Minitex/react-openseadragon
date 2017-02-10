@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import ReactOpenSeadragon from '../src/react-openseadragon'
 
 
-var items = [
+var config =
   {
     "type": "image",
     "label": "Image",
@@ -15,24 +15,16 @@ var items = [
     "tileSources":   [
       "https://stacks.stanford.edu/image/iiif/hg676jb4964%2F0380_796-44/info.json",
       "https://ids.lib.harvard.edu/ids/iiif/25286610/info.json"
+    ],
+    tocs: [
+      "MLK",
+      "A Statue"
     ]
-  },
-  {
-    "type": "transcript",
-    "label": "Transcript",
-    "texts": ["First Item", "Second Item"],
-    "focus": false            
   }
-]
-
-var tocs = [
-  "MLK",
-  "A Statue"
-]
 
 var App = React.createClass({
   render () {
-    return (<ReactOpenSeadragon tocs={tocs} items={items} />)
+    return (<ReactOpenSeadragon config={config} base_path="/image" />)
   }
 });
 
