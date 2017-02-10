@@ -1,78 +1,86 @@
 import React from 'react'
-import ActiveItem from 'react-active-item'
 export { OpenSeadragonControls } from './react-openseadragon-controls'
-import ImageNav from './react-openseadragon-nav'
 import OpenSeadragonViewer from './react-openseadragon-viewer'
+import ImageNav from './react-openseadragon-nav'
 
 import './index.css'
 
+
 import { createHistory } from 'history'
-import { Router, Route, IndexRoute, browserHistory, useRouterHistory } from 'react-router'
+import { Router, Route, IndexRedirect, browserHistory, useRouterHistory } from 'react-router'
 
 class ReactOpenSeadragon extends React.Component {
     constructor(props) {
       super(props)
-      this.viewer       = this.viewer.bind(this)
       this.page_handler = this.page_handler.bind(this)
-      this.state   = {text: this.text(0), viewer: {}, last_page: 0}
+      this._nav         = this._nav.bind(this)
+      this.state        = {viewer: {}, id: 0}
     }
 
-   text(i) {
-    return this.props.items[1]['texts'][i]
-   }
-
-    page_handler(p, viewer) {
-      this.setState({last_page: p.page})
-      this.setState({text: this.text(p.page)})
+    page_handler(page, viewer) {
       this.setState({viewer: viewer})
-      browserHistory.push('/' + p.page)
+      this.setState({id: parseInt(page)})
+      browserHistory.push(this.props.base_path + '/item/'+ page)
     }
 
-    _id() {
-      return this._path().split( '/' )
-                         .slice(-1)
-                         .pop()
-                         .replace(/^\s+|\s+$/g, '')
-    }
-  
-    id() {
-      return (this._id() != '' && this._id() != 'blank') ? this._id() : 0
+    _viewer(page_handler, config, children) {
+      return React.cloneElement(
+        children,
+        {page_handler: page_handler, config: config}
+      )
     }
 
-    _path() {
-      return window.location.pathname
+    _nav() {
+      let id           = this.state.id
+      let tocs         = this.props.config.tocs
+      let viewer     = this.state.viewer
+      let page_handler = this.page_handler
+      if (viewer) {
+        return <ImageNav id={id} page_handler={page_handler} viewer={viewer} tocs={tocs} />
+      }
     }
 
-    viewer() {
-      return <OpenSeadragonViewer last_page={this.id()} page_handler={this.page_handler} config={this.props.getActiveItem()} />
+    _app() {
+      let page_handler = this.page_handler
+      let config       = this.props.config
+      let viewer       = this._viewer
+      let nav          = this._nav
+      return React.createClass({
+        render: function() {
+          return  (
+                    <div>
+                      <div className="row">{nav()}</div>
+                      {viewer(page_handler, config, this.props.children)}
+                    </div>
+                  )
+        }
+      })
     }
 
     render() {
-        let { include_controls } = this.props
-        if (this.state != null) {
-           return (
-                    <div>
-                      <div className="row"><ImageNav viewer={this.state.viewer} {...this.props} /></div>
-                      <div className="row">{this.viewer()}</div>
-                    </div>
-                  )
-         } else {
-           return (
-                    <div>
-                      <div className="row"><ImageNav viewer={this.state.viewer} {...this.props} /></div>
-                      <div className="row">{this.viewer()}</div>
-                    </div>
-                  )
-         }
+      //Allow this React App to exist at the end of a preexisiting path like:
+      //localhost:3000/catalog/blaah:100 <-- base_path is 'catalog/blaah:100'
+      const history = useRouterHistory(createHistory)({
+        basename: this.props.base_path
+      })
+      return (
+              <Router history={history}>
+                <Route path="/" component={this._app()}>
+                  <IndexRedirect to="item/0" />
+                  <Route path="item/:id" component={OpenSeadragonViewer} />
+                </Route>
+              </Router>
+            )
 
     }
 
 }
 
 const propTypes = {
-  items: React.PropTypes.array.isRequired
+  config: React.PropTypes.object.isRequired,
+  base_path: React.PropTypes.string
 }
 
 ReactOpenSeadragon.propTypes = propTypes
 
-export default ActiveItem(ReactOpenSeadragon)
+export default ReactOpenSeadragon

@@ -3,37 +3,31 @@ import React from 'react'
 export default class OpenSeadragonNav extends React.Component {
     constructor(props) {
       super(props)
-      this.active_index = this.active_index.bind(this)
-      this.active_class = this.active_class.bind(this)
       this.handleChange = this.handleChange.bind(this)
-    }
-
-    active_index() {
-      return this.props.getActiveItemIndex()
-    }
-
-    active_class(i) {
-      return (this.active_index() == i) ? 'active' : ''
     }
 
     handleChange(e, target){
       this.props.viewer.goToPage(e.target.value)
+      this.props.page_handler(e.target.value, this.props.viewer)
     }
 
     render() {
-      const { items, class_name, setActiveItem, getActiveItem, tocs, viewer } = this.props
-      let active_class = this.active_class
+      const { tocs, id } = this.props
       return (
                 <div className="row image-nav">
                   <ul className="nav nav-pills">
                     <li>
                       <div className="toc-select">
-                        <label htmlFor="toc">Table of Contents:</label> 
+                        <label htmlFor="toc">Table of Contents:</label>
                         <select name="toc" onChange={this.handleChange}>
                           {tocs.map(function(toc, i) {
                             let page = i + 1
-                            return <option value={i} key={i}>{page}. {toc}</option>
-                          })}                    
+                            if (id == i) {
+                              return <option value={i} key={i} selected="selected">{page}. {toc}</option>
+                            } else {
+                              return <option value={i} key={i}>{page}. {toc}</option>
+                            }
+                          })}
                         </select>
                       </div>
                     </li>
@@ -45,10 +39,10 @@ export default class OpenSeadragonNav extends React.Component {
 }
 
 const propTypes = {
-  items: React.PropTypes.array.isRequired,
-  setActiveItem: React.PropTypes.func.isRequired,
   tocs: React.PropTypes.array,
-  viewer: React.PropTypes.object
+  id: React.PropTypes.number.isRequired,
+  viewer: React.PropTypes.object,
+  page_handler: React.PropTypes.func
 }
 
 OpenSeadragonNav.propTypes = propTypes
