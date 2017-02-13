@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "a36f893e130a5bfe0e54"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "a7774df5be8476342f85"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -22103,6 +22103,7 @@
 	      this.setState({ viewer: viewer });
 	      this.setState({ id: parseInt(page) });
 	      _reactRouter.browserHistory.push('#' + this.props.base_path + '/item/' + page);
+	      console.log('#' + this.props.base_path + '/item/' + page);
 	    }
 	  }, {
 	    key: '_viewer',
