@@ -6,7 +6,7 @@ import ImageNav from './react-openseadragon-nav'
 import './index.css'
 
 
-import { createHistory } from 'history'
+import { createHashHistory } from 'history'
 import { Router, Route, IndexRedirect, browserHistory, useRouterHistory } from 'react-router'
 
 class ReactOpenSeadragon extends React.Component {
@@ -20,7 +20,7 @@ class ReactOpenSeadragon extends React.Component {
     page_handler(page, viewer) {
       this.setState({viewer: viewer})
       this.setState({id: parseInt(page)})
-      browserHistory.push(this.props.base_path + '/item/'+ page)
+      // browserHistory.push('#' + this.props.base_path + '/item/'+ page)
     }
 
     _viewer(page_handler, config, children) {
@@ -60,7 +60,7 @@ class ReactOpenSeadragon extends React.Component {
     render() {
       //Allow this React App to exist at the end of a preexisiting path like:
       //localhost:3000/catalog/blaah:100 <-- base_path is 'catalog/blaah:100'
-      const history = useRouterHistory(createHistory)({
+      const history = useRouterHistory(createHashHistory)({
         basename: this.props.base_path
       })
       return (
