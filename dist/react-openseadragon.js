@@ -75,7 +75,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "a070ac51d9a295129add"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "cd22a13b6e4283a3406e"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -658,7 +658,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function page_handler(page, viewer) {
 	      this.setState({ viewer: viewer });
 	      this.setState({ id: parseInt(page) });
-	      _reactRouter.browserHistory.push(this.props.base_path + '/item/' + page);
+	      // browserHistory.push('#' + this.props.base_path + '/item/'+ page)
 	    }
 	  }, {
 	    key: '_viewer',
@@ -703,7 +703,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function render() {
 	      //Allow this React App to exist at the end of a preexisiting path like:
 	      //localhost:3000/catalog/blaah:100 <-- base_path is 'catalog/blaah:100'
-	      var history = (0, _reactRouter.useRouterHistory)(_history.createHistory)({
+	      var history = (0, _reactRouter.useRouterHistory)(_history.createHashHistory)({
 	        basename: this.props.base_path
 	      });
 	      return _react2.default.createElement(

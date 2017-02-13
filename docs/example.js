@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "1c01744c6d9628823449"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "1441b2faed77d1f3daf8"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -22102,7 +22102,7 @@
 	    value: function page_handler(page, viewer) {
 	      this.setState({ viewer: viewer });
 	      this.setState({ id: parseInt(page) });
-	      _reactRouter.browserHistory.push(this.props.base_path + '/item/' + page);
+	      // browserHistory.push('#' + this.props.base_path + '/item/'+ page)
 	    }
 	  }, {
 	    key: '_viewer',
@@ -22147,7 +22147,7 @@
 	    value: function render() {
 	      //Allow this React App to exist at the end of a preexisiting path like:
 	      //localhost:3000/catalog/blaah:100 <-- base_path is 'catalog/blaah:100'
-	      var history = (0, _reactRouter.useRouterHistory)(_history.createHistory)({
+	      var history = (0, _reactRouter.useRouterHistory)(_history.createHashHistory)({
 	        basename: this.props.base_path
 	      });
 	      return _react2.default.createElement(
