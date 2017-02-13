@@ -2,7 +2,7 @@
   "name": "react-openseadragon",
   "version": "0.1.0",
   "description": "A React component that wraps the OpenSeadragon image viewer.",
-  "main": "lib/react-openseadragon.js",
+  "main": "dist/react-openseadragon-min.js",
   "homepage": "https://github.com/UMNLibraries/react-openseadragon",
   "license": "MIT",
   "repository": {
@@ -10,57 +10,52 @@
     "url": "https://github.com/UMNLibraries/react-openseadragon.git"
   },
   "bugs": {
-    "url": "https://github.com/UMNLibraries/react-openseadragon/issues"
+    "url": "https://github.com/UMNLibraries/react-borealis/issues"
   },
   "dependencies": {
-    "classnames": "^2.1.2",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
-    "react-active-item": "git:+git@github.com:UMNLibraries/react-active-item.git",
-    "openseadragon": "^2.2.1"
+    "development": "0.0.6",
+    "openseadragon": "^2.2.1",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "react-router": "^3.0.2"
   },
   "devDependencies": {
     "babel": "^6.5.2",
-    "babel-core": "^6.17.0",
-    "babel-eslint": "^4.1.3",
-    "babel-jest": "^16.0.0",
+    "babel-core": "^6.21.0",
+    "babel-eslint": "^7.1.1",
+    "babel-jest": "^18.0.0",
+    "babel-loader": "^6.2.10",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
-    "brfs": "^1.4.3",
-    "enzyme": "^2.6.0",
-    "react": "^15.3.2",
+    "css-loader": "^0.26.1",
+    "express": "^4.14.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "jest-css-modules": "^1.1.0",
+    "less-loader": "^2.2.3",
     "react-addons-test-utils": "^15.4.1",
-    "react-component-gulp-tasks": "git:+git@github.com:cwalv/react-component-gulp-tasks.git#0253184f9d",
-    "react-dom": "^15.4.1",
+    "react-hot-loader": "^1.3.0",
     "react-shallow-testutils": "^2.0.0",
-    "react-test-renderer": "^15.3.2"
-  },
-  "peerDependencies": {
-    "react": "^15.3.2"
-  },
-  "browserify-shim": {
-    "react": "global:React",
-    "babel": "^6.5.2",
-    "babel-core": "^6.17.0",
-    "babel-eslint": "^4.1.3",
-    "babel-jest": "^16.0.0",
-    "babel-preset-es2015": "^6.18.0",
-    "babel-preset-react": "^6.16.0",
-    "babel-preset-stage-0": "^6.16.0"
+    "react-test-renderer": "^15.4.1",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.12.2",
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-hot-middleware": "^2.10.0",
+    "webpack-merge": "^2.6.1",
+    "yargs": "^6.6.0",
+    "yarn": "^0.18.1"
   },
   "scripts": {
-    "build": "gulp clean && NODE_ENV=production gulp build",
-    "examples": "gulp dev:server",
-    "lint": "eslint ./; true",
-    "publish:site": "NODE_ENV=production gulp publish:examples",
-    "release": "NODE_ENV=production gulp release",
-    "start": "gulp dev",
-    "test": "jest",
-    "watch": "gulp watch:lib"
+    "start": "node server.js",
+    "lint": "eslint src",
+    "build": "webpack --minimize --build; webpack --build; webpack --example",
+    "test": "jest"
   },
   "keywords": [
     "react",
     "react-component"
-  ]
+  ],
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/node_modules/jest-css-modules"
+  }
 }

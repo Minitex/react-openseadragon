@@ -6,24 +6,6 @@ exports[`OpenSeadragon should render correctly 1`] = `
       className="row image-nav">
       <ul
         className="nav nav-pills">
-        <li
-          className="active"
-          onClick={[Function]}
-          role="presentation">
-          <a
-            href="">
-            Image
-          </a>
-        </li>
-        <li
-          className=""
-          onClick={[Function]}
-          role="presentation">
-          <a
-            href="">
-            Transcript
-          </a>
-        </li>
         <li>
           <div
             className="toc-select">
