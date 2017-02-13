@@ -20,7 +20,7 @@ class ReactOpenSeadragon extends React.Component {
     page_handler(page, viewer) {
       this.setState({viewer: viewer})
       this.setState({id: parseInt(page)})
-      // browserHistory.push('#' + this.props.base_path + '/item/'+ page)
+      browserHistory.push('#' + this.props.base_path + '/item/'+ page)
     }
 
     _viewer(page_handler, config, children) {
