@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "1441b2faed77d1f3daf8"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "a36f893e130a5bfe0e54"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -22102,7 +22102,7 @@
 	    value: function page_handler(page, viewer) {
 	      this.setState({ viewer: viewer });
 	      this.setState({ id: parseInt(page) });
-	      // browserHistory.push('#' + this.props.base_path + '/item/'+ page)
+	      _reactRouter.browserHistory.push('#' + this.props.base_path + '/item/' + page);
 	    }
 	  }, {
 	    key: '_viewer',
