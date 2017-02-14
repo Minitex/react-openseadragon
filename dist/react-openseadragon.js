@@ -75,7 +75,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "cfc1461b140436c824cf"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "a0f38c9e774dacef0e63"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -658,7 +658,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function page_handler(page, viewer) {
 	      this.setState({ viewer: viewer });
 	      this.setState({ id: parseInt(page) });
-	      _reactRouter.browserHistory.push(this.props.base_path + '#item/' + page);
+	      _reactRouter.browserHistory.push(this.props.base_path + '#/image/' + page);
 	    }
 	  }, {
 	    key: '_viewer',
@@ -712,8 +712,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _react2.default.createElement(
 	          _reactRouter.Route,
 	          { path: '/', component: this._app() },
-	          _react2.default.createElement(_reactRouter.IndexRedirect, { to: 'item/0' }),
-	          _react2.default.createElement(_reactRouter.Route, { path: 'item/:id', component: _reactOpenseadragonViewer2.default })
+	          _react2.default.createElement(_reactRouter.Route, { path: 'image/:id', component: _reactOpenseadragonViewer2.default })
 	        )
 	      );
 	    }

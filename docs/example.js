@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "131cbe959ce0ebedfafb"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "62671c082e47153a4ac9"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -614,7 +614,7 @@
 	var App = _react2.default.createClass({
 	  displayName: 'App',
 	  render: function render() {
-	    return _react2.default.createElement(_reactOpenseadragon2.default, { config: config, base_path: '/image' });
+	    return _react2.default.createElement(_reactOpenseadragon2.default, { config: config, base_path: '/' });
 	  }
 	});
 	
@@ -22102,7 +22102,7 @@
 	    value: function page_handler(page, viewer) {
 	      this.setState({ viewer: viewer });
 	      this.setState({ id: parseInt(page) });
-	      _reactRouter.browserHistory.push(this.props.base_path + '#item/' + page);
+	      _reactRouter.browserHistory.push(this.props.base_path + '#/image/' + page);
 	    }
 	  }, {
 	    key: '_viewer',
@@ -22156,8 +22156,7 @@
 	        _react2.default.createElement(
 	          _reactRouter.Route,
 	          { path: '/', component: this._app() },
-	          _react2.default.createElement(_reactRouter.IndexRedirect, { to: 'item/0' }),
-	          _react2.default.createElement(_reactRouter.Route, { path: 'item/:id', component: _reactOpenseadragonViewer2.default })
+	          _react2.default.createElement(_reactRouter.Route, { path: 'image/:id', component: _reactOpenseadragonViewer2.default })
 	        )
 	      );
 	    }
