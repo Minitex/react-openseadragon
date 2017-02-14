@@ -20,7 +20,7 @@ class ReactOpenSeadragon extends React.Component {
     page_handler(page, viewer) {
       this.setState({viewer: viewer})
       this.setState({id: parseInt(page)})
-      browserHistory.push(this.props.base_path + '#item/'+ page)
+      browserHistory.push(this.props.base_path + '#/image/'+ page)
     }
 
     _viewer(page_handler, config, children) {
@@ -66,8 +66,7 @@ class ReactOpenSeadragon extends React.Component {
       return (
               <Router history={history}>
                 <Route path="/" component={this._app()}>
-                  <IndexRedirect to="item/0" />
-                  <Route path="item/:id" component={OpenSeadragonViewer} />
+                  <Route path="image/:id" component={OpenSeadragonViewer} />
                 </Route>
               </Router>
             )
