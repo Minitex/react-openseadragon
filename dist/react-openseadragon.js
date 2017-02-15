@@ -75,7 +75,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "a0f38c9e774dacef0e63"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "a4f2b69df9bf4e9ca50d"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -712,6 +712,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _react2.default.createElement(
 	          _reactRouter.Route,
 	          { path: '/', component: this._app() },
+	          _react2.default.createElement(_reactRouter.IndexRedirect, { to: 'image/0' }),
 	          _react2.default.createElement(_reactRouter.Route, { path: 'image/:id', component: _reactOpenseadragonViewer2.default })
 	        )
 	      );
@@ -33560,51 +33561,55 @@ return /******/ (function(modules) { // webpackBootstrap
 	          tocs = _props.tocs,
 	          id = _props.id;
 	
-	      return _react2.default.createElement(
-	        "div",
-	        { className: "row image-nav" },
-	        _react2.default.createElement(
-	          "ul",
-	          { className: "nav nav-pills" },
+	      if (tocs.length > 1) {
+	        return _react2.default.createElement(
+	          "div",
+	          { className: "row image-nav" },
 	          _react2.default.createElement(
-	            "li",
-	            null,
+	            "ul",
+	            { className: "nav nav-pills" },
 	            _react2.default.createElement(
-	              "div",
-	              { className: "toc-select" },
+	              "li",
+	              null,
 	              _react2.default.createElement(
-	                "label",
-	                { htmlFor: "toc" },
-	                "Table of Contents:"
-	              ),
-	              _react2.default.createElement(
-	                "select",
-	                { name: "toc", onChange: this.handleChange },
-	                tocs.map(function (toc, i) {
-	                  var page = i + 1;
-	                  if (id == i) {
-	                    return _react2.default.createElement(
-	                      "option",
-	                      { value: i, key: i, selected: "selected" },
-	                      page,
-	                      ". ",
-	                      toc
-	                    );
-	                  } else {
-	                    return _react2.default.createElement(
-	                      "option",
-	                      { value: i, key: i },
-	                      page,
-	                      ". ",
-	                      toc
-	                    );
-	                  }
-	                })
+	                "div",
+	                { className: "toc-select" },
+	                _react2.default.createElement(
+	                  "label",
+	                  { htmlFor: "toc" },
+	                  "Table of Contents:"
+	                ),
+	                _react2.default.createElement(
+	                  "select",
+	                  { name: "toc", onChange: this.handleChange },
+	                  tocs.map(function (toc, i) {
+	                    var page = i + 1;
+	                    if (id == i) {
+	                      return _react2.default.createElement(
+	                        "option",
+	                        { value: i, key: i, selected: "selected" },
+	                        page,
+	                        ". ",
+	                        toc
+	                      );
+	                    } else {
+	                      return _react2.default.createElement(
+	                        "option",
+	                        { value: i, key: i },
+	                        page,
+	                        ". ",
+	                        toc
+	                      );
+	                    }
+	                  })
+	                )
 	              )
 	            )
 	          )
-	        )
-	      );
+	        );
+	      } else {
+	        return _react2.default.createElement("span", null);
+	      }
 	    }
 	  }]);
 	
