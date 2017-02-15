@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "4c86b221e7d3b65f4b3a"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "b055eabc510624ea8cf1"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -22156,7 +22156,6 @@
 	        _react2.default.createElement(
 	          _reactRouter.Route,
 	          { path: '/', component: this._app() },
-	          _react2.default.createElement(_reactRouter.IndexRedirect, { to: 'image/0' }),
 	          _react2.default.createElement(_reactRouter.Route, { path: 'image/:id', component: _reactOpenseadragonViewer2.default })
 	        )
 	      );
