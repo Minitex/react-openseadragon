@@ -1,53 +1,134 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`OpenSeadragon should render correctly 1`] = `
 <div>
   <div
-    className="row">
-    <div
-      className="row image-nav">
-      <ul
-        className="nav nav-pills">
-        <li
-          className="active"
-          onClick={[Function]}
-          role="presentation">
-          <a
-            href="">
-            Image
-          </a>
-        </li>
-        <li
-          className=""
-          onClick={[Function]}
-          role="presentation">
-          <a
-            href="">
-            Transcript
-          </a>
-        </li>
-        <span />
-      </ul>
-    </div>
+    className="row"
+  >
+    <span />
   </div>
-  <div
-    className="row">
-    <ReactOpenSeadragonViewer
-      config={
-        Object {
-          "defaultZoomLevel": 0,
-          "focus": true,
-          "include_controls": true,
-          "label": "Image",
-          "sequenceMode": true,
-          "showReferenceStrip": true,
-          "tileSources": Array [
-            "https://stacks.stanford.edu/image/iiif/hg676jb4964%2F0380_796-44/info.json",
-            "https://ids.lib.harvard.edu/ids/iiif/25286610/info.json",
-          ],
-          "type": "image",
-        }
+  <ReactOpenSeadragonViewer
+    config={
+      Object {
+        "defaultZoomLevel": 0,
+        "focus": true,
+        "include_controls": true,
+        "label": "Image",
+        "sequenceMode": true,
+        "showReferenceStrip": true,
+        "tileSources": Array [
+          "https://stacks.stanford.edu/image/iiif/hg676jb4964%2F0380_796-44/info.json",
+          "https://ids.lib.harvard.edu/ids/iiif/25286610/info.json",
+        ],
+        "tocs": Array [
+          "MLK",
+        ],
+        "type": "image",
       }
-      last_page={0}
-      page_handler={[Function]} />
-  </div>
+    }
+    location={
+      Object {
+        "action": "REPLACE",
+        "basename": "/",
+        "hash": "",
+        "key": "fake_key",
+        "pathname": "image/0",
+        "query": Object {},
+        "search": "",
+        "state": undefined,
+      }
+    }
+    page_handler={[Function]}
+    params={
+      Object {
+        "id": "0",
+      }
+    }
+    route={
+      Object {
+        "component": "ReactOpenSeadragonViewer",
+        "path": "image/:id",
+      }
+    }
+    routeParams={
+      Object {
+        "id": "0",
+      }
+    }
+    router={
+      Object {
+        "createHref": [Function],
+        "createKey": [Function],
+        "createLocation": [Function],
+        "createPath": [Function],
+        "getCurrentLocation": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "isActive": [Function],
+        "listen": [Function],
+        "listenBefore": [Function],
+        "location": Object {
+          "action": "REPLACE",
+          "basename": "/",
+          "hash": "",
+          "key": "fake_key",
+          "pathname": "image/0",
+          "query": Object {},
+          "search": "",
+          "state": undefined,
+        },
+        "params": Object {
+          "id": "0",
+        },
+        "push": [Function],
+        "replace": [Function],
+        "routes": Array [
+          Object {
+            "childRoutes": Array [
+              Object {
+                "component": "ReactOpenSeadragonViewer",
+                "path": "image/:id",
+              },
+            ],
+            "component": [Function],
+            "indexRoute": Object {
+              "onEnter": [Function],
+              "to": "image/0",
+            },
+            "path": "/",
+          },
+          Object {
+            "component": "ReactOpenSeadragonViewer",
+            "path": "image/:id",
+          },
+        ],
+        "setRouteLeaveHook": [Function],
+        "transitionTo": [Function],
+      }
+    }
+    routes={
+      Array [
+        Object {
+          "childRoutes": Array [
+            Object {
+              "component": "ReactOpenSeadragonViewer",
+              "path": "image/:id",
+            },
+          ],
+          "component": [Function],
+          "indexRoute": Object {
+            "onEnter": [Function],
+            "to": "image/0",
+          },
+          "path": "/",
+        },
+        Object {
+          "component": "ReactOpenSeadragonViewer",
+          "path": "image/:id",
+        },
+      ]
+    }
+  />
 </div>
 `;
