@@ -38,7 +38,7 @@ exports[`OpenSeadragon should render correctly 1`] = `
         "state": undefined,
       }
     }
-    page_handler={[Function]}
+    pageHandler={[Function]}
     params={
       Object {
         "id": "0",

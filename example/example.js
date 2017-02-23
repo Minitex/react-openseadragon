@@ -21,6 +21,6 @@ const config =
     ],
   };
 
-const App = () => { <ReactOpenSeadragon config={config} base_path="/" /> };
+const App = () => { return <ReactOpenSeadragon config={config} base_path="/" /> };
 
 ReactDOM.render(<App />, document.getElementById('app'));
