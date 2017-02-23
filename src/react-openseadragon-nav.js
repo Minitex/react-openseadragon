@@ -8,7 +8,7 @@ export default class OpenSeadragonNav extends React.Component {
 
     handleChange(e, target){
       this.props.viewer.goToPage(e.target.value)
-      this.props.page_handler(e.target.value, this.props.viewer)
+      this.props.pageHandler(e.target.value, this.props.viewer)
     }
 
     render() {
@@ -46,7 +46,7 @@ const propTypes = {
   tocs: React.PropTypes.array,
   id: React.PropTypes.number.isRequired,
   viewer: React.PropTypes.object,
-  page_handler: React.PropTypes.func
+  pageHandler: React.PropTypes.func
 }
 
 OpenSeadragonNav.propTypes = propTypes

@@ -9,11 +9,11 @@ export default class OpenSeadragonViewer extends React.Component {
     }
 
     componentDidMount() {
-      let { page_handler } = this.props
+      let { pageHandler } = this.props
       window.OPENSEADRAGONVIEWER = window.OpenSeadragon(this._config())
       this.setState({viewer: OPENSEADRAGONVIEWER})
       OPENSEADRAGONVIEWER.addHandler('page', function (viewer) {
-          page_handler(viewer.page, OPENSEADRAGONVIEWER)
+          pageHandler(viewer.page, OPENSEADRAGONVIEWER)
       })
       // This allows us to keep the transcript/image toggle pills in sync
       // with what was clicked on the viewer nav strip
@@ -59,6 +59,6 @@ OpenSeadragonViewer.defaultProps = {  include_navigator: true,
                                     }
 
 OpenSeadragonViewer.propTypes = {
-  page_handler: React.PropTypes.func,
+  pageHandler: React.PropTypes.func,
   config: React.PropTypes.object
 }
