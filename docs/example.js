@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "a98c304da47d5f2bfa62"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "11c57fb432d66d0f08a8"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -22095,7 +22095,7 @@
 	    key: 'pageHandler',
 	    value: function pageHandler(page, viewer) {
 	      this.setState({ viewer: viewer });
-	      this.setState({ id: parseInt(page) });
+	      this.setState({ id: parseInt(page, 10) });
 	      _reactRouter.browserHistory.push(this.props.base_path + '#/image/' + page);
 	    }
 	  }, {
@@ -22113,6 +22113,8 @@
 	      if (viewer) {
 	        return _react2.default.createElement(_reactOpenseadragonNav2.default, { id: id, pageHandler: pageHandler, viewer: viewer, tocs: tocs });
 	      }
+	
+	      return '';
 	    }
 	  }, {
 	    key: '_app',

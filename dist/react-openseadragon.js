@@ -75,7 +75,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "194eab2f2b0c62b00a62"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "a9a7f861d783485a4d06"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -659,7 +659,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    key: 'pageHandler',
 	    value: function pageHandler(page, viewer) {
 	      this.setState({ viewer: viewer });
-	      this.setState({ id: parseInt(page) });
+	      this.setState({ id: parseInt(page, 10) });
 	      _reactRouter.browserHistory.push(this.props.base_path + '#/image/' + page);
 	    }
 	  }, {
@@ -677,6 +677,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if (viewer) {
 	        return _react2.default.createElement(_reactOpenseadragonNav2.default, { id: id, pageHandler: pageHandler, viewer: viewer, tocs: tocs });
 	      }
+	
+	      return '';
 	    }
 	  }, {
 	    key: '_app',
