@@ -75,7 +75,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "a9a7f861d783485a4d06"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "d8187784c348b33e922e"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -17835,7 +17835,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      });
 	      // This allows us to keep the transcript/image toggle pills in sync
 	      // with what was clicked on the viewer nav strip
-	      OPENSEADRAGONVIEWER.goToPage(this.props.params.id);
+	      OPENSEADRAGONVIEWER.goToPage(parseInt(this.props.params.id, 10));
 	    }
 	  }, {
 	    key: '_config',

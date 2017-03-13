@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "11c57fb432d66d0f08a8"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "ed8bf700088a4cc8d90e"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -607,8 +607,8 @@
 	  sequenceMode: true,
 	  showReferenceStrip: true,
 	  defaultZoomLevel: 0,
-	  tileSources: ['https://stacks.stanford.edu/image/iiif/hg676jb4964%2F0380_796-44/info.json', 'https://ids.lib.harvard.edu/ids/iiif/25286610/info.json'],
-	  tocs: ['MLK', 'A Statue']
+	  tileSources: ['https://stacks.stanford.edu/image/iiif/hg676jb4964%2F0380_796-44/info.json', 'https://ids.lib.harvard.edu/ids/iiif/25286610/info.json', 'https://stacks.stanford.edu/image/iiif/hg676jb4964%2F0380_796-44/info.json', 'https://ids.lib.harvard.edu/ids/iiif/25286610/info.json', 'https://stacks.stanford.edu/image/iiif/hg676jb4964%2F0380_796-44/info.json', 'https://stacks.stanford.edu/image/iiif/hg676jb4964%2F0380_796-44/info.json', 'https://ids.lib.harvard.edu/ids/iiif/25286610/info.json', 'https://stacks.stanford.edu/image/iiif/hg676jb4964%2F0380_796-44/info.json', 'https://ids.lib.harvard.edu/ids/iiif/25286610/info.json', 'https://stacks.stanford.edu/image/iiif/hg676jb4964%2F0380_796-44/info.json', 'https://stacks.stanford.edu/image/iiif/hg676jb4964%2F0380_796-44/info.json', 'https://ids.lib.harvard.edu/ids/iiif/25286610/info.json', 'https://stacks.stanford.edu/image/iiif/hg676jb4964%2F0380_796-44/info.json', 'https://ids.lib.harvard.edu/ids/iiif/25286610/info.json', 'https://stacks.stanford.edu/image/iiif/hg676jb4964%2F0380_796-44/info.json'],
+	  tocs: ['MLK', 'A Statue', 'Blah', 'Blah', 'A Statue', 'MLK', 'A Statue', 'Blah', 'Blah', 'A Statue', 'MLK', 'A Statue', 'Blah', 'Blah', 'A Statue']
 	};
 	
 	var App = function App() {
@@ -28148,7 +28148,7 @@
 	      });
 	      // This allows us to keep the transcript/image toggle pills in sync
 	      // with what was clicked on the viewer nav strip
-	      OPENSEADRAGONVIEWER.goToPage(this.props.params.id);
+	      OPENSEADRAGONVIEWER.goToPage(parseInt(this.props.params.id, 10));
 	    }
 	  }, {
 	    key: '_config',
