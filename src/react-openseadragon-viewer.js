@@ -17,7 +17,7 @@ export default class OpenSeadragonViewer extends React.Component {
       })
       // This allows us to keep the transcript/image toggle pills in sync
       // with what was clicked on the viewer nav strip
-      OPENSEADRAGONVIEWER.goToPage(this.props.params.id)
+      OPENSEADRAGONVIEWER.goToPage(parseInt(this.props.params.id, 10))
     }
 
     _config() {
