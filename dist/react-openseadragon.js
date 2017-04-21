@@ -75,7 +75,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "a05a273f2637fc64c5c2"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "27b4e364ddae8d773785"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -17167,6 +17167,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: '_nav',
 	    value: function _nav() {
+	      console.log('hay girl');
 	      if (typeof OPENSEADRAGONVIEWER !== 'undefined') {
 	        return _react2.default.createElement(_reactOpenseadragonNav2.default, _extends({ id: this._id()
 	        }, this.props, this.props.config, {
