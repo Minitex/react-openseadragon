@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactOpenSeadragonRoute from './react-openseadragon-route';
-import RouteThroughBrowser from './react-route-through-browser';
+import Router from './react-router';
 
-export default RouteThroughBrowser(ReactOpenSeadragonRoute);
+export default Router(ReactOpenSeadragonRoute);
