@@ -2,19 +2,16 @@
 
 An **EXPERIMENTAL** React component to wrap the [OpenSeadragon](https://openseadragon.github.io/) image viewer.
 
-## Demo & Examples
-
-Live demo: [umnlibraries.github.io/react-react-openseadragon](http://umnlibraries.github.io/react-openseadragon/)
-
 To build the examples locally, run:
 
 ```
+git clone https://github.com/UMNLibraries/react-openseadragon.git
+cd react-openseadragon
 npm install
 npm start
 ```
 
-Then open [`localhost:8000`](http://localhost:8000) in a browser.
-
+Then open [`localhost:3000/example/image/0`](http://localhost:3000/example/image/0) in a browser.
 
 ## Installation
 
@@ -55,18 +52,22 @@ import ReactDOM  from 'react-dom'
 import OpenseadragonViewer from 'react-openseadragon'
 
 var seadragon_conf = {
-      sequenceMode:  true,
-      showReferenceStrip: true,
-      tileSources:   [
-          "http://libimages.princeton.edu/loris2/pudl0001%2F4609321%2Fs42%2F00000001.jp2/info.json",
-          "http://libimages.princeton.edu/loris2/pudl0001%2F4609321%2Fs42%2F00000002.jp2/info.json",
-          "http://libimages.princeton.edu/loris2/pudl0001%2F4609321%2Fs42%2F00000003.jp2/info.json",
-          "http://libimages.princeton.edu/loris2/pudl0001%2F4609321%2Fs42%2F00000004.jp2/info.json",
-          "http://libimages.princeton.edu/loris2/pudl0001%2F4609321%2Fs42%2F00000005.jp2/info.json",
-          "http://libimages.princeton.edu/loris2/pudl0001%2F4609321%2Fs42%2F00000006.jp2/info.json",
-          "http://libimages.princeton.edu/loris2/pudl0001%2F4609321%2Fs42%2F00000007.jp2/info.json"
-      ]
-  }
+    type: 'image',
+    label: 'Image',
+    focus: true,
+    include_controls: true,
+    sequenceMode: true,
+    showReferenceStrip: true,
+    defaultZoomLevel: 0,
+    tileSources: [
+      'https://stacks.stanford.edu/image/iiif/hg676jb4964%2F0380_796-44/info.json',
+      'https://ids.lib.harvard.edu/ids/iiif/25286610/info.json',
+    ],
+    tocs: [
+      'MLK',
+      'A Statue',
+    ],
+  };
 
 var App = React.createClass({
   render () {

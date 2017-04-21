@@ -1,42 +1,78 @@
-import React from 'react'
-import OpenSeadragon from 'openseadragon'
-import OpenSeadragonControls from './react-openseadragon-controls'
+import React from 'react';
+import OpenSeadragon from 'openseadragon';
+import OpenSeadragonControls from './react-openseadragon-controls';
+import { browserHistory } from 'react-router';
+import ImageNav from './react-openseadragon-nav';
 
 export default class OpenSeadragonViewer extends React.Component {
-    constructor(props) {
-      super(props)
-      this._config = this._config.bind(this)
-    }
+  constructor(props) {
+    super(props);
+    this._config = this._config.bind(this);
+    this._currentImage = this._currentImage.bind(this);
+    this._updatePath = this._updatePath.bind(this);
+    this._nav = this._nav.bind(this);
+    this._id = this._id.bind(this);
+  }
 
-    componentDidMount() {
-      let { pageHandler } = this.props
-      window.OPENSEADRAGONVIEWER = window.OpenSeadragon(this._config())
-      this.setState({viewer: OPENSEADRAGONVIEWER})
-      OPENSEADRAGONVIEWER.addHandler('page', function (viewer) {
-          pageHandler(viewer.page, OPENSEADRAGONVIEWER)
-      })
-      // This allows us to keep the transcript/image toggle pills in sync
-      // with what was clicked on the viewer nav strip
-      OPENSEADRAGONVIEWER.goToPage(parseInt(this.props.params.id, 10))
-    }
+  componentDidMount() {
+    let { pageHandler, basename, history } = this.props;
+    window.OPENSEADRAGONVIEWER = window.OpenSeadragon(this._config());
+    const updatePath = this._updatePath;
+    window.OPENSEADRAGONVIEWER.addHandler('page', function (viewer) {
+      if (updatePath(viewer.page)) {
+        history.push(`${viewer.page}`);
+      }
+    });
+    // This allows us to keep the transcript/image toggle pills in sync
+    // with what was clicked on the viewer nav strip
+    OPENSEADRAGONVIEWER.goToPage(parseInt(this.props.match.params.id, 10));
+    // Force a re-render to get the TOC drop-down
+    this.forceUpdate();
+  }
 
-    _config() {
-      return Object.assign(this.props.default_config, this.props.config)
+  _updatePath(page) {
+    if (this._currentImage() !== page) {
+      return true;
     }
+    return false;
+  }
 
-    render() {
-      let { text, include_controls } = this.props
-      let controls  = (include_controls)  ? <OpenSeadragonControls /> : ''
-      return (
-                <div>
-                  <div className="osd col-md-12">
-                    <div className="openseadragon" id="osd-viewer">
-                      {controls}
-                    </div>
-                  </div>
-                </div>
-              )
+  _currentImage() {
+    return parseInt(window.location.href.split('/').reverse()[0], 10);
+  }
+
+  _config() {
+    return Object.assign(this.props.default_config, this.props.config);
+  }
+
+  _id(){
+    return parseInt(this.props.match.params.id, 10);
+  }
+
+  _nav() {
+    if (typeof OPENSEADRAGONVIEWER !== 'undefined') {
+      return (<ImageNav id={this._id()}
+        {...this.props}
+        {...this.props.config}
+        viewer={OPENSEADRAGONVIEWER}
+      />);
     }
+  }
+
+  render() {
+    const { include_controls } = this.props;
+    const controls = (include_controls) ? <OpenSeadragonControls /> : '';
+    return (
+      <div>
+        {this._nav()}
+        <div className="osd col-md-12">
+          <div className="openseadragon" id="osd-viewer">
+            {controls}
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 OpenSeadragonViewer.defaultProps = {  include_navigator: true,
@@ -59,6 +95,6 @@ OpenSeadragonViewer.defaultProps = {  include_navigator: true,
                                     }
 
 OpenSeadragonViewer.propTypes = {
-  pageHandler: React.PropTypes.func,
-  config: React.PropTypes.object
+  config: React.PropTypes.object,
+  basename: React.PropTypes.string,
 }
