@@ -6,11 +6,11 @@ var TARGET = process.env.npm_lifecycle_event;
 var minimize = (process.argv.indexOf('--minimize') > 0) ? true : false;
 var example =  (process.argv.indexOf('--example') > 0) ? true : false;
 var build =    (process.argv.indexOf('--build') > 0) ? true : false;
- 
+
 var common = {
   module: {
     loaders: [
-      { 
+      {
         test: /\.js?$/,
         loader: 'react-hot-loader',
         include: path.join(__dirname, 'src')
@@ -40,8 +40,8 @@ var common = {
 
 if (build) {
   if (minimize) {
-    common.plugins.push(new webpack.optimize.UglifyJsPlugin());    
-    var config = 
+    common.plugins.push(new webpack.optimize.UglifyJsPlugin());
+    var config =
     {
       entry: './src/react-openseadragon.js',
       output: {
@@ -53,7 +53,7 @@ if (build) {
       }
     }
   } else {
-    var config = 
+    var config =
     {
       devtool: 'source-map',
       entry: './src/react-openseadragon.js',
