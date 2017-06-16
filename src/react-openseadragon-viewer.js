@@ -1,7 +1,6 @@
 import React from 'react';
 import OpenSeadragon from 'openseadragon';
 import OpenSeadragonControls from './react-openseadragon-controls';
-import { browserHistory } from 'react-router';
 import ImageNav from './react-openseadragon-nav';
 
 export default class OpenSeadragonViewer extends React.Component {
