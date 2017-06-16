@@ -14,7 +14,7 @@ export default class OpenSeadragonViewer extends React.Component {
   }
 
   componentDidMount() {
-    let { pageHandler, basename, history } = this.props;
+    const basename = this.props.basename;
     window.OPENSEADRAGONVIEWER = window.OpenSeadragon(this._config());
     const updatePath = this._updatePath;
     window.OPENSEADRAGONVIEWER.addHandler('page', function (viewer) {

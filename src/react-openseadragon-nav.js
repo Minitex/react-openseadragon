@@ -8,7 +8,6 @@ export default class OpenSeadragonNav extends React.Component {
 
     handleChange(e, target){
       this.props.viewer.goToPage(e.target.value)
-      this.props.pageHandler(e.target.value, this.props.viewer)
     }
 
     render() {
