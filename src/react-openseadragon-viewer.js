@@ -19,7 +19,7 @@ export default class OpenSeadragonViewer extends React.Component {
     const updatePath = this._updatePath;
     window.OPENSEADRAGONVIEWER.addHandler('page', function (viewer) {
       if (updatePath(viewer.page)) {
-        history.push(`${viewer.page}`);
+        window.location.hash = `${basename}/image/${viewer.page}`;
       }
     });
     // This allows us to keep the transcript/image toggle pills in sync
