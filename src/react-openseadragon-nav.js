@@ -19,14 +19,10 @@ export default class OpenSeadragonNav extends React.Component {
                       <li>
                         <div className="toc-select">
                           <label htmlFor="toc">Table of Contents:</label>
-                          <select name="toc" onChange={this.handleChange}>
+                          <select name="toc" defaultValue={id} onChange={this.handleChange}>
                             {tocs.map(function(toc, i) {
                               let page = i + 1
-                              if (id == i) {
-                                return <option value={i} key={i} selected="selected">{page}. {toc}</option>
-                              } else {
-                                return <option value={i} key={i}>{page}. {toc}</option>
-                              }
+                              return <option value={i} key={i}>{page}. {toc}</option>
                             })}
                           </select>
                         </div>
