@@ -19,12 +19,12 @@ export default class OpenSeadragonViewer extends React.Component {
     const updatePath = this._updatePath;
     window.OPENSEADRAGONVIEWER.addHandler('page', function (viewer) {
       if (updatePath(viewer.page)) {
-        window.history.pushState(null, null, `#${basename}/image/${viewer.page}`);
+        window.location.href = `#${basename}/image/${viewer.page}`;
       }
     });
     // This allows us to keep the transcript/image toggle pills in sync
     // with what was clicked on the viewer nav strip
-    OPENSEADRAGONVIEWER.goToPage(parseInt(this.props.match.params.id, 10));
+    OPENSEADRAGONVIEWER.goToPage(this._currentImage());
     // Force a re-render to get the TOC drop-down
     this.forceUpdate();
   }
