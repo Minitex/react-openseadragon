@@ -40,7 +40,7 @@ describe('OpenSeadragon', () => {
     const component = renderer.create(
       <MemoryRouter initialEntries={['/image/0']} initialIndex={1} >
         <OpenSeadragon config={config} />
-      </MemoryRouter>,
+      </MemoryRouter>
     );
     const jsonComponent = component.toJSON();
     // Ugly as hell, don't have a good way to remove these hashes yet

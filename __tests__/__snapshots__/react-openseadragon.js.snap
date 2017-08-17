@@ -21,11 +21,11 @@ exports[`OpenSeadragon should render correctly 1`] = `
                   Table of Contents:
                 </label>
                 <select
+                  defaultValue={0}
                   name="toc"
                   onChange={[Function]}
                 >
                   <option
-                    selected="selected"
                     value={0}
                   >
                     1

@@ -15,7 +15,7 @@
   "dependencies": {
     "development": "0.0.6",
     "history": "^4.6.1",
-    "openseadragon": "^2.2.1",
+    "openseadragon": "^2.3.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.1",
     "react-router": "4.1.1",
@@ -58,7 +58,7 @@
   "scripts": {
     "start": "node server.js",
     "lint": "eslint src",
-    "build": "webpack --minimize --build; webpack --build",
+    "build": "webpack --minimize --build",
     "test": "jest"
   },
   "keywords": [

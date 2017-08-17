@@ -15,13 +15,33 @@ export default class OpenSeadragonViewer extends React.Component {
 
   componentDidMount() {
     const basename = this.props.basename;
-    window.OPENSEADRAGONVIEWER = window.OpenSeadragon(this._config());
+    if (typeof window.OpenSeadragon !== 'undefined') {
+      window.OPENSEADRAGONVIEWER = window.OpenSeadragon(this._config());
+    } else {
+      window.OPENSEADRAGONVIEWER = OpenSeadragon(this._config());
+    }
+ 
     const updatePath = this._updatePath;
-    window.OPENSEADRAGONVIEWER.addHandler('page', function (viewer) {
+    window.OPENSEADRAGONVIEWER.addHandler('page', (viewer) => {
       if (updatePath(viewer.page)) {
         window.location.href = `#${basename}/image/${viewer.page}`;
       }
     });
+
+    var fullPaged = false;
+    window.OPENSEADRAGONVIEWER.addHandler('pre-full-page', (viewer) => {
+      if (fullPaged) {
+        viewer.preventDefaultAction = true;
+        window.location.reload();
+      }
+      fullPaged = true;
+    });
+
+    window.OPENSEADRAGONVIEWER.addHandler('full-page', (viewer) => {
+      window.OPENSEADRAGONVIEWER.removeReferenceStrip();
+      window.OPENSEADRAGONVIEWER.addReferenceStrip();
+    });
+
     // This allows us to keep the transcript/image toggle pills in sync
     // with what was clicked on the viewer nav strip
     OPENSEADRAGONVIEWER.goToPage(this._currentImage());
@@ -77,6 +97,7 @@ export default class OpenSeadragonViewer extends React.Component {
 OpenSeadragonViewer.defaultProps = {  include_navigator: true,
                                       include_controls: true,
                                       default_config: {
+                                      	referenceStripWidth: 100,
                                         showNavigator: true,
                                         id: 'osd-viewer',
                                         visibilityRatio: 1.0,
