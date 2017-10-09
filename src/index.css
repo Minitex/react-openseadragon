@@ -1,3 +1,14 @@
+.osd-sidebar {
+  padding-top: 50px;
+  height: 100%;
+  background-color: #262425;
+  color: #ffffff;
+}
+
+.osd-sidebar ul {
+  list-style: none;
+  margin: 0;
+}
 .navigator-wrapper {
   background: #000;
   overflow: hidden;
@@ -6,8 +17,8 @@
   border: solid 0px #ffffff;
 }
 .osd {
-  position: relative;
   background-color: black;
+  padding: 0;
 }
 .osd-toolbar {
   padding: 0;
@@ -42,10 +53,8 @@
   font-size: 15px;
   padding-top: 2px;
 }
-.openseadragon-container,
 .openseadragon {
   height: 500px;
-  width: 100%;
 }
 .image-nav {
   margin-bottom: 10px;
@@ -58,4 +67,47 @@
 }
 .toc-select label {
   margin-right: 5px;
+}
+
+.page-button {
+  white-space: normal;
+}
+
+.viewer-sidebar .nav {
+  font-size: .8em;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+}
+
+.viewer-sidebar {
+  text-align: center;  
+}
+
+.viewer-sidebar {
+  padding: 0;
+}
+
+.viewer-sidebar .nav-tabs {
+  margin-bottom: 15px;
+}
+
+.viewer-sidebar .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a
+{
+    margin-top: 1px;
+}
+.viewer-sidebar .nav-tabs > li {
+    margin-bottom: 0px; 
+}
+.viewer-sidebar .nav-tabs > li.active {
+    margin-bottom: -1px;    
+}
+
+.osd-sidebar ul {
+  padding: 0;
+}
+
+.page-button.active{
+  background-color: #fff;
 }

@@ -1,64 +1,54 @@
 import React from 'react';
 import OpenSeadragon from 'openseadragon';
 import OpenSeadragonControls from './react-openseadragon-controls';
-import ImageNav from './react-openseadragon-nav';
+import Sidebar from './sidebar';
+
+
+var OPENSEADRAGONVIEWER = undefined;
 
 export default class OpenSeadragonViewer extends React.Component {
+  // Hack to override full page styling of OpenSeadragon.
+  static init() {
+    const osdContainer = document.getElementsByClassName('openseadragon-container');
+    osdContainer[0].className = 'openseadragon-container col-md-10';
+    osdContainer[0].style.cssText = OpenSeadragonViewer.osdStyle();
+    const viewer = document.getElementById('osd-viewer');
+    viewer.insertBefore(osdContainer[0], viewer.childNodes[0]);
+  }
+
+  static osdStyle() {
+    return `background: none transparent; border: none; margin: 0px;
+            padding: 0px; overflow: hidden; left: 0px; top: 0px;
+            text-align: left; height: 100%;`;
+  }
+
   constructor(props) {
     super(props);
     this._config = this._config.bind(this);
-    this._currentImage = this._currentImage.bind(this);
-    this._updatePath = this._updatePath.bind(this);
-    this._nav = this._nav.bind(this);
     this._id = this._id.bind(this);
+    this._sidebar = this._sidebar.bind(this);
+    this._currentImage = this._currentImage.bind(this);
   }
 
   componentDidMount() {
-    const basename = this.props.basename;
     if (typeof window.OpenSeadragon !== 'undefined') {
-      window.OPENSEADRAGONVIEWER = window.OpenSeadragon(this._config());
+      OPENSEADRAGONVIEWER = window.OpenSeadragon(this._config());
     } else {
-      window.OPENSEADRAGONVIEWER = OpenSeadragon(this._config());
+      OPENSEADRAGONVIEWER = OpenSeadragon(this._config());
     }
- 
-    const updatePath = this._updatePath;
-    window.OPENSEADRAGONVIEWER.addHandler('page', (viewer) => {
-      if (updatePath(viewer.page)) {
-        window.location.href = `#${basename}/image/${viewer.page}`;
-      }
-    });
 
-    var fullPaged = false;
-    window.OPENSEADRAGONVIEWER.addHandler('pre-full-page', (viewer) => {
-      if (fullPaged) {
-        viewer.preventDefaultAction = true;
-        window.location.reload();
-      }
-      fullPaged = true;
-    });
-
-    window.OPENSEADRAGONVIEWER.addHandler('full-page', (viewer) => {
-      window.OPENSEADRAGONVIEWER.removeReferenceStrip();
-      window.OPENSEADRAGONVIEWER.addReferenceStrip();
-    });
-
-    // This allows us to keep the transcript/image toggle pills in sync
-    // with what was clicked on the viewer nav strip
+    // Start at the image specified in the URL
     OPENSEADRAGONVIEWER.goToPage(this._currentImage());
-    // Force a re-render to get the TOC drop-down
-    this.forceUpdate();
-  }
 
-  _updatePath(page) {
-    if (this._currentImage() !== page) {
-      return true;
-    }
-    return false;
+    // Force a re-render to get the TOC drop-down
+    OPENSEADRAGONVIEWER
+    OpenSeadragonViewer.init();
+    this.forceUpdate();
   }
 
   _currentImage() {
     return parseInt(window.location.href.split('/').reverse()[0], 10);
-  }
+  }  
 
   _config() {
     return Object.assign(this.props.default_config, this.props.config);
@@ -68,12 +58,14 @@ export default class OpenSeadragonViewer extends React.Component {
     return parseInt(this.props.match.params.id, 10);
   }
 
-  _nav() {
+  _sidebar() {
     if (typeof OPENSEADRAGONVIEWER !== 'undefined') {
-      return (<ImageNav id={this._id()}
-        {...this.props}
-        {...this.props.config}
+      return (<Sidebar
+        basename={this.props.basename}
         viewer={OPENSEADRAGONVIEWER}
+        pages={this.props.config.pages}
+        thumbnails={this.props.config.thumbnails}
+        startPage={this._currentImage()}
       />);
     }
   }
@@ -83,11 +75,15 @@ export default class OpenSeadragonViewer extends React.Component {
     const controls = (include_controls) ? <OpenSeadragonControls /> : '';
     return (
       <div>
-        {this._nav()}
         <div className="osd col-md-12">
-          <div className="openseadragon" id="osd-viewer">
-            {controls}
-          </div>
+         <div className="row">
+            <div className="openseadragon col-md-12" id="osd-viewer">
+              {controls}
+              <div className="osd-sidebar col-md-2">
+                {this._sidebar()}
+              </div>
+            </div>
+            </div>
         </div>
       </div>
     );
@@ -97,7 +93,7 @@ export default class OpenSeadragonViewer extends React.Component {
 OpenSeadragonViewer.defaultProps = {  include_navigator: true,
                                       include_controls: true,
                                       default_config: {
-                                      	referenceStripWidth: 100,
+                                        showReferenceStrip: false,
                                         showNavigator: true,
                                         id: 'osd-viewer',
                                         visibilityRatio: 1.0,
@@ -109,8 +105,8 @@ OpenSeadragonViewer.defaultProps = {  include_navigator: true,
                                         zoomOutButton: 'zoom-out',
                                         homeButton: 'reset',
                                         fullPageButton: 'full-page',
-                                        nextButton: 'next',
-                                        previousButton: 'previous',
+                                        previousButton: 'sidebar-previous',
+                                        nextButton: 'sidebar-next',
                                       }
                                     }
 

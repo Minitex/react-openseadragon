@@ -18,11 +18,13 @@ class ReactOpenSeadragonRoute extends React.Component {
 
   _app() {
     const osprops = this.props;
+    const history = this.props.history;
     return () => (
       <div>
         <Route
           render={
             props => <OpenSeadragonViewer
+              history={history}
               {...osprops}
               {...props}
             />
