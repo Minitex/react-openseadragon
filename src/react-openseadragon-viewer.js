@@ -8,9 +8,9 @@ var OPENSEADRAGONVIEWER = undefined;
 
 export default class OpenSeadragonViewer extends React.Component {
   // Hack to override full page styling of OpenSeadragon.
-  static init() {
+  static init(cols) {
     const osdContainer = document.getElementsByClassName('openseadragon-container');
-    osdContainer[0].className = 'openseadragon-container col-md-10';
+    osdContainer[0].className = `openseadragon-container col-md-${cols}`;
     osdContainer[0].style.cssText = OpenSeadragonViewer.osdStyle();
     const viewer = document.getElementById('osd-viewer');
     viewer.insertBefore(osdContainer[0], viewer.childNodes[0]);
@@ -41,8 +41,7 @@ export default class OpenSeadragonViewer extends React.Component {
     OPENSEADRAGONVIEWER.goToPage(this._currentImage());
 
     // Force a re-render to get the TOC drop-down
-    OPENSEADRAGONVIEWER
-    OpenSeadragonViewer.init();
+    OpenSeadragonViewer.init(this.props.config.containerColumns);
     this.forceUpdate();
   }
 
@@ -79,7 +78,7 @@ export default class OpenSeadragonViewer extends React.Component {
          <div className="row">
             <div className="openseadragon col-md-12" id="osd-viewer">
               {controls}
-              <div className="osd-sidebar col-md-2">
+              <div className={`osd-sidebar col-md-${this.props.config.sidebarColumns}`}>
                 {this._sidebar()}
               </div>
             </div>

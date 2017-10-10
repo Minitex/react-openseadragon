@@ -11,6 +11,8 @@ const config =
     sequenceMode: true,
     showReferenceStrip: false,
     defaultZoomLevel: 0,
+    containerColumns: 10,
+    sidebarColumns: 2,
     tileSources: [
       'https://stacks.stanford.edu/image/iiif/hg676jb4964%2F0380_796-44/info.json',
       'https://ids.lib.harvard.edu/ids/iiif/25286610/info.json',
