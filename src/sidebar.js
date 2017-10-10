@@ -29,7 +29,7 @@ export default class Sidebar extends React.Component {
 
   _nav(e, page) {
     e.preventDefault();
-    this.goToPage(page);
+    this.goToPage(page);    
   }
 
   _updateURL(page) {
@@ -67,7 +67,6 @@ export default class Sidebar extends React.Component {
         />
       </button>);
   }
-
 
   _thumbnails() {
     return this.props.thumbnails.map((thumb, i) => this._thumbnail(thumb, i));

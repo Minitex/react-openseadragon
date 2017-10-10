@@ -10,7 +10,6 @@ export default class PrevNext extends React.Component {
     this._prevDisabled = this._prevDisabled.bind(this);
     this._nextDisabled = this._nextDisabled.bind(this);
     this.goToPage = props.goToPage;
-    this.state = { page: this.props.page };
   }
 
   prev(e) {
@@ -30,11 +29,11 @@ export default class PrevNext extends React.Component {
   }
 
   _prevPage() {
-    return this.state.page - 1;
+    return this.props.page - 1;
   }
 
   _nextPage() {
-    return this.state.page + 1;
+    return this.props.page + 1;
   }
 
   _prevDisabled() {
