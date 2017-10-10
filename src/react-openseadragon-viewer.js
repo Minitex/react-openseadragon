@@ -28,6 +28,7 @@ export default class OpenSeadragonViewer extends React.Component {
     this._id = this._id.bind(this);
     this._sidebar = this._sidebar.bind(this);
     this._currentImage = this._currentImage.bind(this);
+    this._showSidebar = this._showSidebar.bind(this);
   }
 
   componentDidMount() {
@@ -41,7 +42,9 @@ export default class OpenSeadragonViewer extends React.Component {
     OPENSEADRAGONVIEWER.goToPage(this._currentImage());
 
     // Force a re-render to get the TOC drop-down
-    OpenSeadragonViewer.init(this.props.config.containerColumns);
+    if (this._showSidebar()) {
+      OpenSeadragonViewer.init(this.props.config.containerColumns);
+    }
     this.forceUpdate();
   }
 
@@ -57,15 +60,22 @@ export default class OpenSeadragonViewer extends React.Component {
     return parseInt(this.props.match.params.id, 10);
   }
 
+  _showSidebar() {
+    return this.props.config.pages.length > 1;
+  }
+
   _sidebar() {
-    if (typeof OPENSEADRAGONVIEWER !== 'undefined') {
-      return (<Sidebar
-        basename={this.props.basename}
-        viewer={OPENSEADRAGONVIEWER}
-        pages={this.props.config.pages}
-        thumbnails={this.props.config.thumbnails}
-        startPage={this._currentImage()}
-      />);
+    if (typeof OPENSEADRAGONVIEWER !== 'undefined' && this._showSidebar()) {
+      return (
+        <div className={`osd-sidebar col-md-${this.props.config.sidebarColumns}`}>
+          <Sidebar
+            basename={this.props.basename}
+            viewer={OPENSEADRAGONVIEWER}
+            pages={this.props.config.pages}
+            thumbnails={this.props.config.thumbnails}
+            startPage={this._currentImage()}
+          />
+        </div>);
     }
   }
 
@@ -78,9 +88,7 @@ export default class OpenSeadragonViewer extends React.Component {
          <div className="row">
             <div className="openseadragon col-md-12" id="osd-viewer">
               {controls}
-              <div className={`osd-sidebar col-md-${this.props.config.sidebarColumns}`}>
-                {this._sidebar()}
-              </div>
+              {this._sidebar()}
             </div>
             </div>
         </div>
