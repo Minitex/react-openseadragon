@@ -98,16 +98,16 @@
     margin-top: 1px;
 }
 .viewer-sidebar .nav-tabs > li {
-    margin-bottom: 0px; 
+    margin-bottom: 0px;
 }
 .viewer-sidebar .nav-tabs > li.active {
-    margin-bottom: -1px;    
+    margin-bottom: -1px;
 }
 
 .osd-sidebar ul {
   padding: 0;
 }
 
-.page-button.active{
+.viewer-sidebar button.active {
   background-color: #fff;
 }

@@ -1,15 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import PrevNext from './prev_next';
-import PageTextLink from './page_text_link';
+import Button from './button';
+import Title from './title';
+import Thumbnail from './thumbnail';
 
-export default class Sidebar extends React.Component {
+const TitleButton = Button(Title);
+const ThumbButton = Button(Thumbnail);
+
+class Sidebar extends React.Component {
   constructor(props) {
     super(props);
     this.goToPage = this.goToPage.bind(this);
-    this._pageButton = this._pageButton.bind(this);
+    this._titleButton = this._titleButton.bind(this);
+    this._titles = this._titles.bind(this);
     this._updateURL = this._updateURL.bind(this);
     this._nav = this._nav.bind(this);
-    this._pages = this._pages.bind(this);
     this._thumbnails = this._thumbnails.bind(this);
     this._togglePages = this._togglePages.bind(this);
     this.state = {
@@ -29,7 +35,7 @@ export default class Sidebar extends React.Component {
 
   _nav(e, page) {
     e.preventDefault();
-    this.goToPage(page);    
+    this.goToPage(page);
   }
 
   _updateURL(page) {
@@ -38,34 +44,33 @@ export default class Sidebar extends React.Component {
                              `#${this.props.basename}/image/${page}`);
   }
 
-  _pageButton(page, key) {
+  _titleButton(title, key) {
     return (
       <li key={`sidebar-page-${key}`}>
-        <button
-          className={`page-button btn btn-link ${(this.state.page === key) ? 'active' : ''}`}
-          onClick={e => this._nav(e, key)}
-        >
-          {page}
-        </button>
+        <TitleButton
+          active={this.state.page === key}
+          pageId={key}
+          value={title}
+          handler={this._nav}
+        />
       </li>);
   }
 
-  _pages() {
-    return this.props.pages.map((page, i) => this._pageButton(page, i));
+  _titles() {
+    return this.props.pages.map((title, i) => this._titleButton(title, i));
   }
 
-  _thumbnail(thumb, key) {
+  _thumbnail(src, key) {
     return (
-      <button
-        key={`sidebar-thumb-${key}`}
-        className={`page-button btn btn-link ${(this.state.page == key) ? 'active' : ''}`}
-        onClick={e => this._nav(e, key)}
-      >
-        <img
+      <li key={`sidebar-page-${key}`}>
+        <ThumbButton
+          active={this.state.page === key}
+          pageId={key}
+          handler={this._nav}
           alt={`page thumbnail for page "${this.props.pages[key]}"`}
-          src={thumb}
+          src={src}
         />
-      </button>);
+      </li>);
   }
 
   _thumbnails() {
@@ -108,7 +113,7 @@ export default class Sidebar extends React.Component {
       </ul>
 
       <ul className={this.state.pageListClass}>
-        {this._pages()}
+        {this._titles()}
       </ul>
       <ul className={this.state.thumbListClass}>
         {this._thumbnails()}
@@ -116,3 +121,12 @@ export default class Sidebar extends React.Component {
     </div>);
   }
 }
+
+Sidebar.propTypes = {
+  startPage: PropTypes.number.isRequired,
+  viewer:  PropTypes.object.isRequired,
+  pages: PropTypes.array.isRequired,
+  basename: PropTypes.string.isRequired,
+};
+
+export default Sidebar;
