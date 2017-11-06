@@ -1,8 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Title = props => <p>{props.value}</p>;
+const Title = (props) => {
+  const found = (props.numFound > 0) ? `${props.numFound} found`: '';
+  return (
+    <div className="page-title">
+      <div className="page-label">{props.title}</div>
+    </div>
+  );
+};
+
 Title.propTypes = {
-  value: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 };
 export default Title;

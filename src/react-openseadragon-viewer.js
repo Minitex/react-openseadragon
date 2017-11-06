@@ -1,34 +1,44 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import OpenSeadragon from 'openseadragon';
 import OpenSeadragonControls from './react-openseadragon-controls';
-import Sidebar from './sidebar';
-
 
 var OPENSEADRAGONVIEWER = undefined;
 
 export default class OpenSeadragonViewer extends React.Component {
-  // Hack to override full page styling of OpenSeadragon.
-  static init(cols) {
-    const osdContainer = document.getElementsByClassName('openseadragon-container');
-    osdContainer[0].className = `openseadragon-container col-md-${cols}`;
-    osdContainer[0].style.cssText = OpenSeadragonViewer.osdStyle();
-    const viewer = document.getElementById('osd-viewer');
-    viewer.insertBefore(osdContainer[0], viewer.childNodes[0]);
+  static defaultConfig() {
+    return {
+      sequenceMode: true,
+      showReferenceStrip: false,
+      showNavigator: true,
+      id: 'osd-viewer',
+      visibilityRatio: 1.0,
+      constrainDuringPan: false,
+      defaultZoomLevel: 1,
+      minZoomLevel: 1,
+      maxZoomLevel: 10,
+      zoomInButton: 'zoom-in',
+      zoomOutButton: 'zoom-out',
+      homeButton: 'reset',
+      fullPageButton: 'full-page',
+      previousButton: 'sidebar-previous',
+      nextButton: 'sidebar-next',
+    };
   }
 
-  static osdStyle() {
-    return `background: none transparent; border: none; margin: 0px;
-            padding: 0px; overflow: hidden; left: 0px; top: 0px;
-            text-align: left; height: 100%;`;
-  }
 
   constructor(props) {
     super(props);
     this._config = this._config.bind(this);
     this._id = this._id.bind(this);
-    this._sidebar = this._sidebar.bind(this);
-    this._currentImage = this._currentImage.bind(this);
-    this._showSidebar = this._showSidebar.bind(this);
+    this._currentPageIndex = this._currentPageIndex.bind(this);
+    this._osdViewer = this._osdViewer.bind(this);
+    this.state = {
+      pages: props.pages,
+      showSearchText: props.showSearchText,
+      osdDisplay: {},
+      textDisplay: { display: 'none' },
+    };
   }
 
   componentDidMount() {
@@ -39,85 +49,66 @@ export default class OpenSeadragonViewer extends React.Component {
     }
 
     // Start at the image specified in the URL
-    OPENSEADRAGONVIEWER.goToPage(this._currentImage());
+    OPENSEADRAGONVIEWER.goToPage(this.props.currentPageId);
+    // OPENSEADRAGONVIEWER.goToPage(this._currentPageIndex());
 
-    // Force a re-render to get the TOC drop-down
-    if (this._showSidebar()) {
-      OpenSeadragonViewer.init(this.props.config.containerColumns);
-    }
+    // this.props.toggleSearchText();
+    // Force a re-render to get the sidebar etc after OSD mounts
+
     this.forceUpdate();
   }
 
-  _currentImage() {
-    return parseInt(window.location.href.split('/').reverse()[0], 10);
-  }  
+  _currentPageIndex() {
+    let urlParts = window.location.href.split('/');
+    return parseInt(urlParts.map(
+      (part, i) => {
+        if (part === 'image') {
+          return urlParts[i + 1];
+        }
+        return '';
+      }).join('').trim(), [0], 10);
+  };
+
+  _currentPage() {
+    return this.state.pages[this._currentPageIndex()];
+  }
 
   _config() {
-    return Object.assign(this.props.default_config, this.props.config);
+    return Object.assign(OpenSeadragonViewer.defaultConfig(), this.props.osdConfig);
   }
 
   _id(){
     return parseInt(this.props.match.params.id, 10);
   }
 
-  _showSidebar() {
-    return this.props.config.pages.length > 1;
-  }
-
-  _sidebar() {
-    if (typeof OPENSEADRAGONVIEWER !== 'undefined' && this._showSidebar()) {
-      return (
-        <div className={`osd-sidebar col-md-${this.props.config.sidebarColumns}`}>
-          <Sidebar
-            basename={this.props.basename}
-            viewer={OPENSEADRAGONVIEWER}
-            pages={this.props.config.pages}
-            thumbnails={this.props.config.thumbnails}
-            startPage={this._currentImage()}
-          />
-        </div>);
-    }
-  }
-
-  render() {
-    const { include_controls } = this.props;
-    const controls = (include_controls) ? <OpenSeadragonControls /> : '';
+  _osdViewer() {
     return (
-      <div>
-        <div className="osd col-md-12">
-         <div className="row">
-            <div className="openseadragon col-md-12" id="osd-viewer">
-              {controls}
-              {this._sidebar()}
-            </div>
-            </div>
-        </div>
+      <div className="openseadragon" id="osd-viewer">
+        <OpenSeadragonControls />
       </div>
     );
   }
+
+  render() {
+    if (typeof OPENSEADRAGONVIEWER !== 'undefined') {
+      OPENSEADRAGONVIEWER.goToPage(this.props.currentPageId);
+    }
+    return (<div>{this._osdViewer()}</div>);
+  }
 }
 
-OpenSeadragonViewer.defaultProps = {  include_navigator: true,
-                                      include_controls: true,
-                                      default_config: {
-                                        showReferenceStrip: false,
-                                        showNavigator: true,
-                                        id: 'osd-viewer',
-                                        visibilityRatio: 1.0,
-                                        constrainDuringPan: false,
-                                        defaultZoomLevel: 1,
-                                        minZoomLevel: 1,
-                                        maxZoomLevel: 10,
-                                        zoomInButton: 'zoom-in',
-                                        zoomOutButton: 'zoom-out',
-                                        homeButton: 'reset',
-                                        fullPageButton: 'full-page',
-                                        previousButton: 'sidebar-previous',
-                                        nextButton: 'sidebar-next',
-                                      }
-                                    }
+OpenSeadragonViewer.defaultProps = {
+  viewSearchText: '',
+  osdConfig: {
+    defaultZoomLevel: 0,
+    tileSources: [],
+  },
+};
 
 OpenSeadragonViewer.propTypes = {
-  config: React.PropTypes.object,
-  basename: React.PropTypes.string,
-}
+  osdConfig: PropTypes.shape({
+    defaultZoomLevel: PropTypes.number,
+    tileSources: PropTypes.arrayOf(PropTypes.string),
+  }),
+  viewSearchText: PropTypes.string,
+};

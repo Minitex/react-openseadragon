@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 
 const Thumbnail = props =>
   <img
-    alt={`page thumbnail for page "${props.alt}"`}
-    src={props.src}
+    alt={`page thumbnail for page "${props.title}"`}
+    src={props.thumbnail}
   />;
 
 Thumbnail.propTypes = {
-  alt: PropTypes.string.isRequired,
-  src: PropTypes.string.isRequired,
+
+  title: PropTypes.string.isRequired,
+  thumbnail: PropTypes.string.isRequired,
 };
 export default Thumbnail;

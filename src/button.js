@@ -3,18 +3,19 @@ import PropTypes from 'prop-types';
 
 function Button(WrappedComponent) {
   const ButtonComponent = (props) => {
-    const active = (props.active === true) ? 'active' : '';
     return (<button
-      className={` btn btn-link ${active}`}
-      onClick={e => props.handler(e, props.pageId)}
+      type="button"
+      className={props.cssClasses}
+      onClick={e => props.goToPageHandler(props.id, props.viewer, props.searchText)}
     >
       <WrappedComponent {...props} />
     </button>);
   };
   ButtonComponent.propTypes = {
-    pageId: PropTypes.number.isRequired,
-    active: PropTypes.bool.isRequired,
-    handler: PropTypes.func.isRequired,
+    id: PropTypes.number.isRequired,
+    viewer: PropTypes.string.isRequired,
+    goToPageHandler: PropTypes.func.isRequired,
+    cssClasses: PropTypes.string.isRequired,
   };
   return ButtonComponent;
 }

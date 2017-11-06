@@ -45,7 +45,6 @@
 .openseadragon-container,
 .openseadragon {
   height: 500px;
-  width: 100%;
 }
 .image-nav {
   margin-bottom: 10px;
@@ -53,11 +52,23 @@
 .image-nav ul {
   margin-left: 15px;
 }
-.toc-select {
-  margin-top: 10px;
+
+.osd-sidebar  img {
+    max-width: 150px;
+  }
+
+.osd-sidebar {
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
-.toc-select label {
-  margin-right: 5px;
+
+.nav > li > a  {
+  padding: 5px 5px;
 }
+.nav > li > a:hover,
+.nav > li > a:focus {
+  border: 1px solid #ecedf0;
+}
+
 
 /*# sourceMappingURL=example.css.map*/

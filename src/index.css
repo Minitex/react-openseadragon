@@ -1,30 +1,37 @@
 .osd-sidebar {
   padding-top: 50px;
-  height: 100%;
   background-color: #262425;
-  color: #ffffff;
+  width: 100%;
 }
 
 .osd-sidebar ul {
   list-style: none;
   margin: 0;
 }
+
 .navigator-wrapper {
   background: #000;
   overflow: hidden;
   width: 166px;
   height: 178px;
-  border: solid 0px #ffffff;
+  border: solid 0px #ECEDF0;
 }
+
 .osd {
   background-color: black;
   padding: 0;
 }
+
+.osd-row {
+  overflow: hidden;
+}
+
 .osd-toolbar {
   padding: 0;
   position: absolute;
   top: 0;
 }
+
 .osd-toolbar li {
   display: inline-block;
 }
@@ -62,45 +69,44 @@
 .image-nav ul {
   margin-left: 15px;
 }
-.toc-select {
-  margin-top: 10px;
-}
-.toc-select label {
-  margin-right: 5px;
-}
 
 .page-button {
   white-space: normal;
 }
 
-.viewer-sidebar .nav {
+.osd-sidebar .nav {
   font-size: .8em;
   margin: 0;
   padding: 0;
   width: 100%;
-
 }
 
-.viewer-sidebar {
-  text-align: center;  
+.osd-sidebar-header {
+  height: 175px;
+  background-color: #262425;
+  padding: 10px;
+  text-align: center;
 }
 
-.viewer-sidebar {
-  padding: 0;
+.osd-sidebar {
+  text-align: center;
+  height: 350px;
+  padding: 15px;
+  overflow: scroll;
 }
 
-.viewer-sidebar .nav-tabs {
+.osd-sidebar .nav-tabs {
   margin-bottom: 15px;
 }
 
-.viewer-sidebar .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a
+.osd-sidebar .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a
 {
-    margin-top: 1px;
+  margin-top: 1px;
 }
-.viewer-sidebar .nav-tabs > li {
+.osd-sidebar .nav-tabs > li {
     margin-bottom: 0px;
 }
-.viewer-sidebar .nav-tabs > li.active {
+.osd-sidebar .nav-tabs > li.active {
     margin-bottom: -1px;
 }
 
@@ -108,6 +114,37 @@
   padding: 0;
 }
 
-.viewer-sidebar button.active {
+.osd-sidebar .btn {
+  white-space: normal;
+}
+
+.osd-sidebar .active {
+  background-color: #ECEDF0;
+}
+
+.page-search .glyphicon-search {
+  color: #2b292a;
+}
+
+.osd-search-highlight {
+  font-style: italic;
+  font-weight: bold;
+}
+
+.num-found li {
+  color: #fff;
+}
+
+.sidebar-list-item {
+  border-bottom: 1px solid #ECEDF0;
+  padding: 10px 0 10px;
+}
+
+.osd .ocr-text {
+    height: 500px;
+}
+
+.ocr-text {
   background-color: #fff;
+  overflow-y: scroll;
 }

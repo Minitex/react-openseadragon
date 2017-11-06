@@ -1,6 +1,7 @@
 import React from 'react';
-export default class PrevNext extends React.Component {
+import PropTypes from 'prop-types';
 
+class PrevNext extends React.Component {
   constructor(props) {
     super(props);
     this.prev = this.prev.bind(this);
@@ -9,13 +10,13 @@ export default class PrevNext extends React.Component {
     this._nextPage = this._nextPage.bind(this);
     this._prevDisabled = this._prevDisabled.bind(this);
     this._nextDisabled = this._nextDisabled.bind(this);
-    this.goToPage = props.goToPage;
+    this.goToPageHandler = props.goToPageHandler;
   }
 
   prev(e) {
     e.preventDefault();
     if (!this._prevDisabled()) {
-      this.goToPage(this._prevPage());
+      this.goToPageHandler(this._prevPage(), this.props.viewer);
       this.setState({ page: this._prevPage() });
     }
   }
@@ -23,17 +24,17 @@ export default class PrevNext extends React.Component {
   next(e) {
     e.preventDefault();
     if (!this._nextDisabled()) {
-      this.goToPage(this._nextPage());
+      this.goToPageHandler(this._nextPage(), this.props.viewer);
       this.setState({ page: this._nextPage() });
     }
   }
 
   _prevPage() {
-    return this.props.page - 1;
+    return this.props.currentPageId - 1;
   }
 
   _nextPage() {
-    return this.props.page + 1;
+    return this.props.currentPageId + 1;
   }
 
   _prevDisabled() {
@@ -45,8 +46,8 @@ export default class PrevNext extends React.Component {
   }
 
   render() {
-    let prevClass = (this._prevDisabled()) ? 'disabled' : '';
-    let nextClass = (this._nextDisabled()) ? 'disabled' : '';
+    const prevClass = (this._prevDisabled()) ? 'disabled' : '';
+    const nextClass = (this._nextDisabled()) ? 'disabled' : '';
     return (<div>
       <ul className="prev-next list-inline">
         <li>
@@ -67,6 +68,14 @@ export default class PrevNext extends React.Component {
           </button>
         </li>
       </ul>
-  </div>);
+    </div>);
   }
 }
+
+PrevNext.propTypes = {
+  goToPageHandler: PropTypes.func.isRequired,
+  currentPageId: PropTypes.number.isRequired,
+  viewer: PropTypes.string.isRequired,
+};
+
+export default PrevNext;

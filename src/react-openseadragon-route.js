@@ -1,12 +1,13 @@
 import React from 'react';
 import {
   BrowserRouter as Router,
+  Redirect,
+  Switch,
   Route,
 } from 'react-router-dom';
 import './index.css';
-import OpenSeadragonViewer from './react-openseadragon-viewer';
+import Viewer from './viewer';
 
-export { OpenSeadragonControls } from './react-openseadragon-controls';
 
 class ReactOpenSeadragonRoute extends React.Component {
   constructor(props) {
@@ -23,7 +24,7 @@ class ReactOpenSeadragonRoute extends React.Component {
       <div>
         <Route
           render={
-            props => <OpenSeadragonViewer
+            props => <Viewer
               history={history}
               {...osprops}
               {...props}
@@ -38,7 +39,10 @@ class ReactOpenSeadragonRoute extends React.Component {
     const App = this._app();
     return (
       <div>
-        <Route path="/image/:id" component={App} />
+        <Switch>
+          <Redirect exact from='/0' to='/0/OSD_VIEWER' />
+        </Switch>
+        <Route path="/:id/:viewer?/:searchText?/:goToPage?" component={App} />
       </div>
     );
   }
@@ -49,10 +53,6 @@ class ReactOpenSeadragonRoute extends React.Component {
     );
   }
 }
-
-ReactOpenSeadragonRoute.propTypes = {
-  config: React.PropTypes.object.isRequired,
-};
 
 export default ReactOpenSeadragonRoute;
 
