@@ -51,11 +51,10 @@ function itemList(PageComponent) {
       const hasMatch = page.numFound > 0;
       const viewer = (page.viewer === 'OSD_VIEWER') ? 'TEXT_VIEWER' : 'OSD_VIEWER';
       const glyph = (page.viewer === 'OSD_VIEWER') ? 'icon-text' : 'glyphicon glyphicon-picture';
-      // console.log(`${viewer}-${key} === ${page.viewer}`);
       if (hasMatch) {
         return (
           <TextToggle
-            cssClasses={`btn btn-info ${this.activeItem(key)}`}
+            cssClasses={`view-text btn btn-info ${this.activeItem(key)}`}
             glyph={`glyphicon ${glyph}`}
             {...page}
             {...this.props}
@@ -67,7 +66,7 @@ function itemList(PageComponent) {
     }
 
     activeItem(id) {
-      return (this.props.currentPageId === id) ? 'active' : '';
+      return (this.props.currentPageId === id || this.props.showResultsOnly === true) ? 'active' : '';
     }
 
   ensureActiveItemVisible() {
@@ -80,23 +79,23 @@ function itemList(PageComponent) {
     item(page, key) {
       const active = this.activeItem(key);
       const refs = {};
-      if (active === 'active') {
+      if (active === 'active' && this.props.showResultsOnly === false) {
         refs.ref = 'activeItem';
       }
       return (
         <li className="sidebar-list-item" key={`sidebar-page-button-${key}`}>
           <Page
-            cssClasses={` btn btn-link ${ active}`}
+            cssClasses={`page btn btn-outline-primary ${ active}`}
             {...page}
             {...this.props}
             {...refs}
             viewer="OSD_VIEWER"
             active={active}
           />
+          <div>{this._textViewButton(page, key)}</div>
           &nbsp; <span className="badge">{ItemList.found(page.numFound)}</span>
           <ul><li className="num-found" key={`sidebar-page-text-button-${key}`}>
             <div dangerouslySetInnerHTML={ItemList.snippets(page.snippets)} />
-            {this._textViewButton(page, key)}
           </li></ul>
         </li>
       );
@@ -119,6 +118,7 @@ function itemList(PageComponent) {
     pages: PropTypes.array.isRequired,
     currentPageId: PropTypes.number.isRequired,
     showResultsOnly: PropTypes.bool,
+    showThumbnail: PropTypes.bool.isRequired,
   };
 
   return ItemList;

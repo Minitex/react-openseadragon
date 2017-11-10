@@ -60,9 +60,7 @@
   font-size: 15px;
   padding-top: 2px;
 }
-.openseadragon {
-  height: 500px;
-}
+
 .image-nav {
   margin-bottom: 10px;
 }
@@ -118,7 +116,12 @@
   white-space: normal;
 }
 
-.osd-sidebar .active {
+.osd-sidebar .btn:hover {
+  color: #337ab7;
+  background-color: #fff;
+}
+
+.osd-sidebar .page.active {
   background-color: #ECEDF0;
 }
 
@@ -140,11 +143,6 @@
   padding: 10px 0 10px;
 }
 
-.osd .ocr-text {
-    height: 500px;
-}
-
-.ocr-text {
-  background-color: #fff;
-  overflow-y: scroll;
+.view-text {
+  margin: 15px;
 }

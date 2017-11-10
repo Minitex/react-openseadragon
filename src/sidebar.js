@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import queryString from 'query-string';
 import PrevNext from './prev_next';
 import Title from './title';
 import Thumbnail from './thumbnail';
@@ -12,34 +14,13 @@ const ThumbnailList = ItemList(Thumbnail);
 class Sidebar extends React.Component {
   constructor(props) {
     super(props);
-    this._togglePages = this._togglePages.bind(this);
-    this.state = {
-      pageToggleClass: 'active',
-      thumbToggleClass: '',
-      pageListClass: '',
-      thumbListClass: 'hide',
-      currentPageId: props.currentPageId,
-      pages: props.pages,
+    const showThumbnail = props.showThumbnail;
+    this.css = {
+      pageToggleClass: (showThumbnail === true) ? '' : 'active',
+      thumbToggleClass: (showThumbnail === true) ? 'active' : '',
+      pageListClass: (showThumbnail === true) ? 'hide' : '',
+      thumbListClass: (showThumbnail === true) ? '' : 'hide',
     };
-  }
-
-  _togglePages(e) {
-    e.preventDefault();
-    if (e.target.name === 'PagesToggle') {
-      this.setState({
-        pageToggleClass: 'active',
-        thumbToggleClass: '',
-        pageListClass: '',
-        thumbListClass: 'hide',
-      });
-    } else {
-      this.setState({
-        pageToggleClass: '',
-        thumbToggleClass: 'active',
-        pageListClass: 'hide',
-        thumbListClass: '',
-      });
-    }
   }
 
   render() {
@@ -53,24 +34,50 @@ class Sidebar extends React.Component {
             {...this.props}
           />
           <ul className="nav nav-tabs">
-            <li className={this.state.pageToggleClass}>
-              <a name="PagesToggle" onClick={this._togglePages} href="#">Titles</a>
+            <li className={this.css.pageToggleClass}>
+              <Link
+                to={{
+                  pathname: '/0',
+                  search: queryString.stringify({
+                    searchText: this.props.searchText,
+                    viewer: this.props.viewer,
+                    showThumbnail: false,
+                  }),
+                }}
+                type="button"
+              >
+                Titles
+              </Link>
             </li>
-            <li className={this.state.thumbToggleClass}>
-              <a name="ThumbsToggle" onClick={this._togglePages} href="#">Thumbnails</a>
+            <li className={this.css.thumbToggleClass}>
+              <Link
+                to={{
+                  pathname: '/0',
+                  search: queryString.stringify({
+                    searchText: this.props.searchText,
+                    viewer: this.props.viewer,
+                    showThumbnail: true,
+                  }),
+                }}
+                type="button"
+              >
+                Thumbnails
+              </Link>
             </li>
           </ul>
         </div>
         <div className="osd-sidebar">
 
-        <ul className={this.state.pageListClass}>
+        <ul className={this.css.pageListClass}>
           <TitleList
             {...this.props}
+            showThumbnail={false}
           />
         </ul>
-        <ul className={this.state.thumbListClass}>
+        <ul className={this.css.thumbListClass}>
           <ThumbnailList
             {...this.props}
+            showThumbnail={true}
           />
         </ul>
       </div>
@@ -80,12 +87,17 @@ class Sidebar extends React.Component {
   }
 }
 
+Sidebar.defaultProps = {
+    searchText: '',
+};
+
 Sidebar.propTypes = {
-  currentPageId: PropTypes.number.isRequired,
   pages: PropTypes.array.isRequired,
   basename: PropTypes.string.isRequired,
   resizeHandler: PropTypes.func.isRequired,
   searchText: PropTypes.string,
+  showThumbnail: PropTypes.bool.isRequired,
+  showThumbnailHandler: PropTypes.func.isRequired,
 };
 
 export default Sidebar;

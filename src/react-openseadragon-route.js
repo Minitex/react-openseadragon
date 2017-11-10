@@ -39,10 +39,7 @@ class ReactOpenSeadragonRoute extends React.Component {
     const App = this._app();
     return (
       <div>
-        <Switch>
-          <Redirect exact from='/0' to='/0/OSD_VIEWER' />
-        </Switch>
-        <Route path="/:id/:viewer?/:searchText?/:goToPage?" component={App} />
+        <Route path="/:id" component={App} />
       </div>
     );
   }

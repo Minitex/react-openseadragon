@@ -55,6 +55,7 @@ class PrevNext extends React.Component {
             className={`btn btn-link ${prevClass}`}
             onClick={this.prev}
             id="sidebar-previous"
+            aria-label="Previous Image"
           >
             <i className="glyphicon glyphicon-arrow-left" />
           </button>
@@ -63,6 +64,7 @@ class PrevNext extends React.Component {
           <button
             className={`btn btn-link  ${nextClass}`}
             onClick={this.next} id="sidebar-next"
+            aria-label="Next Image"
           >
             <i className="glyphicon glyphicon-arrow-right" />
           </button>

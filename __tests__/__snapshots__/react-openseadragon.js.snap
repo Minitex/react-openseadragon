@@ -4,111 +4,649 @@ exports[`OpenSeadragon should render correctly 1`] = `
 <div>
   <div>
     <div>
-      <div>
+      <div
+        className="osd"
+      >
         <div
-          className="row image-nav"
-        >
-          <ul
-            className="nav nav-pills"
-          >
-            <li>
-              <div
-                className="toc-select"
-              >
-                <label
-                  htmlFor="toc"
-                >
-                  Table of Contents:
-                </label>
-                <select
-                  defaultValue={0}
-                  name="toc"
-                  onChange={[Function]}
-                >
-                  <option
-                    value={0}
-                  >
-                    1
-                    . 
-                    MLK
-                  </option>
-                  <option
-                    value={1}
-                  >
-                    2
-                    . 
-                    A Statue
-                  </option>
-                </select>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div
-          className="osd col-md-12"
+          className="row osd-row"
         >
           <div
-            className="openseadragon"
-            id="osd-viewer"
+            className="easer showViewer col-md-10"
           >
-            <ul
-              className="osd-toolbar"
-            >
-              <li>
-                <a
-                  id="zoom-in"
+            <div>
+              <div
+                className="openseadragon"
+                id="osd-viewer"
+              >
+                <ul
+                  className="osd-toolbar"
                 >
-                  <i
-                    className="glyphicon glyphicon-zoom-in"
-                  />
-                </a>
-              </li>
-              <li>
-                <a
-                  id="zoom-out"
+                  <li>
+                    <a
+                      id="zoom-in"
+                    >
+                      <i
+                        className="glyphicon glyphicon-zoom-in"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      id="zoom-out"
+                    >
+                      <i
+                        className="glyphicon glyphicon-zoom-out"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      id="reset"
+                    >
+                      <i
+                        className="glyphicon glyphicon-home"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      id="full-page"
+                    >
+                      <i
+                        className="glyphicon glyphicon-resize-full"
+                      />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div
+            className=" easer hideViewer col-md-10"
+            id="text-viewer"
+          />
+          <div
+            className="col-md-2 easer"
+          >
+            <div>
+              <div
+                className="osd-sidebar-header"
+              >
+                <div
+                  className="page-search form-group has-feedback"
                 >
-                  <i
-                    className="glyphicon glyphicon-zoom-out"
+                  <span
+                    className="sr-only"
+                  >
+                    Search:
+                  </span>
+                  <input
+                    aria-label="Search OCR Text"
+                    className="form-control"
+                    defaultValue=""
+                    id="page-search"
+                    name="page-search"
+                    onChange={[Function]}
+                    type="text"
                   />
-                </a>
-              </li>
-              <li>
-                <a
-                  id="reset"
+                  
+                  <span
+                    aria-hidden="true"
+                    className="glyphicon glyphicon-search form-control-feedback"
+                  />
+                </div>
+                <div>
+                  <ul
+                    className="prev-next list-inline"
+                  >
+                    <li>
+                      <button
+                        aria-label="Previous Image"
+                        className="btn btn-link disabled"
+                        id="sidebar-previous"
+                        onClick={[Function]}
+                      >
+                        <i
+                          className="glyphicon glyphicon-arrow-left"
+                        />
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        aria-label="Next Image"
+                        className="btn btn-link  "
+                        id="sidebar-next"
+                        onClick={[Function]}
+                      >
+                        <i
+                          className="glyphicon glyphicon-arrow-right"
+                        />
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+                <ul
+                  className="nav nav-tabs"
                 >
-                  <i
-                    className="glyphicon glyphicon-home"
-                  />
-                </a>
-              </li>
-              <li>
-                <a
-                  id="full-page"
+                  <li
+                    className="active"
+                  >
+                    <a
+                      href="/0?searchText=&showThumbnail=false&viewer=OSD_VIEWER"
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Titles
+                    </a>
+                  </li>
+                  <li
+                    className=""
+                  >
+                    <a
+                      href="/0?searchText=&showThumbnail=true&viewer=OSD_VIEWER"
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Thumbnails
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div
+                className="osd-sidebar"
+              >
+                <ul
+                  className=""
                 >
-                  <i
-                    className="glyphicon glyphicon-resize-full"
-                  />
-                </a>
-              </li>
-              <li>
-                <a
-                  id="previous"
+                  <div
+                    className="page-titles"
+                  >
+                    <li
+                      className="sidebar-list-item"
+                    >
+                      <a
+                        className="page btn btn-outline-primary active"
+                        href="/0?searchText=&showThumbnail=false&viewer=OSD_VIEWER"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        <div
+                          className="page-title"
+                        >
+                          <div
+                            className="page-label"
+                          >
+                            MLK
+                          </div>
+                        </div>
+                      </a>
+                      <div>
+                        
+                      </div>
+                        
+                      <span
+                        className="badge"
+                      >
+                        
+                      </span>
+                      <ul>
+                        <li
+                          className="num-found"
+                        >
+                          <div
+                            dangerouslySetInnerHTML={
+                              Object {
+                                "__html": "",
+                              }
+                            }
+                          />
+                        </li>
+                      </ul>
+                    </li>
+                    <li
+                      className="sidebar-list-item"
+                    >
+                      <a
+                        className="page btn btn-outline-primary "
+                        href="/1?searchText=&showThumbnail=false&viewer=OSD_VIEWER"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        <div
+                          className="page-title"
+                        >
+                          <div
+                            className="page-label"
+                          >
+                            A bill for an act authorizing the establishment of Worthington State College, Worthington, Minnesota
+                          </div>
+                        </div>
+                      </a>
+                      <div>
+                        
+                      </div>
+                        
+                      <span
+                        className="badge"
+                      >
+                        
+                      </span>
+                      <ul>
+                        <li
+                          className="num-found"
+                        >
+                          <div
+                            dangerouslySetInnerHTML={
+                              Object {
+                                "__html": "",
+                              }
+                            }
+                          />
+                        </li>
+                      </ul>
+                    </li>
+                    <li
+                      className="sidebar-list-item"
+                    >
+                      <a
+                        className="page btn btn-outline-primary "
+                        href="/2?searchText=&showThumbnail=false&viewer=OSD_VIEWER"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        <div
+                          className="page-title"
+                        >
+                          <div
+                            className="page-label"
+                          >
+                            View of the Palisades, Duluth, Minnesota
+                          </div>
+                        </div>
+                      </a>
+                      <div>
+                        
+                      </div>
+                        
+                      <span
+                        className="badge"
+                      >
+                        
+                      </span>
+                      <ul>
+                        <li
+                          className="num-found"
+                        >
+                          <div
+                            dangerouslySetInnerHTML={
+                              Object {
+                                "__html": "",
+                              }
+                            }
+                          />
+                        </li>
+                      </ul>
+                    </li>
+                    <li
+                      className="sidebar-list-item"
+                    >
+                      <a
+                        className="page btn btn-outline-primary "
+                        href="/3?searchText=&showThumbnail=false&viewer=OSD_VIEWER"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        <div
+                          className="page-title"
+                        >
+                          <div
+                            className="page-label"
+                          >
+                            Dalles of St. Croix River, Taylors Falls, Minnesota
+                          </div>
+                        </div>
+                      </a>
+                      <div>
+                        
+                      </div>
+                        
+                      <span
+                        className="badge"
+                      >
+                        
+                      </span>
+                      <ul>
+                        <li
+                          className="num-found"
+                        >
+                          <div
+                            dangerouslySetInnerHTML={
+                              Object {
+                                "__html": "",
+                              }
+                            }
+                          />
+                        </li>
+                      </ul>
+                    </li>
+                    <li
+                      className="sidebar-list-item"
+                    >
+                      <a
+                        className="page btn btn-outline-primary "
+                        href="/4?searchText=&showThumbnail=false&viewer=OSD_VIEWER"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        <div
+                          className="page-title"
+                        >
+                          <div
+                            className="page-label"
+                          >
+                            Log Jam on the St. Croix River, Taylor's Falls, Minnesota
+                          </div>
+                        </div>
+                      </a>
+                      <div>
+                        
+                      </div>
+                        
+                      <span
+                        className="badge"
+                      >
+                        
+                      </span>
+                      <ul>
+                        <li
+                          className="num-found"
+                        >
+                          <div
+                            dangerouslySetInnerHTML={
+                              Object {
+                                "__html": "",
+                              }
+                            }
+                          />
+                        </li>
+                      </ul>
+                    </li>
+                    <li
+                      className="sidebar-list-item"
+                    >
+                      <a
+                        className="page btn btn-outline-primary "
+                        href="/5?searchText=&showThumbnail=false&viewer=OSD_VIEWER"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        <div
+                          className="page-title"
+                        >
+                          <div
+                            className="page-label"
+                          >
+                            Pot Holes, Interstate Park, Taylors Falls, Minnesota
+                          </div>
+                        </div>
+                      </a>
+                      <div>
+                        
+                      </div>
+                        
+                      <span
+                        className="badge"
+                      >
+                        
+                      </span>
+                      <ul>
+                        <li
+                          className="num-found"
+                        >
+                          <div
+                            dangerouslySetInnerHTML={
+                              Object {
+                                "__html": "",
+                              }
+                            }
+                          />
+                        </li>
+                      </ul>
+                    </li>
+                  </div>
+                </ul>
+                <ul
+                  className="hide"
                 >
-                  <i
-                    className="glyphicon glyphicon-arrow-left"
-                  />
-                </a>
-              </li>
-              <li>
-                <a
-                  id="next"
-                >
-                  <i
-                    className="glyphicon glyphicon-arrow-right"
-                  />
-                </a>
-              </li>
-            </ul>
+                  <div
+                    className="page-titles"
+                  >
+                    <li
+                      className="sidebar-list-item"
+                    >
+                      <a
+                        className="page btn btn-outline-primary active"
+                        href="/0?searchText=&showThumbnail=true&viewer=OSD_VIEWER"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        <img
+                          alt="page thumbnail for page \\"MLK\\""
+                          src="https://stacks.stanford.edu/image/iiif/hg676jb4964%2F0380_796-44/full/100,/0/default.jpg"
+                        />
+                      </a>
+                      <div>
+                        
+                      </div>
+                        
+                      <span
+                        className="badge"
+                      >
+                        
+                      </span>
+                      <ul>
+                        <li
+                          className="num-found"
+                        >
+                          <div
+                            dangerouslySetInnerHTML={
+                              Object {
+                                "__html": "",
+                              }
+                            }
+                          />
+                        </li>
+                      </ul>
+                    </li>
+                    <li
+                      className="sidebar-list-item"
+                    >
+                      <a
+                        className="page btn btn-outline-primary "
+                        href="/1?searchText=&showThumbnail=true&viewer=OSD_VIEWER"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        <img
+                          alt="page thumbnail for page \\"A bill for an act authorizing the establishment of Worthington State College, Worthington, Minnesota\\""
+                          src="https://reflections.mndigital.org/thumbnails/p16022coll7:328/Text"
+                        />
+                      </a>
+                      <div>
+                        
+                      </div>
+                        
+                      <span
+                        className="badge"
+                      >
+                        
+                      </span>
+                      <ul>
+                        <li
+                          className="num-found"
+                        >
+                          <div
+                            dangerouslySetInnerHTML={
+                              Object {
+                                "__html": "",
+                              }
+                            }
+                          />
+                        </li>
+                      </ul>
+                    </li>
+                    <li
+                      className="sidebar-list-item"
+                    >
+                      <a
+                        className="page btn btn-outline-primary "
+                        href="/2?searchText=&showThumbnail=true&viewer=OSD_VIEWER"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        <img
+                          alt="page thumbnail for page \\"View of the Palisades, Duluth, Minnesota\\""
+                          src="https://reflections.mndigital.org/thumbnails/nemhc:1542/Text"
+                        />
+                      </a>
+                      <div>
+                        
+                      </div>
+                        
+                      <span
+                        className="badge"
+                      >
+                        
+                      </span>
+                      <ul>
+                        <li
+                          className="num-found"
+                        >
+                          <div
+                            dangerouslySetInnerHTML={
+                              Object {
+                                "__html": "",
+                              }
+                            }
+                          />
+                        </li>
+                      </ul>
+                    </li>
+                    <li
+                      className="sidebar-list-item"
+                    >
+                      <a
+                        className="page btn btn-outline-primary "
+                        href="/3?searchText=&showThumbnail=true&viewer=OSD_VIEWER"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        <img
+                          alt="page thumbnail for page \\"Dalles of St. Croix River, Taylors Falls, Minnesota\\""
+                          src="https://reflections.mndigital.org/thumbnails/hchm:1410/Text"
+                        />
+                      </a>
+                      <div>
+                        
+                      </div>
+                        
+                      <span
+                        className="badge"
+                      >
+                        
+                      </span>
+                      <ul>
+                        <li
+                          className="num-found"
+                        >
+                          <div
+                            dangerouslySetInnerHTML={
+                              Object {
+                                "__html": "",
+                              }
+                            }
+                          />
+                        </li>
+                      </ul>
+                    </li>
+                    <li
+                      className="sidebar-list-item"
+                    >
+                      <a
+                        className="page btn btn-outline-primary "
+                        href="/4?searchText=&showThumbnail=true&viewer=OSD_VIEWER"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        <img
+                          alt="page thumbnail for page \\"Log Jam on the St. Croix River, Taylor's Falls, Minnesota\\""
+                          src="https://reflections.mndigital.org/thumbnails/hchm:1333/Text"
+                        />
+                      </a>
+                      <div>
+                        
+                      </div>
+                        
+                      <span
+                        className="badge"
+                      >
+                        
+                      </span>
+                      <ul>
+                        <li
+                          className="num-found"
+                        >
+                          <div
+                            dangerouslySetInnerHTML={
+                              Object {
+                                "__html": "",
+                              }
+                            }
+                          />
+                        </li>
+                      </ul>
+                    </li>
+                    <li
+                      className="sidebar-list-item"
+                    >
+                      <a
+                        className="page btn btn-outline-primary "
+                        href="/5?searchText=&showThumbnail=true&viewer=OSD_VIEWER"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        <img
+                          alt="page thumbnail for page \\"Pot Holes, Interstate Park, Taylors Falls, Minnesota\\""
+                          src="https://reflections.mndigital.org/thumbnails/hchm:1332/Text"
+                        />
+                      </a>
+                      <div>
+                        
+                      </div>
+                        
+                      <span
+                        className="badge"
+                      >
+                        
+                      </span>
+                      <ul>
+                        <li
+                          className="num-found"
+                        >
+                          <div
+                            dangerouslySetInnerHTML={
+                              Object {
+                                "__html": "",
+                              }
+                            }
+                          />
+                        </li>
+                      </ul>
+                    </li>
+                  </div>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>

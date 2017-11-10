@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import queryString from 'query-string';
 
 
 const OSD_VIEWER = 'OSD_VIEWER';
@@ -25,18 +26,17 @@ export default function viewerContainer(Component) {
       this.setPageViewerHandler = this.setPageViewerHandler.bind(this);
       this.searchTextHandler = this.searchTextHandler.bind(this);
       this.showResultsOnlyHandler = this.showResultsOnlyHandler.bind(this);
-      let viewer = props.match.params.viewer;
-      let id = props.match.params.id;
+      this.showThumbnailHandler = this.showThumbnailHandler.bind(this);
+      const { id = 0 } = props.match.params;
+      const {
+              showThumbnail = false,
+              viewer = OSD_VIEWER,
+              searchText = '',
+            } = queryString.parse(props.location.search);
+
+      const showThumbnailVal = (showThumbnail === 'true');
       const osdDisplay = (viewer === OSD_VIEWER) ? 'showViewer' : 'hideViewer';
       const textDisplay = (viewer === TEXT_VIEWER) ? 'showViewer' : 'hideViewer';
-      const goToPage = (typeof props.match.params.goToPage === 'undefined') ? false : true;
-      let searchText = props.match.params.searchText;
-      if (typeof searchText === 'undefined') {
-        searchText = '';
-      }
-
-      
-
       this.state = {
         viewerColumns: (searchText === '') ? props.viewerColumnsLarge : props.viewerColumnsSmall,
         sidebarColumns: (searchText === '') ? props.sidebarColumnsSmall : props.sidebarColumnsLarge,
@@ -50,8 +50,8 @@ export default function viewerContainer(Component) {
         viewer: viewer,
         currentPageId: parseInt(props.match.params.id, 10),
         searchText: searchText,
-        goToPage: goToPage,
         showResultsOnly: false,
+        showThumbnail: showThumbnailVal,
       };
     }
 
@@ -85,16 +85,24 @@ export default function viewerContainer(Component) {
       this.setState({ pages });
     }
 
-    goToPageHandler(currentPageId, viewer, searchText = '') {
+    goToPageHandler(currentPageId, searchText = '', viewer = '') {
       this.setState({ currentPageId, searchText });
-      this._updateURL(currentPageId, viewer, searchText);
+      this._updateURL(currentPageId, searchText, viewer);
       this.switchViewerHandler(viewer);
     }
 
-    _updateURL(page, viewer, searchText) {
+    showThumbnailHandler(showThumbnail) {
+      this.setState({ showThumbnail });
+    }
+
+    _updateURL(page, searchText, viewer, showThumbnail = false) {
       window.history.pushState(`Page${page}`,
                                `Page ${page}`,
-                               `#${this.props.basename}/${page}/${viewer}/${searchText}`);
+                              [`#${this.props.basename}/${page}/`,
+                                `?searchText=${searchText}`,
+                                `&viewer=${viewer}`,
+                                `&showThumbnail=${showThumbnail}`,
+                              ].join(''));
     }
 
     render() {
@@ -111,6 +119,7 @@ export default function viewerContainer(Component) {
           goToPageHandler={this.goToPageHandler}
           setPageViewerHandler={this.setPageViewerHandler}
           showResultsOnlyHandler={this.showResultsOnlyHandler}
+          showThumbnailHandler={this.showThumbnailHandler}
         />
       );
     }

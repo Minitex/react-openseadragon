@@ -13,11 +13,13 @@ class Viewer extends React.Component {
 
   _textViewer() {
     const currentPage = this.props.pages[this.props.currentPageId];
+    console.log(this.props.currentPageId);
     if (typeof currentPage.highlightedTranscript !== 'undefined') {
       return (<OcrTextViewer
                 highlightedTranscript={currentPage.highlightedTranscript}
                 collection={currentPage.cdmCollection}
                 identifier={currentPage.cdmIdentifier}
+                infoURL={currentPage.infoURL}
                 {...this.props}
               />);
     }
@@ -41,7 +43,7 @@ class Viewer extends React.Component {
             <OpenSeadragonViewer {...this.props} currentPageId={this.props.currentPageId} />
           </div>
           <div className={` easer ${this.props.textDisplay} ${this.props.viewerColumns}`} id="text-viewer">
-             {this._textViewer()}
+            {this._textViewer()}
           </div>
           <div className={`${this.props.sidebarColumns} easer`}>
             {this._sidebar()}
@@ -52,6 +54,5 @@ class Viewer extends React.Component {
   }
 
 }
-
 
 export default viewerContainer(Viewer);

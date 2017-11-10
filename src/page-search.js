@@ -1,29 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import Snippet from './snippet';
-import {Link} from 'react-router-dom';
-
+import Search from './search';
+import SearchInput from './search-input';
 class PageSearch extends React.Component {
   constructor(props) {
     super(props);
-    this.searchAsYouType = this.searchAsYouType.bind(this);
+    this.searchAsYouTypeHandler = this.searchAsYouTypeHandler.bind(this);
     this.pageSearch = this.pageSearch.bind(this);
     this.clearSearch = this.clearSearch.bind(this);
     this.clearSearchLink = this.clearSearchLink.bind(this);
     this.search = this.search.bind(this);
     this.firstMatch = this.firstMatch.bind(this);
   }
-
   componentDidMount() {
-    this.searchInput.focus();
-    this.search(this.props.searchText, false);
+    this.search(this.props.searchText, false, false);
   }
-
   firstMatch(pages) {
-    return pages.filter(page => page.numFound > 0, { id: -1 }).slice(0, 1)[0];
+    return pages.filter(page => page.numFound > 0).slice(0, 1)[0] || {};
   }
-
-  search(text, typing = true) {
+  search(text, history, typing = true) {
     if (text.length === 1) {
       this.props.resizeHandler(this.props.viewerColumnsSmall, this.props.sidebarColumnsLarge);
     }
@@ -31,32 +28,20 @@ class PageSearch extends React.Component {
     const firstMatch = this.firstMatch(pages);
     this.props.setPagesHandler(pages);
     this.props.searchTextHandler(text);
-    // If we get a "no match" result or have no search text, reset the search state
-    if (firstMatch === { id: -1 } || text === '') {
-      this.clearSearch();
-    // Otherwise, if we are told to go to the first matching result by the
-    // goToFirstMatch URL param, go to the first match and show the text viewer
-    } else {
-       if (typing !== true && this.props.goToPage === false) {
-        this.props.setPagesHandler(pages.map(
-          (page, i) => ((i === firstMatch.id) ? { ...page, viewer: 'TEXT_VIEWER' } : page),
-        ));
-        this.props.goToPageHandler(firstMatch.id, 'TEXT_VIEWER', text);
-       }
+    if (history && Object.keys(firstMatch).length > 0) {
+      this.props.goToPageHandler(firstMatch.id, text, firstMatch.viewer);
     }
-    return firstMatch;
+    // If we get a "no match" result or have no search text, reset the search state
+    if (Object.keys(firstMatch).length === 0 || text === '') {
+      this.clearSearch();
+    }
   }
 
-  searchAsYouType(e) {
+  searchAsYouTypeHandler(history, e) {
     const searchText = e.target.value;
-    this.props.showResultsOnlyHandler(true);
     e.preventDefault();
-    const { id } = this.search(searchText, true);
-    // Go to the first mathching record as you type
-
-    if (searchText !== '' && id !== -1) {
-      this.props.goToPageHandler(id, 'TEXT_VIEWER', searchText);
-    }
+    this.props.showResultsOnlyHandler(true);
+    this.search(searchText, history, true);
   }
 
   clearSearch() {
@@ -77,39 +62,21 @@ class PageSearch extends React.Component {
     // search. Bottom line, only redirect if the user is seeing the
     // TEXT_VIEWER subsequent to an actual search
     if (this.props.viewer !== DEFAULT_VIEWER) {
-      this.props.goToPageHandler(0, DEFAULT_VIEWER, '');
+      this.props.goToPageHandler(0, '', DEFAULT_VIEWER);
     }
   }
 
   pageSearch(searchText) {
-    return this.props.pages.map((
-      (page, i) => {
-        const transcript = page.transcript;
-        const search = new RegExp(searchText.trim(), 'ig');
-        let match = transcript.match(search);
-        const snippets = (hasMatches) => {
-          if (hasMatches) {
-            return new Snippet(searchText, transcript, 5).toString();
-          }
-          return '';
-        };
-        const highlightedTranscript = (hasMatches) => {
-          if (hasMatches) {
-            return transcript.replace(
-              search,
-              `<span class="osd-search-highlight">${searchText} </span>`);
-          }
-          return '';
-        };
-        match = (match === null) ? [] : match;
-        return Object.assign(page, {
-          id: i,
-          numFound: match.length,
-          snippets: snippets(match.length),
-          highlightedTranscript: highlightedTranscript(match.length),
-        });
-      }
-    ));
+    return this.props.pages.map(page =>
+      Object.assign(Object.create(Search), {
+        page,
+        searchText,
+        snippet() {
+          return new Snippet(searchText, page.transcript, 5).toString();
+        },
+        highlightWrapper: text => `<span class="osd-search-highlight">${text}</span>`,
+      }).result(),
+    );
   }
 
   clearSearchLink() {
@@ -120,15 +87,7 @@ class PageSearch extends React.Component {
     return (
       <div className="page-search form-group has-feedback">
         <span className="sr-only">Search:</span>
-        <input
-          ref={(input) => { this.searchInput = input; }}
-          onChange={this.searchAsYouType}
-          type="text"
-          className="form-control"
-          id="page-search"
-          name="page-search"
-          defaultValue={this.props.searchText}
-        />
+        <SearchInput {...this.props} searchAsYouTypeHandler={this.searchAsYouTypeHandler} />
         {this.clearSearchLink()}
         <span className="glyphicon glyphicon-search form-control-feedback" aria-hidden="true" />
       </div>
@@ -145,7 +104,7 @@ PageSearch.propTypes = {
   setPagesHandler: PropTypes.func.isRequired,
   resizeHandler: PropTypes.func.isRequired,
   searchTextHandler: PropTypes.func.isRequired,
-  searchText: PropTypes.string
+  searchText: PropTypes.string,
 };
 
 export default PageSearch;
