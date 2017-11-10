@@ -13,7 +13,6 @@ class Viewer extends React.Component {
 
   _textViewer() {
     const currentPage = this.props.pages[this.props.currentPageId];
-    console.log(this.props.currentPageId);
     if (typeof currentPage.highlightedTranscript !== 'undefined') {
       return (<OcrTextViewer
                 highlightedTranscript={currentPage.highlightedTranscript}
