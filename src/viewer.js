@@ -30,8 +30,11 @@ class Viewer extends React.Component {
   }
 
   _sidebar() {
-    return (
-      <Sidebar {...this.props} />);
+    if (this._showSidebar()) {
+      return (
+        <Sidebar {...this.props} />);
+    }
+    return '';
   }
 
   render() {
