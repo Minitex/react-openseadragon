@@ -49,20 +49,20 @@ if (build) {
         filename: 'react-openseadragon-min.js',
         library: "react-openseadragon",
         libraryTarget: 'umd',
-        umdNamedDefine: true
+        umdNamedDefine: true,
       }
     }
   } else {
     var config =
     {
-      devtool: 'source-map',
+      devtool: 'eval-cheap-module-source-map',
       entry: './src/react-openseadragon.js',
       output: {
         path: path.join(__dirname, 'dist'),
         filename: 'react-openseadragon.js',
         library: "react-openseadragon",
         libraryTarget: 'umd',
-        umdNamedDefine: true
+        umdNamedDefine: true,
       }
     }
   }
