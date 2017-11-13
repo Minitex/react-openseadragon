@@ -38,7 +38,7 @@ class OcrTextViewer extends React.Component {
 
   toggleFullScreen() {
     if (screenfull.enabled) {
-      const textViewer = ReactDOM.findDOMNode(this.refs.textView);
+      const textViewer = document.getElementById('textView');
       if (this.state.isFullScreen === false) {
         screenfull.request(textViewer);
       } else {
@@ -50,7 +50,7 @@ class OcrTextViewer extends React.Component {
   render() {
     const snippeter = snippet => ({ __html: snippet });
     return (
-      <div ref="textView" className="ocr-text-viewer">
+      <div id="textView" className="ocr-text-viewer">
         <div className={`ocr-text col-md-4 ${this.state.fullScreenCss}`}>
           <button
             className={`full-screen-button ${this.state.fullScreenCss}`}

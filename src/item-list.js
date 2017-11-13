@@ -22,12 +22,7 @@ function itemList(PageComponent) {
       this.resultsPages = this.resultsPages.bind(this);
       this.item = this.item.bind(this);
       this._textViewButton = this._textViewButton.bind(this);
-      this.ensureActiveItemVisible = this.ensureActiveItemVisible.bind(this);
       this.activeItem = this.activeItem.bind(this);
-    }
-
-    componentDidUpdate(prevProps) {
-      this.ensureActiveItemVisible();
     }
 
     resultsPages() {
@@ -69,26 +64,15 @@ function itemList(PageComponent) {
       return (this.props.currentPageId === id || this.props.showResultsOnly === true) ? 'active' : '';
     }
 
-  ensureActiveItemVisible() {
-    let itemComponent = this.refs.activeItem;
-    if (itemComponent) {
-      ReactDOM.findDOMNode(itemComponent).scrollIntoView();
-    }
-  }
 
     item(page, key) {
       const active = this.activeItem(key);
-      const refs = {};
-      if (active === 'active' && this.props.showResultsOnly === false) {
-        refs.ref = 'activeItem';
-      }
       return (
         <li className="sidebar-list-item" key={`sidebar-page-button-${key}`}>
           <Page
             cssClasses={`page btn btn-outline-primary ${ active}`}
             {...page}
             {...this.props}
-            {...refs}
             viewer="OSD_VIEWER"
             active={active}
           />
