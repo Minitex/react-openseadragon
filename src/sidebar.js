@@ -66,7 +66,7 @@ class Sidebar extends React.Component {
             </li>
           </ul>
         </div>
-        <div className="osd-sidebar">
+        <div id="osd-sidebar" className="osd-sidebar">
 
         <ul className={this.css.pageListClass}>
           <TitleList

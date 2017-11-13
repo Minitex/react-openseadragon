@@ -6,6 +6,20 @@ import queryString from 'query-string';
 
 function pageLink(WrappedComponent) {
   class PageLink extends React.Component {
+    componentDidMount() {
+      this.ensureVisible();
+    }
+
+    ensureVisible() {
+      if (this.props.active) {
+        const element = ReactDOM.findDOMNode(this);
+        const offset = element.offsetTop;
+        if (offset > 200) {
+          document.getElementById('osd-sidebar').scrollTop = offset - 200;
+        }
+      }
+    }
+
     render() {
       const active = (this.props.active === true) ? 'active' : '';
       return (<Link
