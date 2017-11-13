@@ -80,7 +80,7 @@ class PageSearch extends React.Component {
   }
 
   clearSearchLink() {
-    return (this.props.searchText !== '') ? <Link to={'/0/OSD_VIEWER/'} >Clear Search</Link> : '';
+    return (this.props.searchText !== '') ? <Link to={'/0'} >Clear Search</Link> : '';
   }
 
   render() {
