@@ -29,7 +29,7 @@ describe('OpenSeadragon', () => {
 
     const config = {
     basename: 'example/image',
-    ajaxHelperURL: 'http://cdm16022.contentdm.oclc.org/utils/ajaxhelper',
+    getImageURL: 'http://cdm16022.contentdm.oclc.org/utils/ajaxhelper',
     osdConfig: {
       defaultZoomLevel: 0,
       tileSources: [
