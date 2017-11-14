@@ -27,6 +27,7 @@ export default function viewerContainer(Component) {
       this.searchTextHandler = this.searchTextHandler.bind(this);
       this.showResultsOnlyHandler = this.showResultsOnlyHandler.bind(this);
       this.showThumbnailHandler = this.showThumbnailHandler.bind(this);
+      this.columns = this.columns.bind(this);
       const { id = 0 } = props.match.params;
       const {
               showThumbnail = false,
@@ -37,9 +38,10 @@ export default function viewerContainer(Component) {
       const showThumbnailVal = (showThumbnail === 'true');
       const osdDisplay = (viewer === OSD_VIEWER) ? 'showViewer' : 'hideViewer';
       const textDisplay = (viewer === TEXT_VIEWER) ? 'showViewer' : 'hideViewer';
+      const { sidebarColumns, viewerColumns } = this.columns(searchText)
       this.state = {
-        viewerColumns: (searchText === '') ? props.viewerColumnsLarge : props.viewerColumnsSmall,
-        sidebarColumns: (searchText === '') ? props.sidebarColumnsSmall : props.sidebarColumnsLarge,
+        viewerColumns: viewerColumns,
+        sidebarColumns: sidebarColumns,
         viewerColumnsLarge:  props.viewerColumnsLarge,
         sidebarColumnsSmall: props.sidebarColumnsSmall,
         viewerColumnsSmall:  props.viewerColumnsSmall,
@@ -93,6 +95,27 @@ export default function viewerContainer(Component) {
 
     showThumbnailHandler(showThumbnail) {
       this.setState({ showThumbnail });
+    }
+
+    columns(searchText) {
+      let cols = {};
+      if (this.props.pages.length <= 1) {
+        cols = {
+          sidebarColumns: 'col-md-0',
+          viewerColumns: 'col-md-12',
+        };
+      } else if (searchText !== '') {
+        cols = {
+          sidebarColumns: this.props.sidebarColumnsLarge,
+          viewerColumns: this.props.viewerColumnsSmall,
+        };
+      } else {
+        cols = {
+          sidebarColumns: this.props.sidebarColumnsSmall,
+          viewerColumns: this.props.viewerColumnsLarge,
+        };
+      }
+      return cols;
     }
 
     _updateURL(page, searchText, viewer, showThumbnail = false) {
