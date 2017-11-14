@@ -78,7 +78,7 @@ function itemList(PageComponent) {
           />
           <div>{this._textViewButton(page, key)}</div>
           &nbsp; <span className="badge">{ItemList.found(page.numFound)}</span>
-          <ul><li className="num-found" key={`sidebar-page-text-button-${key}`}>
+          <ul><li className="search-snippets" key={`sidebar-page-text-button-${key}`}>
             <div dangerouslySetInnerHTML={ItemList.snippets(page.snippets)} />
           </li></ul>
         </li>
