@@ -66,7 +66,13 @@ if (build) {
       }
     }
   }
-  module.exports = merge(common, config);
+  var externals = {
+    externals: {
+      react: 'react',
+      'react-dom': 'ReactDOM',
+    },
+  };
+  module.exports = merge(merge(common, config), externals);
 }
 
 if (example || TARGET === 'start') {
