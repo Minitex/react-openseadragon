@@ -87,9 +87,9 @@ function itemList(PageComponent) {
 
     render() {
       return (
-        <div className="page-titles">
+        <ul className="page-titles">
           {this.items()}
-        </div>
+        </ul>
       );
     }
   }

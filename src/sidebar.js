@@ -18,8 +18,8 @@ class Sidebar extends React.Component {
     this.css = {
       pageToggleClass: (showThumbnail === true) ? '' : 'active',
       thumbToggleClass: (showThumbnail === true) ? 'active' : '',
-      pageListClass: (showThumbnail === true) ? 'hide' : '',
-      thumbListClass: (showThumbnail === true) ? '' : 'hide',
+      pageListClass: (showThumbnail === true) ? 'hide' : 'show',
+      thumbListClass: (showThumbnail === true) ? 'show' : 'hide',
     };
   }
 
@@ -67,19 +67,18 @@ class Sidebar extends React.Component {
           </ul>
         </div>
         <div id="osd-sidebar" className="osd-sidebar">
-
-        <ul className={this.css.pageListClass}>
+        <div className={`${this.css.pageListClass}`}>
           <TitleList
             {...this.props}
             showThumbnail={false}
           />
-        </ul>
-        <ul className={this.css.thumbListClass}>
+        </div>
+        <div className={this.css.thumbListClass}>
           <ThumbnailList
             {...this.props}
             showThumbnail={true}
           />
-        </ul>
+        </div>
       </div>
     </div>
 
