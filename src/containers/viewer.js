@@ -179,7 +179,7 @@ export default function viewerContainer(Component) {
     pages: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.number.isRequired,
-        thumbnail: PropTypes.string.isRequired,
+        sidebarThumbnail: PropTypes.string.isRequired,
         transcript: PropTypes.string,
         numFound: PropTypes.number,
         snippets: PropTypes.string,
