@@ -4,7 +4,11 @@ import { Link } from 'react-router-dom';
 import Snippet from './snippet';
 import Search from './search';
 import SearchInput from './search-input';
+
 class PageSearch extends React.Component {
+  static firstMatch(pages) {
+    return pages.filter(page => page.numFound > 0).slice(0, 1)[0] || {};
+  }
   constructor(props) {
     super(props);
     this.searchAsYouTypeHandler = this.searchAsYouTypeHandler.bind(this);
@@ -12,20 +16,16 @@ class PageSearch extends React.Component {
     this.clearSearch = this.clearSearch.bind(this);
     this.clearSearchLink = this.clearSearchLink.bind(this);
     this.search = this.search.bind(this);
-    this.firstMatch = this.firstMatch.bind(this);
   }
   componentDidMount() {
     this.search(this.props.searchText, false, false);
   }
-  firstMatch(pages) {
-    return pages.filter(page => page.numFound > 0).slice(0, 1)[0] || {};
-  }
-  search(text, history, typing = true) {
-    if (text.length === 1) {
+  search(text, history) {
+    if (text.length >= 1) {
       this.props.resizeHandler(this.props.viewerColumnsSmall, this.props.sidebarColumnsLarge);
     }
     const pages = this.pageSearch(text);
-    const firstMatch = this.firstMatch(pages);
+    const firstMatch = PageSearch.firstMatch(pages);
     this.props.setPagesHandler(pages);
     this.props.searchTextHandler(text);
     if (history && Object.keys(firstMatch).length > 0) {
@@ -48,7 +48,7 @@ class PageSearch extends React.Component {
     this.props.resizeHandler(this.props.viewerColumnsLarge, this.props.sidebarColumnsSmall);
     this.props.showResultsOnlyHandler(false);
     const DEFAULT_VIEWER = 'OSD_VIEWER';
-    let pages = this.props.pages.map(
+    const pages = this.props.pages.map(
       page =>
         Object.assign(page, { numFound: 0, snippets: '', view: DEFAULT_VIEWER }),
     );
@@ -100,11 +100,27 @@ PageSearch.defaultProps = {
 };
 
 PageSearch.propTypes = {
-  pages: PropTypes.array.isRequired,
+  viewer: PropTypes.string.isRequired,
+  pages: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      sidebarThumbnail: PropTypes.string.isRequired,
+      transcript: PropTypes.string,
+      numFound: PropTypes.number,
+      snippets: PropTypes.string,
+      highlightedTranscript: PropTypes.string,
+    }),
+  ).isRequired,
   setPagesHandler: PropTypes.func.isRequired,
+  goToPageHandler: PropTypes.func.isRequired,
   resizeHandler: PropTypes.func.isRequired,
   searchTextHandler: PropTypes.func.isRequired,
   searchText: PropTypes.string,
+  viewerColumnsLarge: PropTypes.string.isRequired,
+  viewerColumnsSmall: PropTypes.string.isRequired,
+  sidebarColumnsSmall: PropTypes.string.isRequired,
+  sidebarColumnsLarge: PropTypes.string.isRequired,
+  showResultsOnlyHandler: PropTypes.func.isRequired,
 };
 
 export default PageSearch;

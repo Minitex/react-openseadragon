@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import 'whatwg-fetch';
 
+
 class CdmImage extends React.Component {
 
   constructor(props) {
@@ -20,10 +21,10 @@ class CdmImage extends React.Component {
     const _this = this;
     fetch(this.props.infoURL)
       .then((response) => {
-      return response.json();
-    }).then((json) => {
-      _this.setState({ info: json });
-    });
+        return response.json();
+      }).then((json) => {
+        _this.setState({ info: json });
+      });
   }
 
   dmScale() {
@@ -36,23 +37,24 @@ class CdmImage extends React.Component {
 
   render() {
     if (this.state.info.width !== 0) {
-      return(<img
-        alt="image with highlighted matching terms"
-        src={[
-          `${this.props.getImageURL}`,
-          `?CISOROOT=${this.props.collection}`,
-          `&CISOPTR=${this.props.identifier}`,
-          `&DMHEIGHT=${this.props.height}`,
-          `&DMWIDTH=${this.props.width}`,
-          `&action=2`,
-          `&DMSCALE=${this.dmScale()}`,
-          `&DMTEXT=${this.props.dmText}`,
-          `&DMROTATE=${this.props.dmRotate}`,
-        ].join('')}
-      />);
-    } else {
-      return null;
+      return (
+          <img
+          alt="highlighted matching terms"
+          src={[
+            `${this.props.getImageURL}`,
+            `?CISOROOT=${this.props.collection}`,
+            `&CISOPTR=${this.props.identifier}`,
+            `&DMHEIGHT=${this.props.height}`,
+            `&DMWIDTH=${this.props.width}`,
+            '&action=2',
+            `&DMSCALE=${this.dmScale()}`,
+            `&DMTEXT=${this.props.dmText}`,
+            `&DMROTATE=${this.props.dmRotate}`,
+          ].join('')}
+        />
+      );
     }
+    return null;
   }
 }
 

@@ -14,7 +14,7 @@ function itemList(PageComponent) {
       return (num > 0) ? `${num} found` : '';
     }
 
-    static snippets(snippet) { return {__html: snippet}; };
+    static snippets(snippet) { return { __html: snippet }; }
 
     constructor(props) {
       super(props);
@@ -64,13 +64,12 @@ function itemList(PageComponent) {
       return (this.props.currentPageId === id || this.props.showResultsOnly === true) ? 'active' : '';
     }
 
-
     item(page, key) {
       const active = this.activeItem(key);
       return (
         <li className="sidebar-list-item" key={`sidebar-page-button-${key}`}>
           <Page
-            cssClasses={`page btn btn-outline-primary ${ active}`}
+            cssClasses={`page btn btn-outline-primary ${active}`}
             {...page}
             {...this.props}
             viewer="OSD_VIEWER"
@@ -99,10 +98,18 @@ function itemList(PageComponent) {
   };
 
   ItemList.propTypes = {
-    pages: PropTypes.array.isRequired,
+    pages: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        sidebarThumbnail: PropTypes.string.isRequired,
+        transcript: PropTypes.string,
+        numFound: PropTypes.number,
+        snippets: PropTypes.string,
+        highlightedTranscript: PropTypes.string,
+      }),
+    ).isRequired,
     currentPageId: PropTypes.number.isRequired,
-    showResultsOnly: PropTypes.bool,
-    showThumbnail: PropTypes.bool.isRequired,
+    showResultsOnly: PropTypes.bool
   };
 
   return ItemList;

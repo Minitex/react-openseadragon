@@ -75,6 +75,7 @@ class PrevNext extends React.Component {
 }
 
 PrevNext.propTypes = {
+  pageCount: PropTypes.number.isRequired,
   goToPageHandler: PropTypes.func.isRequired,
   currentPageId: PropTypes.number.isRequired,
   viewer: PropTypes.string.isRequired,

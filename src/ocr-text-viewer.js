@@ -68,7 +68,6 @@ class OcrTextViewer extends React.Component {
         </div>
         <div className={`ocr-text-image col-md-8 ${this.state.fullScreenCss}`}>
           <CdmImage
-            getImageURL={this.props.getImageURL}
             {...this.props}
             width={this.state.matchImageWidth}
             height={this.state.matchImageHeight}

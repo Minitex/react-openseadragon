@@ -32,6 +32,7 @@ class Sidebar extends React.Component {
           />
           <PrevNext
             {...this.props}
+            pageCount={this.props.pages.length}
           />
           <ul className="nav nav-tabs">
             <li className={this.css.pageToggleClass}>
@@ -79,6 +80,7 @@ class Sidebar extends React.Component {
             showThumbnail={true}
           />
         </div>
+        <div className="osd-sidebar-footer" />
       </div>
     </div>
 

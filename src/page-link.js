@@ -12,8 +12,7 @@ function pageLink(WrappedComponent) {
 
     ensureVisible() {
       if (this.props.active) {
-        const element = ReactDOM.findDOMNode(this);
-        const offset = element.offsetTop;
+        const offset = ReactDOM.findDOMNode(this).offsetTop;
         if (offset > 200) {
           document.getElementById('osd-sidebar').scrollTop = offset - 200;
         }
@@ -21,7 +20,6 @@ function pageLink(WrappedComponent) {
     }
 
     render() {
-      const active = (this.props.active === true) ? 'active' : '';
       return (<Link
         to={{
           pathname: `/${this.props.id}`,
@@ -41,10 +39,12 @@ function pageLink(WrappedComponent) {
 
   PageLink.defaultProps = {
     searchText: '',
+    active: '',
   };
 
   PageLink.propTypes = {
     id: PropTypes.number.isRequired,
+    active: PropTypes.string,
     viewer: PropTypes.string.isRequired,
     cssClasses: PropTypes.string.isRequired,
     searchText: PropTypes.string,
