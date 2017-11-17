@@ -35,7 +35,13 @@ var common = {
   },
   plugins: [
       new webpack.HotModuleReplacementPlugin()
-  ]
+  ],
+  resolve: {
+    alias: {
+      react: 'preact-compat',
+      'react-dom': 'preact-compat'
+    },
+  },
 };
 
 if (build) {
