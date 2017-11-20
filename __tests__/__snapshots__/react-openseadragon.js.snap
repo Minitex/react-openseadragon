@@ -154,11 +154,12 @@ exports[`OpenSeadragon should render correctly 1`] = `
               </div>
               <div
                 className="osd-sidebar"
+                id="osd-sidebar"
               >
-                <ul
-                  className=""
+                <div
+                  className="show"
                 >
-                  <div
+                  <ul
                     className="page-titles"
                   >
                     <li
@@ -191,7 +192,7 @@ exports[`OpenSeadragon should render correctly 1`] = `
                       </span>
                       <ul>
                         <li
-                          className="num-found"
+                          className="search-snippets"
                         >
                           <div
                             dangerouslySetInnerHTML={
@@ -233,7 +234,7 @@ exports[`OpenSeadragon should render correctly 1`] = `
                       </span>
                       <ul>
                         <li
-                          className="num-found"
+                          className="search-snippets"
                         >
                           <div
                             dangerouslySetInnerHTML={
@@ -275,7 +276,7 @@ exports[`OpenSeadragon should render correctly 1`] = `
                       </span>
                       <ul>
                         <li
-                          className="num-found"
+                          className="search-snippets"
                         >
                           <div
                             dangerouslySetInnerHTML={
@@ -317,7 +318,7 @@ exports[`OpenSeadragon should render correctly 1`] = `
                       </span>
                       <ul>
                         <li
-                          className="num-found"
+                          className="search-snippets"
                         >
                           <div
                             dangerouslySetInnerHTML={
@@ -359,7 +360,7 @@ exports[`OpenSeadragon should render correctly 1`] = `
                       </span>
                       <ul>
                         <li
-                          className="num-found"
+                          className="search-snippets"
                         >
                           <div
                             dangerouslySetInnerHTML={
@@ -401,7 +402,7 @@ exports[`OpenSeadragon should render correctly 1`] = `
                       </span>
                       <ul>
                         <li
-                          className="num-found"
+                          className="search-snippets"
                         >
                           <div
                             dangerouslySetInnerHTML={
@@ -413,12 +414,12 @@ exports[`OpenSeadragon should render correctly 1`] = `
                         </li>
                       </ul>
                     </li>
-                  </div>
-                </ul>
-                <ul
+                  </ul>
+                </div>
+                <div
                   className="hide"
                 >
-                  <div
+                  <ul
                     className="page-titles"
                   >
                     <li
@@ -430,10 +431,14 @@ exports[`OpenSeadragon should render correctly 1`] = `
                         onClick={[Function]}
                         type="button"
                       >
-                        <img
-                          alt="page thumbnail for page \\"MLK\\""
-                          src="https://stacks.stanford.edu/image/iiif/hg676jb4964%2F0380_796-44/full/100,/0/default.jpg"
-                        />
+                        <LazyLoad
+                          offsetVertical={0}
+                        >
+                          <img
+                            alt="page thumbnail for page \\"MLK\\""
+                            src="https://stacks.stanford.edu/image/iiif/hg676jb4964%2F0380_796-44/full/100,/0/default.jpg"
+                          />
+                        </LazyLoad>
                       </a>
                       <div>
                         
@@ -446,7 +451,7 @@ exports[`OpenSeadragon should render correctly 1`] = `
                       </span>
                       <ul>
                         <li
-                          className="num-found"
+                          className="search-snippets"
                         >
                           <div
                             dangerouslySetInnerHTML={
@@ -467,10 +472,14 @@ exports[`OpenSeadragon should render correctly 1`] = `
                         onClick={[Function]}
                         type="button"
                       >
-                        <img
-                          alt="page thumbnail for page \\"A bill for an act authorizing the establishment of Worthington State College, Worthington, Minnesota\\""
-                          src="https://reflections.mndigital.org/thumbnails/p16022coll7:328/Text"
-                        />
+                        <LazyLoad
+                          offsetVertical={0}
+                        >
+                          <img
+                            alt="page thumbnail for page \\"A bill for an act authorizing the establishment of Worthington State College, Worthington, Minnesota\\""
+                            src="https://reflections.mndigital.org/thumbnails/p16022coll7:328/Text"
+                          />
+                        </LazyLoad>
                       </a>
                       <div>
                         
@@ -483,7 +492,7 @@ exports[`OpenSeadragon should render correctly 1`] = `
                       </span>
                       <ul>
                         <li
-                          className="num-found"
+                          className="search-snippets"
                         >
                           <div
                             dangerouslySetInnerHTML={
@@ -504,10 +513,14 @@ exports[`OpenSeadragon should render correctly 1`] = `
                         onClick={[Function]}
                         type="button"
                       >
-                        <img
-                          alt="page thumbnail for page \\"View of the Palisades, Duluth, Minnesota\\""
-                          src="https://reflections.mndigital.org/thumbnails/nemhc:1542/Text"
-                        />
+                        <LazyLoad
+                          offsetVertical={0}
+                        >
+                          <img
+                            alt="page thumbnail for page \\"View of the Palisades, Duluth, Minnesota\\""
+                            src="https://reflections.mndigital.org/thumbnails/nemhc:1542/Text"
+                          />
+                        </LazyLoad>
                       </a>
                       <div>
                         
@@ -520,7 +533,7 @@ exports[`OpenSeadragon should render correctly 1`] = `
                       </span>
                       <ul>
                         <li
-                          className="num-found"
+                          className="search-snippets"
                         >
                           <div
                             dangerouslySetInnerHTML={
@@ -541,10 +554,14 @@ exports[`OpenSeadragon should render correctly 1`] = `
                         onClick={[Function]}
                         type="button"
                       >
-                        <img
-                          alt="page thumbnail for page \\"Dalles of St. Croix River, Taylors Falls, Minnesota\\""
-                          src="https://reflections.mndigital.org/thumbnails/hchm:1410/Text"
-                        />
+                        <LazyLoad
+                          offsetVertical={0}
+                        >
+                          <img
+                            alt="page thumbnail for page \\"Dalles of St. Croix River, Taylors Falls, Minnesota\\""
+                            src="https://reflections.mndigital.org/thumbnails/hchm:1410/Text"
+                          />
+                        </LazyLoad>
                       </a>
                       <div>
                         
@@ -557,7 +574,7 @@ exports[`OpenSeadragon should render correctly 1`] = `
                       </span>
                       <ul>
                         <li
-                          className="num-found"
+                          className="search-snippets"
                         >
                           <div
                             dangerouslySetInnerHTML={
@@ -578,10 +595,14 @@ exports[`OpenSeadragon should render correctly 1`] = `
                         onClick={[Function]}
                         type="button"
                       >
-                        <img
-                          alt="page thumbnail for page \\"Log Jam on the St. Croix River, Taylor's Falls, Minnesota\\""
-                          src="https://reflections.mndigital.org/thumbnails/hchm:1333/Text"
-                        />
+                        <LazyLoad
+                          offsetVertical={0}
+                        >
+                          <img
+                            alt="page thumbnail for page \\"Log Jam on the St. Croix River, Taylor's Falls, Minnesota\\""
+                            src="https://reflections.mndigital.org/thumbnails/hchm:1333/Text"
+                          />
+                        </LazyLoad>
                       </a>
                       <div>
                         
@@ -594,7 +615,7 @@ exports[`OpenSeadragon should render correctly 1`] = `
                       </span>
                       <ul>
                         <li
-                          className="num-found"
+                          className="search-snippets"
                         >
                           <div
                             dangerouslySetInnerHTML={
@@ -615,10 +636,14 @@ exports[`OpenSeadragon should render correctly 1`] = `
                         onClick={[Function]}
                         type="button"
                       >
-                        <img
-                          alt="page thumbnail for page \\"Pot Holes, Interstate Park, Taylors Falls, Minnesota\\""
-                          src="https://reflections.mndigital.org/thumbnails/hchm:1332/Text"
-                        />
+                        <LazyLoad
+                          offsetVertical={0}
+                        >
+                          <img
+                            alt="page thumbnail for page \\"Pot Holes, Interstate Park, Taylors Falls, Minnesota\\""
+                            src="https://reflections.mndigital.org/thumbnails/hchm:1332/Text"
+                          />
+                        </LazyLoad>
                       </a>
                       <div>
                         
@@ -631,7 +656,7 @@ exports[`OpenSeadragon should render correctly 1`] = `
                       </span>
                       <ul>
                         <li
-                          className="num-found"
+                          className="search-snippets"
                         >
                           <div
                             dangerouslySetInnerHTML={
@@ -643,8 +668,11 @@ exports[`OpenSeadragon should render correctly 1`] = `
                         </li>
                       </ul>
                     </li>
-                  </div>
-                </ul>
+                  </ul>
+                </div>
+                <div
+                  className="osd-sidebar-footer"
+                />
               </div>
             </div>
           </div>
