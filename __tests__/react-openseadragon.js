@@ -11,8 +11,6 @@ jest.mock('react-dom', () => ({
   }),
 );
 
-const FakeAndLazy = () => <div>foo</div>;
-
 jest.mock('react-lazy-load', () =>  'LazyLoad');
 
 describe('OpenSeadragon', () => {
