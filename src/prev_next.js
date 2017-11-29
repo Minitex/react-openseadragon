@@ -16,7 +16,11 @@ class PrevNext extends React.Component {
   prev(e) {
     e.preventDefault();
     if (!this._prevDisabled()) {
-      this.goToPageHandler(this._prevPage(), this.props.viewer);
+      this.goToPageHandler(
+        this._prevPage(),
+        this.props.searchText,
+        this.props.viewer,
+      );
       this.setState({ page: this._prevPage() });
     }
   }
@@ -24,7 +28,11 @@ class PrevNext extends React.Component {
   next(e) {
     e.preventDefault();
     if (!this._nextDisabled()) {
-      this.goToPageHandler(this._nextPage(), this.props.viewer);
+      this.goToPageHandler(
+        this._nextPage(),
+        this.props.searchText,
+        this.props.viewer,
+      );
       this.setState({ page: this._nextPage() });
     }
   }
@@ -74,8 +82,13 @@ class PrevNext extends React.Component {
   }
 }
 
+PrevNext.defaultProps = {
+  searchText: '',
+}
+
 PrevNext.propTypes = {
   pageCount: PropTypes.number.isRequired,
+  searchText: PropTypes.string,
   goToPageHandler: PropTypes.func.isRequired,
   currentPageId: PropTypes.number.isRequired,
   viewer: PropTypes.string.isRequired,
