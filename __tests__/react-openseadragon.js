@@ -1,8 +1,8 @@
 import { MemoryRouter } from 'react-router-dom';
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ReactOpenSeadragon from '../src/react-openseadragon-route';
 import ReactDOM from 'react-dom';
+import ReactOpenSeadragon from '../src/react-openseadragon-route';
 
 jest.mock('react-dom', () => ({
     findDOMNode: () => ({
@@ -11,11 +11,10 @@ jest.mock('react-dom', () => ({
   }),
 );
 
-jest.mock('react-lazy-load', () =>  'LazyLoad');
+jest.mock('react-lazy-load', () => 'LazyLoad');
 
 describe('OpenSeadragon', () => {
-
-document.body.innerHTML = '<div id="page-search" />';
+  document.body.innerHTML = '<div id="page-search" />';
 
   it('should render correctly', () => {
     window.OpenSeadragon = jest.fn();

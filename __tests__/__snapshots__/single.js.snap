@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OpenSeadragon should render correctly 1`] = `
+<div>
+  <div>
+    <div>
+      <div
+        className="osd"
+      >
+        <div
+          className="row osd-row"
+        >
+          <div
+            className="easer showViewer col-md-12"
+          >
+            <div>
+              <div
+                className="openseadragon"
+                id="osd-viewer"
+              >
+                <ul
+                  className="osd-toolbar"
+                >
+                  <li>
+                    <a
+                      id="zoom-in"
+                    >
+                      <i
+                        className="glyphicon glyphicon-zoom-in"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      id="zoom-out"
+                    >
+                      <i
+                        className="glyphicon glyphicon-zoom-out"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      id="reset"
+                    >
+                      <i
+                        className="glyphicon glyphicon-home"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      id="full-page"
+                    >
+                      <i
+                        className="glyphicon glyphicon-resize-full"
+                      />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div
+            className=" easer hideViewer col-md-12"
+            id="text-viewer"
+          />
+          <div
+            className="col-md-0 easer"
+          >
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
