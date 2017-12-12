@@ -42,6 +42,7 @@ class PageSearch extends React.Component {
     e.preventDefault();
     this.props.showResultsOnlyHandler(true);
     this.search(searchText, history, true);
+    this.forceUpdate();
   }
 
   clearSearch() {
