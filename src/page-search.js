@@ -32,7 +32,13 @@ class PageSearch extends React.Component {
       this.props.goToPageHandler(firstMatch.id, text, firstMatch.viewer);
     }
     // If we get a "no match" result or have no search text, reset the search state
-    if (Object.keys(firstMatch).length === 0 || text === '') {
+    // and downsize
+    if (text === '') {
+      this.props.resizeHandler(this.props.viewerColumnsLarge, this.props.sidebarColumnsSmall);
+      this.clearSearch();
+      // no match searches should reset the page state
+      // going back to the first page
+    } else if (Object.keys(firstMatch).length === 0) {
       this.clearSearch();
     }
   }
@@ -46,7 +52,6 @@ class PageSearch extends React.Component {
   }
 
   clearSearch() {
-    this.props.resizeHandler(this.props.viewerColumnsLarge, this.props.sidebarColumnsSmall);
     this.props.showResultsOnlyHandler(false);
     const DEFAULT_VIEWER = 'OSD_VIEWER';
     const pages = this.props.pages.map(
