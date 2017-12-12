@@ -21,6 +21,18 @@ class Sidebar extends React.Component {
       pageListClass: (showThumbnail === true) ? 'hide' : 'show',
       thumbListClass: (showThumbnail === true) ? 'show' : 'hide',
     };
+    this.prevNext = this.prevNext.bind(this);
+  }
+
+  prevNext() {
+    if (this.props.searchText == '')
+      return (
+        <PrevNext
+          {...this.props}
+          pageCount={this.props.pages.length}
+        />
+      );
+    return '';
   }
 
   render() {
@@ -30,10 +42,7 @@ class Sidebar extends React.Component {
           <PageSearch
             {...this.props}
           />
-          <PrevNext
-            {...this.props}
-            pageCount={this.props.pages.length}
-          />
+          { this.prevNext() }
           <ul className="nav nav-tabs">
             <li className={this.css.pageToggleClass}>
               <Link
