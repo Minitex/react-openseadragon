@@ -60,15 +60,11 @@ class PageSearch extends React.Component {
     );
     this.props.setPagesHandler(pages);
 
-    // If the user is currently viewing the OSD_VIEWER it signifies
-    // that we have not automatically seeked to the first matching
-    // page and set the TEXT_VIEWER. That is, the user has manually
-    // clicked on an OSD_VIEWER / hi res image subsequent to search
-    // or they have simply navigated to the viewer with no default
-    // search. Bottom line, only redirect if the user is seeing the
-    // TEXT_VIEWER subsequent to an actual search
-    if (this.props.viewer !== DEFAULT_VIEWER) {
-      this.props.goToPageHandler(0, '', DEFAULT_VIEWER);
+    // Gah, another poke through the dom abstraction
+    // scrol back to the top of the sidebar list when
+    // a search has been cleared
+    if (document.getElementById('osd-sidebar')) {
+      document.getElementById('osd-sidebar').scrollTop = 0;
     }
   }
 
