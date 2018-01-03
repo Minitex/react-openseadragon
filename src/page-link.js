@@ -13,8 +13,8 @@ function pageLink(WrappedComponent) {
     ensureVisible() {
       if (this.props.active) {
         const offset = ReactDOM.findDOMNode(this).offsetTop;
-        if (offset > 200) {
-          document.getElementById('osd-sidebar').scrollTop = offset - 200;
+        if (offset > 150) {
+          document.getElementById('osd-sidebar').scrollTop = offset - 150;
         }
       }
     }
