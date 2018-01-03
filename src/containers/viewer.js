@@ -85,7 +85,6 @@ export default function viewerContainer(Component) {
 
     goToPageHandler(currentPageId, searchText = '', viewer = '') {
       this.setState({ currentPageId, searchText });
-      this._updateURL(currentPageId, searchText, viewer);
       this.switchViewerHandler(viewer);
     }
 
