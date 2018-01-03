@@ -125,52 +125,32 @@ exports[`OpenSeadragon should render correctly 1`] = `
                     </li>
                   </ul>
                 </div>
-                <ul
-                  className="nav nav-tabs"
-                >
-                  <li
-                    className="active"
-                  >
-                    <a
-                      href="/0?searchText=&showThumbnail=false&viewer=OSD_VIEWER"
-                      onClick={[Function]}
-                      type="button"
-                    >
-                      Titles
-                    </a>
-                  </li>
-                  <li
-                    className=""
-                  >
-                    <a
-                      href="/0?searchText=&showThumbnail=true&viewer=OSD_VIEWER"
-                      onClick={[Function]}
-                      type="button"
-                    >
-                      Thumbnails
-                    </a>
-                  </li>
-                </ul>
               </div>
               <div
                 className="osd-sidebar"
                 id="osd-sidebar"
               >
-                <div
-                  className="show"
+                <ul
+                  className="page-titles"
                 >
-                  <ul
-                    className="page-titles"
+                  <li
+                    className="sidebar-list-item"
                   >
-                    <li
-                      className="sidebar-list-item"
+                    <a
+                      className="page btn btn-outline-primary active"
+                      href="/0?searchText=&viewer=OSD_VIEWER"
+                      onClick={[Function]}
+                      type="button"
                     >
-                      <a
-                        className="page btn btn-outline-primary active"
-                        href="/0?searchText=&showThumbnail=false&viewer=OSD_VIEWER"
-                        onClick={[Function]}
-                        type="button"
-                      >
+                      <div>
+                        <LazyLoad
+                          offsetVertical={0}
+                        >
+                          <img
+                            alt="page thumbnail for page \\"MLK\\""
+                            src="https://stacks.stanford.edu/image/iiif/hg676jb4964%2F0380_796-44/full/100,/0/default.jpg"
+                          />
+                        </LazyLoad>
                         <div
                           className="page-title"
                         >
@@ -180,39 +160,49 @@ exports[`OpenSeadragon should render correctly 1`] = `
                             MLK
                           </div>
                         </div>
-                      </a>
-                      <div>
-                        
                       </div>
-                        
-                      <span
-                        className="badge"
-                      >
-                        
-                      </span>
-                      <ul>
-                        <li
-                          className="search-snippets"
-                        >
-                          <div
-                            dangerouslySetInnerHTML={
-                              Object {
-                                "__html": "",
-                              }
-                            }
-                          />
-                        </li>
-                      </ul>
-                    </li>
-                    <li
-                      className="sidebar-list-item"
+                    </a>
+                    <div>
+                      
+                    </div>
+                      
+                    <span
+                      className="badge"
                     >
-                      <a
-                        className="page btn btn-outline-primary "
-                        href="/1?searchText=&showThumbnail=false&viewer=OSD_VIEWER"
-                        onClick={[Function]}
-                        type="button"
+                      
+                    </span>
+                    <ul>
+                      <li
+                        className="search-snippets"
                       >
+                        <div
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "",
+                            }
+                          }
+                        />
+                      </li>
+                    </ul>
+                  </li>
+                  <li
+                    className="sidebar-list-item"
+                  >
+                    <a
+                      className="page btn btn-outline-primary "
+                      href="/1?searchText=&viewer=OSD_VIEWER"
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      <div>
+                        <LazyLoad
+                          offsetVertical={0}
+                        >
+                          <img
+                            alt="page thumbnail for page \\"A bill for an act authorizing the establishment of Worthington State College, Worthington, Minnesota\\""
+                            src="https://reflections.mndigital.org/thumbnails/p16022coll7:328/Text"
+                          />
+                        </LazyLoad>
                         <div
                           className="page-title"
                         >
@@ -222,39 +212,49 @@ exports[`OpenSeadragon should render correctly 1`] = `
                             A bill for an act authorizing the establishment of Worthington State College, Worthington, Minnesota
                           </div>
                         </div>
-                      </a>
-                      <div>
-                        
                       </div>
-                        
-                      <span
-                        className="badge"
-                      >
-                        
-                      </span>
-                      <ul>
-                        <li
-                          className="search-snippets"
-                        >
-                          <div
-                            dangerouslySetInnerHTML={
-                              Object {
-                                "__html": "",
-                              }
-                            }
-                          />
-                        </li>
-                      </ul>
-                    </li>
-                    <li
-                      className="sidebar-list-item"
+                    </a>
+                    <div>
+                      
+                    </div>
+                      
+                    <span
+                      className="badge"
                     >
-                      <a
-                        className="page btn btn-outline-primary "
-                        href="/2?searchText=&showThumbnail=false&viewer=OSD_VIEWER"
-                        onClick={[Function]}
-                        type="button"
+                      
+                    </span>
+                    <ul>
+                      <li
+                        className="search-snippets"
                       >
+                        <div
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "",
+                            }
+                          }
+                        />
+                      </li>
+                    </ul>
+                  </li>
+                  <li
+                    className="sidebar-list-item"
+                  >
+                    <a
+                      className="page btn btn-outline-primary "
+                      href="/2?searchText=&viewer=OSD_VIEWER"
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      <div>
+                        <LazyLoad
+                          offsetVertical={0}
+                        >
+                          <img
+                            alt="page thumbnail for page \\"View of the Palisades, Duluth, Minnesota\\""
+                            src="https://reflections.mndigital.org/thumbnails/nemhc:1542/Text"
+                          />
+                        </LazyLoad>
                         <div
                           className="page-title"
                         >
@@ -264,39 +264,49 @@ exports[`OpenSeadragon should render correctly 1`] = `
                             View of the Palisades, Duluth, Minnesota
                           </div>
                         </div>
-                      </a>
-                      <div>
-                        
                       </div>
-                        
-                      <span
-                        className="badge"
-                      >
-                        
-                      </span>
-                      <ul>
-                        <li
-                          className="search-snippets"
-                        >
-                          <div
-                            dangerouslySetInnerHTML={
-                              Object {
-                                "__html": "",
-                              }
-                            }
-                          />
-                        </li>
-                      </ul>
-                    </li>
-                    <li
-                      className="sidebar-list-item"
+                    </a>
+                    <div>
+                      
+                    </div>
+                      
+                    <span
+                      className="badge"
                     >
-                      <a
-                        className="page btn btn-outline-primary "
-                        href="/3?searchText=&showThumbnail=false&viewer=OSD_VIEWER"
-                        onClick={[Function]}
-                        type="button"
+                      
+                    </span>
+                    <ul>
+                      <li
+                        className="search-snippets"
                       >
+                        <div
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "",
+                            }
+                          }
+                        />
+                      </li>
+                    </ul>
+                  </li>
+                  <li
+                    className="sidebar-list-item"
+                  >
+                    <a
+                      className="page btn btn-outline-primary "
+                      href="/3?searchText=&viewer=OSD_VIEWER"
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      <div>
+                        <LazyLoad
+                          offsetVertical={0}
+                        >
+                          <img
+                            alt="page thumbnail for page \\"Dalles of St. Croix River, Taylors Falls, Minnesota\\""
+                            src="https://reflections.mndigital.org/thumbnails/hchm:1410/Text"
+                          />
+                        </LazyLoad>
                         <div
                           className="page-title"
                         >
@@ -306,39 +316,49 @@ exports[`OpenSeadragon should render correctly 1`] = `
                             Dalles of St. Croix River, Taylors Falls, Minnesota
                           </div>
                         </div>
-                      </a>
-                      <div>
-                        
                       </div>
-                        
-                      <span
-                        className="badge"
-                      >
-                        
-                      </span>
-                      <ul>
-                        <li
-                          className="search-snippets"
-                        >
-                          <div
-                            dangerouslySetInnerHTML={
-                              Object {
-                                "__html": "",
-                              }
-                            }
-                          />
-                        </li>
-                      </ul>
-                    </li>
-                    <li
-                      className="sidebar-list-item"
+                    </a>
+                    <div>
+                      
+                    </div>
+                      
+                    <span
+                      className="badge"
                     >
-                      <a
-                        className="page btn btn-outline-primary "
-                        href="/4?searchText=&showThumbnail=false&viewer=OSD_VIEWER"
-                        onClick={[Function]}
-                        type="button"
+                      
+                    </span>
+                    <ul>
+                      <li
+                        className="search-snippets"
                       >
+                        <div
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "",
+                            }
+                          }
+                        />
+                      </li>
+                    </ul>
+                  </li>
+                  <li
+                    className="sidebar-list-item"
+                  >
+                    <a
+                      className="page btn btn-outline-primary "
+                      href="/4?searchText=&viewer=OSD_VIEWER"
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      <div>
+                        <LazyLoad
+                          offsetVertical={0}
+                        >
+                          <img
+                            alt="page thumbnail for page \\"Log Jam on the St. Croix River, Taylor's Falls, Minnesota\\""
+                            src="https://reflections.mndigital.org/thumbnails/hchm:1333/Text"
+                          />
+                        </LazyLoad>
                         <div
                           className="page-title"
                         >
@@ -348,39 +368,49 @@ exports[`OpenSeadragon should render correctly 1`] = `
                             Log Jam on the St. Croix River, Taylor's Falls, Minnesota
                           </div>
                         </div>
-                      </a>
-                      <div>
-                        
                       </div>
-                        
-                      <span
-                        className="badge"
-                      >
-                        
-                      </span>
-                      <ul>
-                        <li
-                          className="search-snippets"
-                        >
-                          <div
-                            dangerouslySetInnerHTML={
-                              Object {
-                                "__html": "",
-                              }
-                            }
-                          />
-                        </li>
-                      </ul>
-                    </li>
-                    <li
-                      className="sidebar-list-item"
+                    </a>
+                    <div>
+                      
+                    </div>
+                      
+                    <span
+                      className="badge"
                     >
-                      <a
-                        className="page btn btn-outline-primary "
-                        href="/5?searchText=&showThumbnail=false&viewer=OSD_VIEWER"
-                        onClick={[Function]}
-                        type="button"
+                      
+                    </span>
+                    <ul>
+                      <li
+                        className="search-snippets"
                       >
+                        <div
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "",
+                            }
+                          }
+                        />
+                      </li>
+                    </ul>
+                  </li>
+                  <li
+                    className="sidebar-list-item"
+                  >
+                    <a
+                      className="page btn btn-outline-primary "
+                      href="/5?searchText=&viewer=OSD_VIEWER"
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      <div>
+                        <LazyLoad
+                          offsetVertical={0}
+                        >
+                          <img
+                            alt="page thumbnail for page \\"Pot Holes, Interstate Park, Taylors Falls, Minnesota\\""
+                            src="https://reflections.mndigital.org/thumbnails/hchm:1332/Text"
+                          />
+                        </LazyLoad>
                         <div
                           className="page-title"
                         >
@@ -390,286 +420,32 @@ exports[`OpenSeadragon should render correctly 1`] = `
                             Pot Holes, Interstate Park, Taylors Falls, Minnesota
                           </div>
                         </div>
-                      </a>
-                      <div>
-                        
                       </div>
-                        
-                      <span
-                        className="badge"
-                      >
-                        
-                      </span>
-                      <ul>
-                        <li
-                          className="search-snippets"
-                        >
-                          <div
-                            dangerouslySetInnerHTML={
-                              Object {
-                                "__html": "",
-                              }
-                            }
-                          />
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-                <div
-                  className="hide"
-                >
-                  <ul
-                    className="page-titles"
-                  >
-                    <li
-                      className="sidebar-list-item"
+                    </a>
+                    <div>
+                      
+                    </div>
+                      
+                    <span
+                      className="badge"
                     >
-                      <a
-                        className="page btn btn-outline-primary active"
-                        href="/0?searchText=&showThumbnail=true&viewer=OSD_VIEWER"
-                        onClick={[Function]}
-                        type="button"
+                      
+                    </span>
+                    <ul>
+                      <li
+                        className="search-snippets"
                       >
-                        <LazyLoad
-                          offsetVertical={0}
-                        >
-                          <img
-                            alt="page thumbnail for page \\"MLK\\""
-                            src="https://stacks.stanford.edu/image/iiif/hg676jb4964%2F0380_796-44/full/100,/0/default.jpg"
-                          />
-                        </LazyLoad>
-                      </a>
-                      <div>
-                        
-                      </div>
-                        
-                      <span
-                        className="badge"
-                      >
-                        
-                      </span>
-                      <ul>
-                        <li
-                          className="search-snippets"
-                        >
-                          <div
-                            dangerouslySetInnerHTML={
-                              Object {
-                                "__html": "",
-                              }
+                        <div
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "",
                             }
-                          />
-                        </li>
-                      </ul>
-                    </li>
-                    <li
-                      className="sidebar-list-item"
-                    >
-                      <a
-                        className="page btn btn-outline-primary "
-                        href="/1?searchText=&showThumbnail=true&viewer=OSD_VIEWER"
-                        onClick={[Function]}
-                        type="button"
-                      >
-                        <LazyLoad
-                          offsetVertical={0}
-                        >
-                          <img
-                            alt="page thumbnail for page \\"A bill for an act authorizing the establishment of Worthington State College, Worthington, Minnesota\\""
-                            src="https://reflections.mndigital.org/thumbnails/p16022coll7:328/Text"
-                          />
-                        </LazyLoad>
-                      </a>
-                      <div>
-                        
-                      </div>
-                        
-                      <span
-                        className="badge"
-                      >
-                        
-                      </span>
-                      <ul>
-                        <li
-                          className="search-snippets"
-                        >
-                          <div
-                            dangerouslySetInnerHTML={
-                              Object {
-                                "__html": "",
-                              }
-                            }
-                          />
-                        </li>
-                      </ul>
-                    </li>
-                    <li
-                      className="sidebar-list-item"
-                    >
-                      <a
-                        className="page btn btn-outline-primary "
-                        href="/2?searchText=&showThumbnail=true&viewer=OSD_VIEWER"
-                        onClick={[Function]}
-                        type="button"
-                      >
-                        <LazyLoad
-                          offsetVertical={0}
-                        >
-                          <img
-                            alt="page thumbnail for page \\"View of the Palisades, Duluth, Minnesota\\""
-                            src="https://reflections.mndigital.org/thumbnails/nemhc:1542/Text"
-                          />
-                        </LazyLoad>
-                      </a>
-                      <div>
-                        
-                      </div>
-                        
-                      <span
-                        className="badge"
-                      >
-                        
-                      </span>
-                      <ul>
-                        <li
-                          className="search-snippets"
-                        >
-                          <div
-                            dangerouslySetInnerHTML={
-                              Object {
-                                "__html": "",
-                              }
-                            }
-                          />
-                        </li>
-                      </ul>
-                    </li>
-                    <li
-                      className="sidebar-list-item"
-                    >
-                      <a
-                        className="page btn btn-outline-primary "
-                        href="/3?searchText=&showThumbnail=true&viewer=OSD_VIEWER"
-                        onClick={[Function]}
-                        type="button"
-                      >
-                        <LazyLoad
-                          offsetVertical={0}
-                        >
-                          <img
-                            alt="page thumbnail for page \\"Dalles of St. Croix River, Taylors Falls, Minnesota\\""
-                            src="https://reflections.mndigital.org/thumbnails/hchm:1410/Text"
-                          />
-                        </LazyLoad>
-                      </a>
-                      <div>
-                        
-                      </div>
-                        
-                      <span
-                        className="badge"
-                      >
-                        
-                      </span>
-                      <ul>
-                        <li
-                          className="search-snippets"
-                        >
-                          <div
-                            dangerouslySetInnerHTML={
-                              Object {
-                                "__html": "",
-                              }
-                            }
-                          />
-                        </li>
-                      </ul>
-                    </li>
-                    <li
-                      className="sidebar-list-item"
-                    >
-                      <a
-                        className="page btn btn-outline-primary "
-                        href="/4?searchText=&showThumbnail=true&viewer=OSD_VIEWER"
-                        onClick={[Function]}
-                        type="button"
-                      >
-                        <LazyLoad
-                          offsetVertical={0}
-                        >
-                          <img
-                            alt="page thumbnail for page \\"Log Jam on the St. Croix River, Taylor's Falls, Minnesota\\""
-                            src="https://reflections.mndigital.org/thumbnails/hchm:1333/Text"
-                          />
-                        </LazyLoad>
-                      </a>
-                      <div>
-                        
-                      </div>
-                        
-                      <span
-                        className="badge"
-                      >
-                        
-                      </span>
-                      <ul>
-                        <li
-                          className="search-snippets"
-                        >
-                          <div
-                            dangerouslySetInnerHTML={
-                              Object {
-                                "__html": "",
-                              }
-                            }
-                          />
-                        </li>
-                      </ul>
-                    </li>
-                    <li
-                      className="sidebar-list-item"
-                    >
-                      <a
-                        className="page btn btn-outline-primary "
-                        href="/5?searchText=&showThumbnail=true&viewer=OSD_VIEWER"
-                        onClick={[Function]}
-                        type="button"
-                      >
-                        <LazyLoad
-                          offsetVertical={0}
-                        >
-                          <img
-                            alt="page thumbnail for page \\"Pot Holes, Interstate Park, Taylors Falls, Minnesota\\""
-                            src="https://reflections.mndigital.org/thumbnails/hchm:1332/Text"
-                          />
-                        </LazyLoad>
-                      </a>
-                      <div>
-                        
-                      </div>
-                        
-                      <span
-                        className="badge"
-                      >
-                        
-                      </span>
-                      <ul>
-                        <li
-                          className="search-snippets"
-                        >
-                          <div
-                            dangerouslySetInnerHTML={
-                              Object {
-                                "__html": "",
-                              }
-                            }
-                          />
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
+                          }
+                        />
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
                 <div
                   className="osd-sidebar-footer"
                 />

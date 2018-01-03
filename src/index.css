@@ -80,19 +80,18 @@
 }
 
 .osd-sidebar-header {
-  height: 175px;
   background-color: #262425;
   padding: 10px;
   text-align: center;
 }
 
 .osd-sidebar-footer {
-  height: 400px;
+  height: 200px;
 }
 
 .osd-sidebar {
   text-align: center;
-  height: 350px;
+  height: 387px;
   padding: 15px;
   overflow: scroll;
 }

@@ -26,7 +26,6 @@ function pageLink(WrappedComponent) {
           search: queryString.stringify({
             searchText: this.props.searchText,
             viewer: this.props.viewer,
-            showThumbnail: this.props.showThumbnail,
           }),
         }}
         type="button"
@@ -48,7 +47,6 @@ function pageLink(WrappedComponent) {
     viewer: PropTypes.string.isRequired,
     cssClasses: PropTypes.string.isRequired,
     searchText: PropTypes.string,
-    showThumbnail: PropTypes.bool.isRequired,
   };
   return PageLink;
 }

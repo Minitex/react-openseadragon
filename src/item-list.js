@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import PageLink from './page-link';
-import Title from './title';
 import TextToggleLink from './text-toggle-link';
 import ReactDOM from 'react-dom';
 

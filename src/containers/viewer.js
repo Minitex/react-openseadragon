@@ -26,16 +26,13 @@ export default function viewerContainer(Component) {
       this.setPageViewerHandler = this.setPageViewerHandler.bind(this);
       this.searchTextHandler = this.searchTextHandler.bind(this);
       this.showResultsOnlyHandler = this.showResultsOnlyHandler.bind(this);
-      this.showThumbnailHandler = this.showThumbnailHandler.bind(this);
       this.columns = this.columns.bind(this);
       const { id = 0 } = props.match.params;
       const {
-              showThumbnail = false,
               viewer = OSD_VIEWER,
               searchText = '',
             } = queryString.parse(props.location.search);
 
-      const showThumbnailVal = (showThumbnail === 'true');
       const osdDisplay = (viewer === OSD_VIEWER) ? 'showViewer' : 'hideViewer';
       const textDisplay = (viewer === TEXT_VIEWER) ? 'showViewer' : 'hideViewer';
       const { sidebarColumns, viewerColumns } = this.columns(searchText)
@@ -53,7 +50,6 @@ export default function viewerContainer(Component) {
         currentPageId: parseInt(props.match.params.id, 10),
         searchText: searchText,
         showResultsOnly: false,
-        showThumbnail: showThumbnailVal,
       };
     }
 
@@ -93,10 +89,6 @@ export default function viewerContainer(Component) {
       this.switchViewerHandler(viewer);
     }
 
-    showThumbnailHandler(showThumbnail) {
-      this.setState({ showThumbnail });
-    }
-
     columns(searchText) {
       let cols = {};
       if (this.props.pages.length <= 1) {
@@ -118,16 +110,6 @@ export default function viewerContainer(Component) {
       return cols;
     }
 
-    _updateURL(page, searchText, viewer, showThumbnail = false) {
-      window.history.pushState(`Page${page}`,
-                               `Page ${page}`,
-                              [`#${this.props.basename}/${page}/`,
-                                `?searchText=${searchText}`,
-                                `&viewer=${viewer}`,
-                                `&showThumbnail=${showThumbnail}`,
-                              ].join(''));
-    }
-
     render() {
       return (
         <Component
@@ -142,7 +124,6 @@ export default function viewerContainer(Component) {
           goToPageHandler={this.goToPageHandler}
           setPageViewerHandler={this.setPageViewerHandler}
           showResultsOnlyHandler={this.showResultsOnlyHandler}
-          showThumbnailHandler={this.showThumbnailHandler}
         />
       );
     }
