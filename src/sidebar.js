@@ -13,6 +13,8 @@ class Sidebar extends React.Component {
   constructor(props) {
     super(props);
     this.prevNext = this.prevNext.bind(this);
+    this.numPagesWithResults = this.numPagesWithResults.bind(this);
+    this.numFound = this.numFound.bind(this);
   }
 
   prevNext() {
@@ -26,14 +28,27 @@ class Sidebar extends React.Component {
     return '';
   }
 
+  numPagesWithResults() {
+    return this.props.pages.reduce(
+      (total, page) => (page.numFound > 0) ? total + 1 : total,
+      0
+    )
+  }
+
+  numFound() {
+    return (this.props.searchText !== '') ? `${this.numPagesWithResults()} found` : '';
+  }
+
   render() {
     return (
       <div>
         <div className="osd-sidebar-header">
+        {console.log(this.props)}
           <PageSearch
             {...this.props}
           />
           { this.prevNext() }
+          <div className="osd-num-found">{this.numFound()}</div>
         </div>
         <div id="osd-sidebar" className="osd-sidebar">
         <ThumbnailList

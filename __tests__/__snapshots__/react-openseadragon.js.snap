@@ -125,6 +125,11 @@ exports[`OpenSeadragon should render correctly 1`] = `
                     </li>
                   </ul>
                 </div>
+                <div
+                  className="osd-num-found"
+                >
+                  
+                </div>
               </div>
               <div
                 className="osd-sidebar"
