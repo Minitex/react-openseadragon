@@ -26,13 +26,13 @@ export default class OpenSeadragonViewer extends React.Component {
     };
   }
 
-
   constructor(props) {
     super(props);
     this._config = this._config.bind(this);
     this._id = this._id.bind(this);
     this._currentPageIndex = this._currentPageIndex.bind(this);
     this._osdViewer = this._osdViewer.bind(this);
+    this.setStrings = this.setStrings.bind(this);
     this.state = {
       pages: props.pages,
       showSearchText: props.showSearchText,
@@ -42,20 +42,24 @@ export default class OpenSeadragonViewer extends React.Component {
   }
 
   componentDidMount() {
+    this.setStrings();
+
     if (typeof window.OpenSeadragon !== 'undefined') {
       OPENSEADRAGONVIEWER = window.OpenSeadragon(this._config());
     } else {
       OPENSEADRAGONVIEWER = OpenSeadragon(this._config());
     }
-
     // Start at the image specified in the URL
     OPENSEADRAGONVIEWER.goToPage(this.props.currentPageId);
-    // OPENSEADRAGONVIEWER.goToPage(this._currentPageIndex());
-
-    // this.props.toggleSearchText();
     // Force a re-render to get the sidebar etc after OSD mounts
-
     this.forceUpdate();
+  }
+
+  // Allow users to overright UI strings in OpenSeadragon
+  // See: http://openseadragon.github.io/examples/ui-customize-tooltips/
+  setStrings() {
+    this.props.osdConfig.setStrings.map(
+      item => OpenSeadragon.setString(item.name, `${item.value}`));
   }
 
   _currentPageIndex() {
@@ -102,6 +106,7 @@ OpenSeadragonViewer.defaultProps = {
   osdConfig: {
     defaultZoomLevel: 0,
     tileSources: [],
+    setStrings: [],
   },
 };
 
@@ -109,6 +114,7 @@ OpenSeadragonViewer.propTypes = {
   osdConfig: PropTypes.shape({
     defaultZoomLevel: PropTypes.number,
     tileSources: PropTypes.arrayOf(PropTypes.string),
+    setStrings: PropTypes.arrayOf(PropTypes.object),
   }),
   viewSearchText: PropTypes.string,
 };
