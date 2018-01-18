@@ -8,6 +8,7 @@ const config =
     getImageURL: 'http://cdm16022.contentdm.oclc.org/utils/ajaxhelper',
     thumbnail: 'https://stacks.stanford.edu/image/iiif/hg676jb4964%252F0380_796-44/full/340,/0/default.jpg',
     osdConfig: {
+      setStrings: [{name: 'Tooltips.Home', value: 'Reset'}],
       defaultZoomLevel: 0,
       tileSources: [
         'https://stacks.stanford.edu/image/iiif/hg676jb4964%2F0380_796-44/info.json',
