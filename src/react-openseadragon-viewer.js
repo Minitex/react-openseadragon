@@ -33,6 +33,7 @@ export default class OpenSeadragonViewer extends React.Component {
     this._currentPageIndex = this._currentPageIndex.bind(this);
     this._osdViewer = this._osdViewer.bind(this);
     this.setStrings = this.setStrings.bind(this);
+    this.setStringsItems = this.setStringsItems.bind(this);
     this.state = {
       pages: props.pages,
       showSearchText: props.showSearchText,
@@ -55,10 +56,14 @@ export default class OpenSeadragonViewer extends React.Component {
     this.forceUpdate();
   }
 
+  setStringsItems() {
+    return (typeof this.props.osdConfig.setStrings !== 'undefined') ? this.props.osdConfig.setStrings : [];
+  }
+
   // Allow users to overright UI strings in OpenSeadragon
   // See: http://openseadragon.github.io/examples/ui-customize-tooltips/
   setStrings() {
-    this.props.osdConfig.setStrings.map(
+    this.setStringsItems().map(
       item => OpenSeadragon.setString(item.name, `${item.value}`));
   }
 

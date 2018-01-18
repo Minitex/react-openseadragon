@@ -43,7 +43,6 @@ class Sidebar extends React.Component {
     return (
       <div>
         <div className="osd-sidebar-header">
-        {console.log(this.props)}
           <PageSearch
             {...this.props}
           />

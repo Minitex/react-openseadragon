@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { withRouter } from "react-router-dom";
 import Snippet from './snippet';
 import Search from './search';
 import SearchInput from './search-input';
+import RedirectToPage from './redirect-to-page';
 
 class PageSearch extends React.Component {
   static firstMatch(pages) {
@@ -16,11 +18,18 @@ class PageSearch extends React.Component {
     this.clearSearch = this.clearSearch.bind(this);
     this.clearSearchLink = this.clearSearchLink.bind(this);
     this.search = this.search.bind(this);
+    this.currentPageId = this.currentPageId.bind(this);
   }
+
   componentDidMount() {
-    this.search(this.props.searchText, false, false);
+    this.search(this.props.searchText, this.props.history, true);
   }
-  search(text, history) {
+
+  currentPageId() {
+    return this.props.history.location.pathname.replace('/', '');
+  }
+
+  search(text, history, justMounted = false) {
     if (text.length >= 1) {
       this.props.resizeHandler(this.props.viewerColumnsSmall, this.props.sidebarColumnsLarge);
     }
@@ -28,7 +37,18 @@ class PageSearch extends React.Component {
     const firstMatch = PageSearch.firstMatch(pages);
     this.props.setPagesHandler(pages);
     this.props.searchTextHandler(text);
+
     if (history && Object.keys(firstMatch).length > 0) {
+      // If a redirect token has been issued
+      // and the firstMatched page is different
+      // than the one we are on, push a new
+      // path to history
+      RedirectToPage.init(
+        history.push,
+        history.location.search,
+        this.currentPageId(),
+        firstMatch.id);
+      RedirectToPage.redirect();
       this.props.goToPageHandler(firstMatch.id, text, firstMatch.viewer);
     }
     // If we get a "no match" result or have no search text, reset the search state
@@ -125,4 +145,4 @@ PageSearch.propTypes = {
   showResultsOnlyHandler: PropTypes.func.isRequired,
 };
 
-export default PageSearch;
+export default  withRouter(PageSearch);
