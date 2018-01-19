@@ -52,8 +52,6 @@ export default class OpenSeadragonViewer extends React.Component {
     }
     // Start at the image specified in the URL
     OPENSEADRAGONVIEWER.goToPage(this.props.currentPageId);
-    // Force a re-render to get the sidebar etc after OSD mounts
-    this.forceUpdate();
   }
 
   setStringsItems() {
