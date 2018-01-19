@@ -22,7 +22,9 @@ class PageSearch extends React.Component {
   }
 
   componentDidMount() {
-    this.search(this.props.searchText, this.props.history, true);
+    if (this.props.searchText !== '') {
+      this.search(this.props.searchText, this.props.history, true);
+    }
   }
 
   currentPageId() {
