@@ -92,8 +92,9 @@ export default function viewerContainer(Component) {
       let cols = {};
       if (this.props.pages.length <= 1) {
         cols = {
-          sidebarColumns: this.props.sidebarColumnsSmall,
-          viewerColumns: this.props.viewerColumnsLarge,
+          //Viewer is full width and sidebar none for non-compounds
+          sidebarColumns: 'col-xs-0',
+          viewerColumns: 'col-xs-12',
         };
       } else if (searchText !== '') {
         cols = {
