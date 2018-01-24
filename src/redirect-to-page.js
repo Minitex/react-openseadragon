@@ -11,7 +11,7 @@ const RedirectToPage = {
     return qs.parse(this.queryString);
   },
   canRedirect: function() {
-    return (typeof this.query().redirect !== 'undefined');
+    return (typeof this.query().redirect !== 'undefined' && !this.samePage());
   },
   samePage: function() {
     return this.currentPageId === this.nextPageId;
@@ -22,7 +22,7 @@ const RedirectToPage = {
     return qs.stringify(query);
   },
   redirect: function() {
-    if (!this.samePage() && this.canRedirect()) {
+    if (this.canRedirect()) {
       this.pushFunction(`${this.nextPageId}?${this.unRedirectedQuery()}`);
     }
   }
