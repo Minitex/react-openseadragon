@@ -36,10 +36,10 @@ class PageSearch extends React.Component {
       this.props.resizeHandler(this.props.viewerColumnsSmall, this.props.sidebarColumnsLarge);
     }
     const pages = this.pageSearch(text);
-    const firstMatch = PageSearch.firstMatch(pages);
     this.props.setPagesHandler(pages);
     this.props.searchTextHandler(text);
 
+    const firstMatch = PageSearch.firstMatch(pages);
     if (history && Object.keys(firstMatch).length > 0) {
       // If a redirect token has been issued
       // and the firstMatched page is different
@@ -51,7 +51,6 @@ class PageSearch extends React.Component {
         this.currentPageId(),
         firstMatch.id);
       RedirectToPage.redirect();
-      this.props.goToPageHandler(firstMatch.id, text, firstMatch.viewer);
     }
     // If we get a "no match" result or have no search text, reset the search state
     // and downsize
@@ -68,11 +67,15 @@ class PageSearch extends React.Component {
   searchAsYouTypeHandler(history, e) {
     const searchText = e.target.value;
     e.preventDefault();
+    // As users type, show only matching records
+    // (If a user navigates to a page with a search,
+    // the default behavior is to show all records)
     this.props.showResultsOnlyHandler(true);
     this.search(searchText, history, true);
   }
 
   clearSearch() {
+    // Go back to showing all records
     this.props.showResultsOnlyHandler(false);
     const DEFAULT_VIEWER = 'OSD_VIEWER';
     const pages = this.props.pages.map(
