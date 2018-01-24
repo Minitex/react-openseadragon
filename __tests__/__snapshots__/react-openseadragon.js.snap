@@ -11,7 +11,7 @@ exports[`OpenSeadragon should render correctly 1`] = `
           className="row osd-row"
         >
           <div
-            className="easer show col-md-10"
+            className="easer showViewer col-md-10"
           >
             <div>
               <div
@@ -100,28 +100,24 @@ exports[`OpenSeadragon should render correctly 1`] = `
                     className="prev-next list-inline"
                   >
                     <li>
-                      <button
+                      <a
                         aria-label="Previous Image"
-                        className="btn btn-link disabled"
+                        className="glyphicon glyphicon-arrow-left"
+                        href="/-1?searchText=&viewer=OSD_VIEWER"
                         id="sidebar-previous"
                         onClick={[Function]}
-                      >
-                        <i
-                          className="glyphicon glyphicon-arrow-left"
-                        />
-                      </button>
+                        type="button"
+                      />
                     </li>
                     <li>
-                      <button
+                      <a
                         aria-label="Next Image"
-                        className="btn btn-link  "
+                        className="glyphicon glyphicon-arrow-right"
+                        href="/1?searchText=&viewer=OSD_VIEWER"
                         id="sidebar-next"
                         onClick={[Function]}
-                      >
-                        <i
-                          className="glyphicon glyphicon-arrow-right"
-                        />
-                      </button>
+                        type="button"
+                      />
                     </li>
                   </ul>
                 </div>
@@ -183,7 +179,7 @@ exports[`OpenSeadragon should render correctly 1`] = `
                         <div
                           dangerouslySetInnerHTML={
                             Object {
-                              "__html": "",
+                              "__html": undefined,
                             }
                           }
                         />
@@ -235,7 +231,7 @@ exports[`OpenSeadragon should render correctly 1`] = `
                         <div
                           dangerouslySetInnerHTML={
                             Object {
-                              "__html": "",
+                              "__html": undefined,
                             }
                           }
                         />
@@ -287,7 +283,7 @@ exports[`OpenSeadragon should render correctly 1`] = `
                         <div
                           dangerouslySetInnerHTML={
                             Object {
-                              "__html": "",
+                              "__html": undefined,
                             }
                           }
                         />
@@ -339,7 +335,7 @@ exports[`OpenSeadragon should render correctly 1`] = `
                         <div
                           dangerouslySetInnerHTML={
                             Object {
-                              "__html": "",
+                              "__html": undefined,
                             }
                           }
                         />
@@ -391,7 +387,7 @@ exports[`OpenSeadragon should render correctly 1`] = `
                         <div
                           dangerouslySetInnerHTML={
                             Object {
-                              "__html": "",
+                              "__html": undefined,
                             }
                           }
                         />
@@ -443,7 +439,7 @@ exports[`OpenSeadragon should render correctly 1`] = `
                         <div
                           dangerouslySetInnerHTML={
                             Object {
-                              "__html": "",
+                              "__html": undefined,
                             }
                           }
                         />

@@ -1,41 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import ReactDOM from 'react-dom';
+import queryString from 'query-string';
+
 
 class PrevNext extends React.Component {
   constructor(props) {
     super(props);
-    this.prev = this.prev.bind(this);
-    this.next = this.next.bind(this);
     this._prevPage = this._prevPage.bind(this);
     this._nextPage = this._nextPage.bind(this);
     this._prevDisabled = this._prevDisabled.bind(this);
     this._nextDisabled = this._nextDisabled.bind(this);
-    this.goToPageHandler = props.goToPageHandler;
+    this._handleClick = this._handleClick.bind(this);
   }
 
-  prev(e) {
-    e.preventDefault();
-    if (!this._prevDisabled()) {
-      this.goToPageHandler(
-        this._prevPage(),
-        this.props.searchText,
-        this.props.viewer,
-      );
-      this.setState({ page: this._prevPage() });
-    }
-  }
-
-  next(e) {
-    e.preventDefault();
-    if (!this._nextDisabled()) {
-      this.goToPageHandler(
-        this._nextPage(),
-        this.props.searchText,
-        this.props.viewer,
-      );
-      this.setState({ page: this._nextPage() });
-    }
-  }
 
   _prevPage() {
     return this.props.currentPageId - 1;
@@ -53,29 +32,49 @@ class PrevNext extends React.Component {
     return this._nextPage() + 1 > this.props.pageCount;
   }
 
+  _handleClick(preventNav, e) {
+    if (preventNav) {
+      e.preventDefault();
+    }
+  }
+
+
+
   render() {
-    const prevClass = (this._prevDisabled()) ? 'disabled' : '';
-    const nextClass = (this._nextDisabled()) ? 'disabled' : '';
+    const handleClick = this._handleClick;
     return (<div>
       <ul className="prev-next list-inline">
         <li>
-          <button
-            className={`btn btn-link ${prevClass}`}
-            onClick={this.prev}
+          <Link
+            to={{
+              pathname: `/${this._prevPage()}`,
+              search: queryString.stringify({
+                searchText: this.props.searchText,
+                viewer: this.props.viewer,
+              }),
+            }}
+            onClick={handleClick.bind(this, this._prevDisabled())}
             id="sidebar-previous"
             aria-label="Previous Image"
-          >
-            <i className="glyphicon glyphicon-arrow-left" />
-          </button>
+            type="button"
+            className="glyphicon glyphicon-arrow-left"
+          />
         </li>
         <li>
-          <button
-            className={`btn btn-link  ${nextClass}`}
-            onClick={this.next} id="sidebar-next"
+          <Link
+            to={{
+              pathname: `/${this._nextPage()}`,
+              search: queryString.stringify({
+                searchText: this.props.searchText,
+                viewer: this.props.viewer,
+              }),
+            }}
+            onClick={handleClick.bind(this, this._nextDisabled())}
+            id="sidebar-next"
             aria-label="Next Image"
-          >
-            <i className="glyphicon glyphicon-arrow-right" />
-          </button>
+            type="button"
+            className="glyphicon glyphicon-arrow-right"
+          />
         </li>
       </ul>
     </div>);
