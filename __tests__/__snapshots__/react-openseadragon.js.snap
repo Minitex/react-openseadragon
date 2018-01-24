@@ -11,7 +11,7 @@ exports[`OpenSeadragon should render correctly 1`] = `
           className="row osd-row"
         >
           <div
-            className="easer showViewer col-md-10"
+            className="easer showViewer col-xs-12 col-md-10"
           >
             <div>
               <div
@@ -62,11 +62,11 @@ exports[`OpenSeadragon should render correctly 1`] = `
             </div>
           </div>
           <div
-            className=" easer hideViewer col-md-10"
+            className=" easer hideViewer col-xs-12 col-md-10"
             id="text-viewer"
           />
           <div
-            className="col-md-2 easer"
+            className="col-xs-12 col-md-2 easer"
           >
             <div>
               <div

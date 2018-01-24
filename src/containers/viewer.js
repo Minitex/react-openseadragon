@@ -92,8 +92,8 @@ export default function viewerContainer(Component) {
       let cols = {};
       if (this.props.pages.length <= 1) {
         cols = {
-          sidebarColumns: 'col-md-0',
-          viewerColumns: 'col-md-12',
+          sidebarColumns: this.props.sidebarColumnsSmall,
+          viewerColumns: this.props.viewerColumnsLarge,
         };
       } else if (searchText !== '') {
         cols = {
@@ -131,10 +131,10 @@ export default function viewerContainer(Component) {
   ViewerContainer.defaultProps = {
     basename: '/',
     showResultsOnly: false,
-    viewerColumnsSmall: 'col-md-9',
-    sidebarColumnsLarge: 'col-md-3',
-    viewerColumnsLarge: 'col-md-10',
-    sidebarColumnsSmall: 'col-md-2',
+    viewerColumnsSmall: 'col-xs-9',
+    sidebarColumnsLarge: 'col-xs-12 col-md-3',
+    viewerColumnsLarge: 'col-xs-12 col-md-10',
+    sidebarColumnsSmall: 'col-xs-12 col-md-2',
     currentPageId: 0,
     showSearchText: false,
     searchText: '',
