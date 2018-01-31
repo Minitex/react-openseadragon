@@ -75,6 +75,7 @@ class PageSearch extends React.Component {
   }
 
   clearSearch() {
+    this.props.searchTextHandler('');
     // Go back to showing all records
     this.props.showResultsOnlyHandler(false);
     const DEFAULT_VIEWER = 'OSD_VIEWER';
