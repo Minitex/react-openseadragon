@@ -18,7 +18,7 @@ class Input extends React.Component {
       className="form-control"
       id="page-search"
       name="page-search"
-      defaultValue={this.props.searchText}
+      value={this.props.searchText}
     />);
   }
 }
