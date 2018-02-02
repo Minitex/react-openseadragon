@@ -19,6 +19,7 @@ class PageSearch extends React.Component {
     this.clearSearchLink = this.clearSearchLink.bind(this);
     this.search = this.search.bind(this);
     this.currentPageId = this.currentPageId.bind(this);
+    this.clearSearchClick = this.clearSearchClick.bind(this);
   }
 
   componentDidMount() {
@@ -105,9 +106,15 @@ class PageSearch extends React.Component {
       }).result(),
     );
   }
+  clearSearchClick(e) {
+    e.preventDefault();
+    this.props.searchTextHandler('');
+    this.props.history.push('/0');
+  }
 
   clearSearchLink() {
-    return (this.props.searchText !== '') ? <Link to={'/0'} >Clear Search</Link> : '';
+    const clearSearchClick = this.clearSearchClick;
+    return (this.props.searchText !== '') ? <a href="#/0" onClick={clearSearchClick} >Clear Search</a> : '';
   }
 
   render() {
