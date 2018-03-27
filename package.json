@@ -60,8 +60,7 @@
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.10.0",
     "webpack-merge": "^2.6.1",
-    "yargs": "^6.6.0",
-    "yarn": "^0.18.1"
+    "yargs": "^6.6.0"
   },
   "scripts": {
     "start": "node server.js",
