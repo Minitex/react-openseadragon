@@ -7,10 +7,10 @@ Prerequisite: [Yarn](https://yarnpkg.com/en/)
 To build the examples locally, run:
 
 ```
-git clone https://github.com/UMNLibraries/react-openseadragon.git
-cd react-openseadragon 
-yarn install  
-npm start
+$ git clone https://github.com/UMNLibraries/react-openseadragon.git
+$ cd react-openseadragon
+$ yarn install;
+$ yarn start;
 ```
 
 Then open [`http://localhost:3000/#/example/image/0`](http://localhost:3000/#/example/image/0) in a browser.
@@ -36,7 +36,7 @@ To install via NPM, add react-openseadragon to your application package.js depen
 Or install it directly.
 
 ```
-npm install https://github.com/UMNLibraries/react-openseadragon.git
+$ npm install https://github.com/UMNLibraries/react-openseadragon.git
 ```
 
 ## Development (`src` and the build process)
