@@ -15,6 +15,17 @@ $ yarn start;
 
 Then open [`http://localhost:3000/#/example/image/0`](http://localhost:3000/#/example/image/0) in a browser.
 
+## Building for Production
+
+After making some changes to your react components, create a new minified build of the project:
+
+```
+$ yarn install;
+$ yarn run build;
+$ git add dist;
+$ git push origin master;
+```
+
 ## Installation
 
 The easiest way to use react-react-openseadragon is to install it from NPM and include it in your own React build process (using [Browserify](http://browserify.org), [Webpack](http://webpack.github.io/), etc).
