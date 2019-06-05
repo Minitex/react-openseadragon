@@ -11,7 +11,7 @@ $ npm install
 $ npm start
 ```
 
-Then open [`http://localhost:3000/#/example/image/0`](http://localhost:3000/#/example/image/0) in a browser.
+Then open [`http://localhost:3001/#/example/image/0`](http://localhost:3001/#/example/image/0) in a browser.
 
 ## Building for Production
 
