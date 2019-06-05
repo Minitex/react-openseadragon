@@ -4,11 +4,11 @@ An **EXPERIMENTAL** React component to wrap the [OpenSeadragon](https://opensead
 
 To build the examples locally, run:
 
-```
-git clone https://github.com/UMNLibraries/react-openseadragon.git
-cd react-openseadragon
-npm install
-npm start
+```bash
+$ git clone https://github.com/UMNLibraries/react-openseadragon.git
+$ cd react-openseadragon
+$ npm install
+$ npm start
 ```
 
 Then open [`http://localhost:3000/#/example/image/0`](http://localhost:3000/#/example/image/0) in a browser.
@@ -17,7 +17,7 @@ Then open [`http://localhost:3000/#/example/image/0`](http://localhost:3000/#/ex
 
 After making some changes to your react components, create a new minified build of the project:
 
-```
+```bash
 $ npm install;
 $ npm run build;
 $ git add dist;
