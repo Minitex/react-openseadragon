@@ -2,14 +2,12 @@
 
 An **EXPERIMENTAL** React component to wrap the [OpenSeadragon](https://openseadragon.github.io/) image viewer.
 
-Prerequisite: [Yarn](https://yarnpkg.com/en/)
-
 To build the examples locally, run:
 
 ```
 git clone https://github.com/UMNLibraries/react-openseadragon.git
-cd react-openseadragon 
-yarn install  
+cd react-openseadragon
+npm install
 npm start
 ```
 
