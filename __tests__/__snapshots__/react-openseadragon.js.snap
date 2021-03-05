@@ -83,11 +83,11 @@ exports[`OpenSeadragon should render correctly 1`] = `
                   <input
                     aria-label="Search OCR Text"
                     className="form-control"
-                    defaultValue=""
                     id="page-search"
                     name="page-search"
                     onChange={[Function]}
                     type="text"
+                    value=""
                   />
                   
                   <span
