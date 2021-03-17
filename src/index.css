@@ -142,6 +142,10 @@
   padding: 10px 0 10px;
 }
 
+.sidebar-list-item .page-mdl-identifier {
+  padding-top: 1rem;
+}
+
 .view-text {
   margin: 15px;
 }

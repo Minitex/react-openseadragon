@@ -50,13 +50,12 @@ class Sidebar extends React.Component {
           <div className="osd-num-found">{this.numFound()}</div>
         </div>
         <div id="osd-sidebar" className="osd-sidebar">
-        <ThumbnailList
-          {...this.props}
-        />
-        <div className="osd-sidebar-footer" />
+          <ThumbnailList
+            {...this.props}
+          />
+          <div className="osd-sidebar-footer" />
+        </div>
       </div>
-    </div>
-
     );
   }
 }
